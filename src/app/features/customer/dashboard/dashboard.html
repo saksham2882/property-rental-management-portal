@@ -1,1 +1,99 @@
-<p>dashboard works!</p>
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">Hello, {{ auth.currentUser()?.name }}</h1>
+        <p class="page-sub">Here's a quick overview of your rental activity.</p>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-value">{{ totalApplications() }}</span>
+                <span class="stat-label">My Applications</span>
+            </div>
+            <a routerLink="/customer/applications" class="stat-link">View</a>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-value">{{ activeLease() ? 'Active' : 'None' }}</span>
+                <span class="stat-label">Current Lease</span>
+            </div>
+            <a routerLink="/customer/lease" class="stat-link">View</a>
+        </div>
+
+        <div class="stat-card" [class.alert-card]="pendingRent()?.status === 'overdue'">
+            <div class="stat-info">
+                <span class="stat-value">{{ pendingRent() ? (pendingRent().amount | rentFormat) : 'Clear' }}</span>
+                <span class="stat-label">{{ pendingRent()?.status === 'overdue' ? 'Rent Overdue' : 'Rent Status'
+                    }}</span>
+            </div>
+            <a routerLink="/customer/rent" class="stat-link">View</a>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-value">{{ openRequests() }}</span>
+                <span class="stat-label">Open Maintenance</span>
+            </div>
+            <a routerLink="/customer/maintenance" class="stat-link">View</a>
+        </div>
+    </div>
+
+    @if (activeLease()) {
+    <div class="card">
+        <h2 class="section-title">Current Tenancy</h2>
+        <div class="lease-summary">
+            <div class="lease-row">
+                <span class="ls-label">Property</span>
+                <span class="ls-value">{{ activeLease().propertyTitle }}</span>
+            </div>
+            <div class="lease-row">
+                <span class="ls-label">Lease Period</span>
+                <span class="ls-value">{{ activeLease().startDate }} to {{ activeLease().endDate }}</span>
+            </div>
+            <div class="lease-row">
+                <span class="ls-label">Monthly Rent</span>
+                <span class="ls-value rent-amount">{{ activeLease().monthlyRent | rentFormat }}</span>
+            </div>
+            <div class="lease-row">
+                <span class="ls-label">Status</span>
+                <app-status-badge [status]="activeLease().status"></app-status-badge>
+            </div>
+        </div>
+    </div>
+    }
+
+    @if (recentApplications().length > 0) {
+    <div class="card">
+        <div class="flex-between mb-16">
+            <h2 class="section-title">Recent Applications</h2>
+            <a routerLink="/customer/applications" class="btn btn-secondary"
+                style="font-size:13px;padding:6px 12px;">View All</a>
+        </div>
+        @for (app of recentApplications(); track app.id) {
+        <div class="app-row">
+            <div>
+                <p class="app-prop">Application #{{ app.id }}</p>
+                <p class="app-date">Applied: {{ app.appliedAt }}</p>
+            </div>
+            <app-status-badge [status]="app.status"></app-status-badge>
+        </div>
+        }
+    </div>
+    }
+
+    <div class="quick-links">
+        <a routerLink="/customer/properties" class="qlink">
+            Browse Properties
+        </a>
+        <a routerLink="/customer/maintenance" class="qlink">
+            Raise Maintenance
+        </a>
+        <a routerLink="/customer/profile" class="qlink">
+            Edit Profile
+        </a>
+        <a routerLink="/customer/notifications" class="qlink">
+            Notifications
+        </a>
+    </div>
+</div>

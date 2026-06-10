@@ -1,1 +1,54 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <div class="nav-brand">
+        <a routerLink="/" class="brand-link">
+            <span class="brand-name">RentEase</span>
+        </a>
+    </div>
+
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" [class.open]="menuOpen">
+        @if (auth.isLoggedIn()) {
+            @if (auth.isCustomer()) {
+                <li><a routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a></li>
+                <li><a routerLink="/customer/properties" routerLinkActive="active">Properties</a></li>
+                <li><a routerLink="/customer/applications" routerLinkActive="active">My Applications</a></li>
+                <li><a routerLink="/customer/maintenance" routerLinkActive="active">Maintenance</a></li>
+                <li>
+                    <a routerLink="/customer/notifications" routerLinkActive="active" class="notif-link"> Notifications
+                        @if (notifService.unreadCount() > 0) {
+                            <span class="badge">{{ notifService.unreadCount() }}</span>
+                        }
+                    </a>
+                </li>
+                <li><a routerLink="/customer/profile" routerLinkActive="active">Profile</a></li>
+            }
+            
+            @if (auth.isAdmin()) {
+                <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
+                <li><a routerLink="/admin/properties" routerLinkActive="active">Properties</a></li>
+                <li><a routerLink="/admin/applications" routerLinkActive="active">Applications</a></li>
+                <li><a routerLink="/admin/maintenance" routerLinkActive="active">Maintenance</a></li>
+                <li>
+                    <a routerLink="/admin/notifications" routerLinkActive="active" class="notif-link"> Notifications
+                        @if (notifService.unreadCount() > 0) {
+                            <span class="badge">{{ notifService.unreadCount() }}</span>
+                        }
+                    </a>
+                </li>
+            }
+            
+            <li>
+                <button class="logout-btn" (click)="logout()">
+                    Logout ({{ auth.currentUser()?.name }})
+                </button>
+            </li>
+        } 
+        @else {
+            <li><a routerLink="/auth/login" routerLinkActive="active">Login</a></li>
+            <li><a routerLink="/auth/register" routerLinkActive="active">Register</a></li>
+        }
+    </ul>
+</nav>
