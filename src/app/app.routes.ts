@@ -13,11 +13,11 @@ export const routes: Routes = [
         children: [
             {
                 path: 'login',
-                loadComponent: () => import('./features/auth/login/login').then(l => l.Login)
+                loadComponent: () => import('./features/auth/login/login').then(l => l.LoginComponent)
             },
             {
                 path: 'register',
-                loadComponent: () => import('./features/auth/register/register').then(r => r.Register)
+                loadComponent: () => import('./features/auth/register/register').then(r => r.RegisterComponent)
             }
         ]
     },
