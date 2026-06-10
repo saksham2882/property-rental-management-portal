@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth-service';
-import { phoneValidator } from '../../../shared/validators/rental.validators';
+import { phoneValidator } from '../../../shared/validators/rental-validators';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  templateUrl: './register.html',
+  styleUrl: './register.css'
 })
 export class RegisterComponent {
 

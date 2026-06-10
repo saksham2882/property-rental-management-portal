@@ -1,0 +1,18 @@
+.review-actions { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.action-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.action-btn:hover { opacity: 0.85; }
+.approve { background: #d1fae5; color: #065f46; }
+.reject { background: #fee2e2; color: #991b1b; }
+.waitlist { background: #e0e7ff; color: #3730a3; }
+
+.processed-tag { font-size: 12px; color: #94a3b8; }

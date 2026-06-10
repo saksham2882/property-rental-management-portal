@@ -1,0 +1,62 @@
+<div class="page">
+  <div class="page-header">
+    <h1 class="page-title">Admin Dashboard</h1>
+    <p class="page-sub">Platform overview: manage properties, applications, and tenants.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card blue">
+      <div class="sc-body">
+        <span class="sc-value">{{ totalProperties() }}</span>
+        <span class="sc-label">Total Properties</span>
+        <span class="sc-sub">{{ availableProperties() }} available</span>
+      </div>
+      <a routerLink="/admin/properties" class="sc-link">Manage →</a>
+    </div>
+
+    <div class="stat-card orange">
+      <div class="sc-body">
+        <span class="sc-value">{{ totalApplications() }}</span>
+        <span class="sc-label">Applications</span>
+        <span class="sc-sub">{{ pendingApplications() }} pending review</span>
+      </div>
+      <a routerLink="/admin/applications" class="sc-link">Review →</a>
+    </div>
+
+    <div class="stat-card red">
+      <div class="sc-body">
+        <span class="sc-value">{{ openMaintenance() }}</span>
+        <span class="sc-label">Open Maintenance</span>
+        <span class="sc-sub">Requests pending</span>
+      </div>
+      <a routerLink="/admin/maintenance" class="sc-link">Manage →</a>
+    </div>
+
+    <div class="stat-card green">
+      <div class="sc-body">
+        <span class="sc-value">{{ totalNotifications() }}</span>
+        <span class="sc-label">Unread Alerts</span>
+        <span class="sc-sub">System notifications</span>
+      </div>
+      <a routerLink="/admin/notifications" class="sc-link">View →</a>
+    </div>
+  </div>
+
+  <div class="quick-actions card mt-24">
+    <h2 class="section-title">Quick Actions</h2>
+    <div class="action-grid">
+      <a routerLink="/admin/properties" class="action-btn">
+        Add New Property
+      </a>
+      <a routerLink="/admin/applications" class="action-btn">
+        Review Applications
+      </a>
+      <a routerLink="/admin/tenants" class="action-btn">
+        View Tenants
+      </a>
+      <a routerLink="/admin/maintenance" class="action-btn">
+        Update Maintenance
+      </a>
+    </div>
+  </div>
+</div>
