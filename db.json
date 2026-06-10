@@ -1,0 +1,715 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@rental.com",
+      "password": "admin123",
+      "role": "admin",
+      "phone": "9876543210",
+      "city": "Mumbai",
+      "createdAt": "2024-01-01"
+    },
+    {
+      "id": "2",
+      "name": "Rahul Sharma",
+      "email": "rahul@gmail.com",
+      "password": "rahul123",
+      "role": "customer",
+      "phone": "9123456789",
+      "city": "Mumbai",
+      "preferredLocations": [
+        "Andheri",
+        "Bandra"
+      ],
+      "budgetMin": 15000,
+      "budgetMax": 30000,
+      "createdAt": "2024-02-10",
+      "emailAlerts": true,
+      "smsAlerts": true
+    }
+  ],
+  "properties": [
+    {
+      "id": "1",
+      "title": "2 BHK Apartment in Andheri West",
+      "city": "Mumbai",
+      "locality": "Andheri West",
+      "type": "Apartment",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "rent": 28000,
+      "deposit": 84000,
+      "furnishing": "Semi-Furnished",
+      "available": true,
+      "availableFrom": "2024-06-01",
+      "area": 950,
+      "description": "Spacious 2 BHK flat with modern amenities, close to metro station and markets. idbhuvisdv",
+      "amenities": [
+        "Lift",
+        "Parking",
+        "Security",
+        "Power Backup",
+        "Gym"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-05-01"
+    },
+    {
+      "id": "2",
+      "title": "1 BHK Studio in Bandra East",
+      "city": "Mumbai",
+      "locality": "Bandra East",
+      "type": "Studio",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "rent": 18000,
+      "deposit": 54000,
+      "furnishing": "Fully-Furnished",
+      "available": true,
+      "availableFrom": "2024-05-15",
+      "area": 520,
+      "description": "Compact and fully furnished studio apartment, ideal for working professionals.",
+      "amenities": [
+        "Lift",
+        "Security",
+        "WiFi",
+        "Power Backup"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600",
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-04-20"
+    },
+    {
+      "id": "3",
+      "title": "3 BHK Villa in Kothrud",
+      "city": "Pune",
+      "locality": "Kothrud",
+      "type": "Villa",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rent": 45000,
+      "deposit": 135000,
+      "furnishing": "Unfurnished",
+      "available": true,
+      "availableFrom": "2024-07-01",
+      "area": 1800,
+      "description": "Independent villa with large garden, great for families looking for space and privacy.",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup",
+        "Water Purifier"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
+        "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-05-10"
+    },
+    {
+      "id": "4",
+      "title": "2 BHK Flat in Aundh",
+      "city": "Pune",
+      "locality": "Aundh",
+      "type": "Apartment",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "rent": 22000,
+      "deposit": 66000,
+      "furnishing": "Semi-Furnished",
+      "available": false,
+      "availableFrom": "2024-08-01",
+      "area": 880,
+      "description": "Well-maintained 2 BHK in prime Aundh locality with easy access to IT hubs.",
+      "amenities": [
+        "Lift",
+        "Parking",
+        "Gym",
+        "Swimming Pool"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600",
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-05-05"
+    },
+    {
+      "id": "5",
+      "title": "1 BHK in Koramangala",
+      "city": "Bangalore",
+      "locality": "Koramangala",
+      "type": "Apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "rent": 16000,
+      "deposit": 48000,
+      "furnishing": "Fully-Furnished",
+      "available": true,
+      "availableFrom": "2024-06-15",
+      "area": 620,
+      "description": "Fully furnished 1 BHK near tech parks. Ideal for IT professionals.",
+      "amenities": [
+        "Lift",
+        "Security",
+        "Power Backup",
+        "WiFi"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1493663284031-b7e3aaa4bfdd?w=600",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-05-18"
+    },
+    {
+      "id": "6",
+      "title": "3 BHK Premium Flat in Juhu",
+      "city": "Mumbai",
+      "locality": "Juhu",
+      "type": "Apartment",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rent": 65000,
+      "deposit": 195000,
+      "furnishing": "Fully-Furnished",
+      "available": true,
+      "availableFrom": "2024-06-01",
+      "area": 1500,
+      "description": "Luxury 3 BHK in prestigious Juhu with sea view and top-class amenities.",
+      "amenities": [
+        "Lift",
+        "Parking",
+        "Security",
+        "Gym",
+        "Swimming Pool",
+        "Club House"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"
+      ],
+      "ownerId": 1,
+      "postedAt": "2024-05-02"
+    }
+  ],
+  "applications": [
+    {
+      "id": "1",
+      "propertyId": 2,
+      "customerId": 2,
+      "applicantName": "Rahul Sharma",
+      "applicantEmail": "rahul@gmail.com",
+      "applicantPhone": "9123456789",
+      "moveInDate": "2024-06-01",
+      "monthlyIncome": 60000,
+      "occupants": 1,
+      "message": "Looking for a quiet place to stay. Working at a nearby IT firm.",
+      "status": "approved",
+      "documents": [
+        "ID Proof",
+        "Income Certificate"
+      ],
+      "appliedAt": "2024-05-10"
+    },
+    {
+      "id": "2",
+      "propertyId": 1,
+      "customerId": 3,
+      "applicantName": "Priya Mehta",
+      "applicantEmail": "priya@gmail.com",
+      "applicantPhone": "9988776655",
+      "moveInDate": "2024-07-01",
+      "monthlyIncome": 50000,
+      "occupants": 2,
+      "message": "Relocating from Pune. Family of two.",
+      "status": "under_review",
+      "documents": [
+        "ID Proof"
+      ],
+      "appliedAt": "2024-05-20"
+    },
+    {
+      "applicantName": "Rahul Sharma",
+      "applicantEmail": "rahul@gmail.com",
+      "applicantPhone": "9123456789",
+      "moveInDate": "2026-06-25",
+      "monthlyIncome": 7858959,
+      "occupants": 1,
+      "message": "jdsbjckwdbcowc",
+      "propertyId": "1",
+      "customerId": "2",
+      "documents": [
+        "ID Proof"
+      ],
+      "status": "waitlisted",
+      "appliedAt": "2026-06-10",
+      "id": "UAkMTV7dK_k"
+    },
+    {
+      "applicantName": "Rahul Sharma",
+      "applicantEmail": "rahul@gmail.com",
+      "applicantPhone": "9123456789",
+      "moveInDate": "2026-06-25",
+      "monthlyIncome": 82364923,
+      "occupants": 2,
+      "message": "sdjkkbvjksdviwv",
+      "propertyId": "3",
+      "customerId": "2",
+      "documents": [
+        "ID Proof"
+      ],
+      "status": "approved",
+      "appliedAt": "2026-06-10",
+      "id": "mb_dUaW_MTE"
+    },
+    {
+      "applicantName": "test",
+      "applicantEmail": "test@gmail.com",
+      "applicantPhone": "9876543211",
+      "moveInDate": "2026-06-18",
+      "monthlyIncome": 8926442,
+      "occupants": 3,
+      "message": "djbcjwdbcowuvwouvw",
+      "propertyId": "1",
+      "customerId": "FqO47LlZVI8",
+      "documents": [
+        "Income Certificate"
+      ],
+      "status": "approved",
+      "appliedAt": "2026-06-10",
+      "id": "QLEjn7Rwskc"
+    },
+    {
+      "applicantName": "test",
+      "applicantEmail": "test@gmail.com",
+      "applicantPhone": "9876543211",
+      "moveInDate": "2026-06-25",
+      "monthlyIncome": 757575577557,
+      "occupants": 3,
+      "message": "dfuytdyttyidtxtfghi",
+      "propertyId": "6",
+      "customerId": "FqO47LlZVI8",
+      "documents": [
+        "Employment Letter"
+      ],
+      "status": "approved",
+      "appliedAt": "2026-06-10",
+      "id": "zjWDcADSC5c"
+    },
+    {
+      "applicantName": "test",
+      "applicantEmail": "test@gmail.com",
+      "applicantPhone": "9876543211",
+      "moveInDate": "2026-06-23",
+      "monthlyIncome": 8234872,
+      "occupants": 4,
+      "message": "auigfiuefiavasdivai",
+      "propertyId": "4",
+      "customerId": "FqO47LlZVI8",
+      "documents": [
+        "ID Proof"
+      ],
+      "status": "approved",
+      "appliedAt": "2026-06-10",
+      "id": "M1tvMcglVNU"
+    }
+  ],
+  "leases": [
+    {
+      "id": "1",
+      "applicationId": 1,
+      "propertyId": 2,
+      "tenantId": 2,
+      "startDate": "2024-06-01",
+      "endDate": "2025-05-31",
+      "monthlyRent": 18000,
+      "deposit": 54000,
+      "status": "active",
+      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
+      "propertyTitle": "1 BHK Studio in Bandra East"
+    },
+    {
+      "applicationId": "zjWDcADSC5c",
+      "propertyId": 6,
+      "tenantId": "FqO47LlZVI8",
+      "startDate": "2026-06-25",
+      "endDate": "2027-06-24",
+      "monthlyRent": 65000,
+      "deposit": 195000,
+      "status": "active",
+      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
+      "propertyTitle": "3 BHK Premium Flat in Juhu",
+      "id": "0MyubBxD5_Y"
+    },
+    {
+      "applicationId": "M1tvMcglVNU",
+      "propertyId": 4,
+      "tenantId": "FqO47LlZVI8",
+      "startDate": "2026-06-23",
+      "endDate": "2027-06-22",
+      "monthlyRent": 22000,
+      "deposit": 66000,
+      "status": "active",
+      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
+      "propertyTitle": "2 BHK Flat in Aundh",
+      "id": "D2M2N7yFdhw"
+    }
+  ],
+  "rents": [
+    {
+      "id": "1",
+      "leaseId": 1,
+      "tenantId": 2,
+      "month": "June 2024",
+      "amount": 18000,
+      "dueDate": "2024-06-05",
+      "paidDate": "2024-06-03",
+      "status": "paid"
+    },
+    {
+      "id": "2",
+      "leaseId": 1,
+      "tenantId": 2,
+      "month": "July 2024",
+      "amount": 18000,
+      "dueDate": "2024-07-05",
+      "paidDate": "2024-07-07",
+      "status": "paid"
+    },
+    {
+      "id": "3",
+      "leaseId": 1,
+      "tenantId": 2,
+      "month": "August 2024",
+      "amount": 18000,
+      "dueDate": "2024-08-05",
+      "paidDate": null,
+      "status": "overdue"
+    },
+    {
+      "id": "4",
+      "leaseId": 1,
+      "tenantId": 2,
+      "month": "September 2024",
+      "amount": 18000,
+      "dueDate": "2024-09-05",
+      "paidDate": null,
+      "status": "pending"
+    },
+    {
+      "leaseId": "0MyubBxD5_Y",
+      "tenantId": "FqO47LlZVI8",
+      "month": "June 2026",
+      "amount": 65000,
+      "dueDate": "2026-06-05",
+      "paidDate": null,
+      "status": "overdue",
+      "id": "vlmuHST8v2c"
+    },
+    {
+      "leaseId": "0MyubBxD5_Y",
+      "tenantId": "FqO47LlZVI8",
+      "month": "July 2026",
+      "amount": 65000,
+      "dueDate": "2026-07-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "2M8eFXjC-Oo"
+    },
+    {
+      "leaseId": "0MyubBxD5_Y",
+      "tenantId": "FqO47LlZVI8",
+      "month": "August 2026",
+      "amount": 65000,
+      "dueDate": "2026-08-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "pUQCef5QqPU"
+    },
+    {
+      "leaseId": "0MyubBxD5_Y",
+      "tenantId": "FqO47LlZVI8",
+      "month": "September 2026",
+      "amount": 65000,
+      "dueDate": "2026-09-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "9ET7fYemCMM"
+    },
+    {
+      "leaseId": "D2M2N7yFdhw",
+      "tenantId": "FqO47LlZVI8",
+      "month": "June 2026",
+      "amount": 22000,
+      "dueDate": "2026-06-05",
+      "paidDate": null,
+      "status": "overdue",
+      "id": "nyIRXP-NsPY"
+    },
+    {
+      "leaseId": "D2M2N7yFdhw",
+      "tenantId": "FqO47LlZVI8",
+      "month": "July 2026",
+      "amount": 22000,
+      "dueDate": "2026-07-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "x4SBKK0v1fA"
+    },
+    {
+      "leaseId": "D2M2N7yFdhw",
+      "tenantId": "FqO47LlZVI8",
+      "month": "September 2026",
+      "amount": 22000,
+      "dueDate": "2026-09-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "QTyappAXKZk"
+    },
+    {
+      "leaseId": "D2M2N7yFdhw",
+      "tenantId": "FqO47LlZVI8",
+      "month": "August 2026",
+      "amount": 22000,
+      "dueDate": "2026-08-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "HVdlpqdJmyc"
+    }
+  ],
+  "maintenanceRequests": [
+    {
+      "id": "1",
+      "propertyId": 2,
+      "tenantId": 2,
+      "category": "Plumbing",
+      "description": "Bathroom tap is leaking continuously.",
+      "urgency": "high",
+      "status": "resolved",
+      "raisedAt": "2024-06-15",
+      "resolvedAt": "2026-06-10",
+      "adminNote": "Replaced the tap. Issue resolved."
+    },
+    {
+      "id": "2",
+      "propertyId": 2,
+      "tenantId": 2,
+      "category": "Electrical",
+      "description": "Living room light fixture not working.",
+      "urgency": "medium",
+      "status": "in_progress",
+      "raisedAt": "2024-08-01",
+      "resolvedAt": null,
+      "adminNote": "Electrician assigned."
+    },
+    {
+      "category": "Carpentry",
+      "description": "uuoiyiihh",
+      "urgency": "high",
+      "propertyId": 2,
+      "tenantId": "2",
+      "status": "resolved",
+      "raisedAt": "2026-06-10",
+      "resolvedAt": "2026-06-10",
+      "adminNote": "ebihciuer",
+      "id": "MWSpGTueIhY"
+    },
+    {
+      "category": "Cleaning",
+      "description": "yguhitxtguhigictyhij",
+      "urgency": "high",
+      "propertyId": 6,
+      "tenantId": "FqO47LlZVI8",
+      "status": "resolved",
+      "raisedAt": "2026-06-10",
+      "resolvedAt": "2026-06-10",
+      "adminNote": "",
+      "id": "lT64Oe2xvT4"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "userId": 2,
+      "title": "Application Approved",
+      "message": "Your rental application for 1 BHK Studio in Bandra East has been approved!",
+      "type": "success",
+      "isRead": false,
+      "createdAt": "2024-05-15"
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "title": "Rent Due Reminder",
+      "message": "Your rent of ₹18,000 for August 2024 is overdue. Please pay immediately.",
+      "type": "warning",
+      "isRead": false,
+      "createdAt": "2024-08-06"
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "title": "Maintenance Update",
+      "message": "Your maintenance request for plumbing has been resolved.",
+      "type": "info",
+      "isRead": true,
+      "createdAt": "2024-06-17"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "title": "New Application Received",
+      "message": "Priya Mehta has applied for 2 BHK Apartment in Andheri West.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2024-05-20"
+    },
+    {
+      "userId": "2",
+      "title": "Application Submitted",
+      "message": "Your application for \"2 BHK Apartment in Andheri West\" has been submitted and is under review.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "NViJQ7tRPrU"
+    },
+    {
+      "userId": "2",
+      "title": "Application waitlisted 🕐",
+      "message": "Your rental application #UAkMTV7dK_k has been waitlisted 🕐.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "8ufku3qqjow"
+    },
+    {
+      "userId": 2,
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Plumbing) status is now: resolved.",
+      "type": "success",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "tShbKkWWWUY"
+    },
+    {
+      "userId": "2",
+      "title": "Application Submitted",
+      "message": "Your application for \"3 BHK Villa in Kothrud\" has been submitted and is under review.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "mDL18NqZ0tU"
+    },
+    {
+      "userId": "2",
+      "title": "Maintenance Request Submitted",
+      "message": "Your maintenance request (Carpentry) has been raised.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "eRhUoln5SD4"
+    },
+    {
+      "userId": "2",
+      "title": "Application approved ✅",
+      "message": "Your rental application #mb_dUaW_MTE has been approved ✅.",
+      "type": "success",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "daohF8JX76A"
+    },
+    {
+      "userId": "2",
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Carpentry) status is now: resolved.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "HAys1hDwz0g"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Application approved ✅",
+      "message": "Your rental application #QLEjn7Rwskc has been approved ✅.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "rnozgd27PyA"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Application Submitted",
+      "message": "Your application for \"3 BHK Premium Flat in Juhu\" has been submitted and is under review.",
+      "type": "info",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "xvsFBH-HgLI"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Application approved ✅",
+      "message": "Your rental application #zjWDcADSC5c has been approved ✅.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "q6_CpuTzXPA"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Application Submitted",
+      "message": "Your application for \"2 BHK Flat in Aundh\" has been submitted and is under review.",
+      "type": "info",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "a0bZfH5R9m0"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Application approved ✅",
+      "message": "Your rental application #M1tvMcglVNU has been approved ✅.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-06-10",
+      "id": "YV-qBNvkN_Q"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Maintenance Request Submitted",
+      "message": "Your maintenance request (Cleaning) has been raised.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "FJyfhmlhS_w"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Cleaning) status is now: in_progress.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "NO5TZ1c1c1o"
+    },
+    {
+      "userId": "FqO47LlZVI8",
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Cleaning) status is now: resolved.",
+      "type": "success",
+      "isRead": false,
+      "createdAt": "2026-06-10",
+      "id": "2I1JXjEpWng"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
