@@ -1,1 +1,62 @@
-<p>application-review works!</p>
+<div class="page">
+  <div class="page-header">
+    <h1 class="page-title">Application Review</h1>
+    <p class="page-sub">Review and process all incoming rental applications.</p>
+  </div>
+
+  @if (successMsg()) {
+    <div class="alert alert-success">{{ successMsg() }}</div>
+  }
+
+  @if (loading()) {
+    <div class="loading">Loading applications...</div>
+  } @else if (applications().length === 0) {
+    <div class="empty-state card">No applications found.</div>
+  } @else {
+    <div class="card table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Applicant</th>
+            <th>Property ID</th>
+            <th>Move-in</th>
+            <th>Occupants</th>
+            <th>Income</th>
+            <th>Applied</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (app of applications(); track app.id) {
+            <tr>
+              <td>{{ app.id }}</td>
+              <td>
+                <strong>{{ app.applicantName }}</strong>
+                <br /><small>{{ app.applicantEmail }}</small>
+              </td>
+              <td>#{{ app.propertyId }}</td>
+              <td>{{ app.moveInDate }}</td>
+              <td>{{ app.occupants }}</td>
+              <td>₹{{ app.monthlyIncome | number }}</td>
+              <td>{{ app.appliedAt }}</td>
+              <td><app-status-badge [status]="app.status"></app-status-badge></td>
+              <td>
+                @if (app.status === 'under_review') {
+                  <div class="review-actions">
+                    <button class="action-btn approve" (click)="updateStatus(app, 'approved')">Approve</button>
+                    <button class="action-btn reject" (click)="updateStatus(app, 'rejected')">Reject</button>
+                    <button class="action-btn waitlist" (click)="updateStatus(app, 'waitlisted')">Waitlist</button>
+                  </div>
+                } @else {
+                  <span class="processed-tag">Processed</span>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
