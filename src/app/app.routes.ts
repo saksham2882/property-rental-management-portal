@@ -50,6 +50,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/customer/rental-application/apply-component').then(r => r.ApplyComponent)
             },
             {
+                path: 'lease',
+                loadComponent: () =>
+                    import('./features/customer/lease-detail/lease-detail').then(m => m.LeaseDetailComponent)
+            },
+            {
                 path: 'maintenance',
                 loadComponent: () => import('./features/customer/maintenance/maintenance').then(m => m.MaintenanceComponent)
             },
