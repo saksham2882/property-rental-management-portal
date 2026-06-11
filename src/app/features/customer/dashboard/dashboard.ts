@@ -10,7 +10,7 @@ import { RentFormatPipe } from '../../../shared/pipes/rent-format.pipe';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, StatusBadgeComponent, RentFormatPipe],
+  imports: [RouterLink, StatusBadgeComponent,RentFormatPipe],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
