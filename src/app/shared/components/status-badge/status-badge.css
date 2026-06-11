@@ -1,31 +1,42 @@
 .badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
   font-size: 12px;
   font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1;
+  text-transform: capitalize;
+  white-space: nowrap;
 }
-.approved,
-.paid,
-.active,
-.resolved {
-  background: #d1fae5;
-  color: #065f46;
+
+.badge.approved,
+.badge.active,
+.badge.resolved,
+.badge.success {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
 }
-.under_review,
-.pending,
-.in_progress {
-  background: #fef3c7;
-  color: #92400e;
+
+.badge.pending,
+.badge.under_review,
+.badge.warning {
+  background-color: rgb(254, 243, 199);
+  color: rgb(180, 83, 9);
 }
-.rejected,
-.overdue,
-.terminated {
-  background: #fee2e2;
-  color: #991b1b;
+
+.badge.in_progress,
+.badge.waitlisted,
+.badge.info {
+  background-color: rgb(224, 231, 255);
+  color: rgb(67, 56, 202);
 }
-.waitlisted,
-.expired {
-  background: #e0e7ff;
-  color: #3730a3;
+
+.badge.rejected,
+.badge.overdue,
+.badge.error,
+.badge.danger {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
 }

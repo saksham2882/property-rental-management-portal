@@ -5,14 +5,8 @@ import { LeaseService } from '../../../core/services/lease-service';
 import { RentFormatPipe } from '../../../shared/pipes/rent-format.pipe';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge/status-badge';
 
-interface TenantRecord {
-  lease: any;
-  user: any;
-}
-
 @Component({
   selector: 'app-tenant-management',
-  standalone: true,
   imports: [CommonModule, RentFormatPipe, StatusBadgeComponent],
   templateUrl: './tenant-management.html',
   styleUrl: './tenant-management.css'
@@ -21,6 +15,7 @@ export class TenantManagementComponent implements OnInit {
 
   leases = signal<any[]>([]);
   users = signal<any[]>([]);
+  applications = signal<any[]>([]);
   loading = signal(true);
 
   constructor(
@@ -36,13 +31,46 @@ export class TenantManagementComponent implements OnInit {
     this.http.get<any[]>('http://localhost:3000/users?role=customer').subscribe({
       next: (users) => {
         this.users.set(users);
-        this.loading.set(false);
+        this.http.get<any[]>('http://localhost:3000/applications').subscribe({
+          next: (apps) => {
+            this.applications.set(apps);
+            this.loading.set(false);
+          },
+          error: () => this.loading.set(false)
+        });
       },
       error: () => this.loading.set(false)
     });
   }
 
-  getUserById(id: number) {
-    return this.users().find(u => u.id === id);
+  getUserById(id: any) {
+    if (!id) return null;
+    return this.users().find(u => String(u.id) === String(id));
+  }
+
+  getTenantDetails(lease: any) {
+    const user = this.getUserById(lease.tenantId);
+    if (user) {
+      return {
+        name: user.name,
+        email: user.email,
+        phone: user.phone
+      };
+    }
+
+    const app = this.applications().find(a => String(a.id) === String(lease.applicationId));
+    if (app) {
+      return {
+        name: app.applicantName,
+        email: app.applicantEmail,
+        phone: app.applicantPhone
+      };
+    }
+
+    return {
+      name: 'Unknown',
+      email: 'No Email',
+      phone: 'No Phone'
+    };
   }
 }

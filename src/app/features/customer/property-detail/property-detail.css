@@ -1,0 +1,240 @@
+.page-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(13, 148, 136);
+  align-self: flex-start;
+  margin-bottom: 8px;
+}
+
+.btn-back::before {
+  content: "← ";
+  margin-right: 4px;
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+  color: rgb(100, 116, 139);
+  font-size: 15px;
+}
+
+.detail-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .detail-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-frame {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgb(226, 232, 240);
+  background-color: rgb(241, 245, 249);
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.availability-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.availability-badge.available {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+}
+
+.availability-badge.unavailable {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+}
+
+.thumbs-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumb-img {
+  width: 80px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s ease-in-out;
+}
+
+.thumb-img.active-thumb {
+  border-color: rgb(13, 148, 136);
+  transform: scale(1.02);
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.detail-location {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+  margin-top: -12px;
+  margin-bottom: 0;
+}
+
+.detail-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.detail-specs span {
+  background-color: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.rent-card {
+  background-color: rgb(240, 253, 250);
+  border: 1px solid rgb(204, 251, 241);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rent-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(13, 148, 136);
+}
+
+.deposit-fee {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(15, 118, 110);
+}
+
+.detail-description {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.amenities-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.amenities-panel h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.amenity-badge {
+  border: 1px solid rgb(226, 232, 240);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: rgb(71, 85, 105);
+  background-color: rgb(255, 255, 255);
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid rgb(241, 245, 249);
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+}
+
+.btn-apply {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: rgb(13, 148, 136);
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-apply:hover {
+  background-color: rgb(15, 118, 110);
+}
+
+.btn-disabled {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background-color: rgb(226, 232, 240) !important;
+  color: rgb(148, 163, 184) !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}

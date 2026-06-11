@@ -1,0 +1,123 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 240px);
+  padding: 24px 16px;
+}
+
+.auth-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.alert-danger {
+  padding: 10px 14px;
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+  border: 1px solid rgba(190, 24, 74, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-text {
+  font-size: 12px;
+  color: rgb(190, 24, 74);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.redirect-wrapper {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.demo-credentials {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(226, 232, 240);
+  font-size: 13px;
+  color: rgb(100, 116, 139);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-label {
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-demo {
+  flex: 1;
+  padding: 8px 12px;
+  background-color: rgb(248, 250, 252);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 6px;
+  color: rgb(71, 85, 105);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-demo:hover {
+  background-color: rgb(240, 253, 250);
+  border-color: rgb(13, 148, 136);
+  color: rgb(13, 148, 136);
+}
+

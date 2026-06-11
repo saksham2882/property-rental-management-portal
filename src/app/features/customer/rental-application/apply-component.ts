@@ -18,7 +18,6 @@ import {
 
 @Component({
   selector: 'app-apply',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink, RentFormatPipe],
   templateUrl: './apply-component.html',
   styleUrl: './apply-component.css'

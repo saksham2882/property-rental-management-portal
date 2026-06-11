@@ -1,34 +1,34 @@
-<div>
-    <div>
+<div class="profile-container">
+    <div class="profile-header">
         <h1>My Profile</h1>
         <p>Manage your personal details and rental preferences.</p>
     </div>
 
     @if (successMsg()) {
-        <div>{{ successMsg() }}</div>
+        <div class="alert-success">{{ successMsg() }}</div>
     }
     @if (errorMsg()) {
-        <div>{{ errorMsg() }}</div>
+        <div class="alert-danger">{{ errorMsg() }}</div>
     }
 
-    <div>
+    <div class="profile-split">
 
-        <div>
+        <div class="profile-card">
             <h2>Personal Information</h2>
 
-            <div>
+            <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" [(ngModel)]="profileData.name" name="name" />
             </div>
-            <div>
+            <div class="form-group">
                 <label>Email Address</label>
                 <input type="email" [(ngModel)]="profileData.email" name="email" />
             </div>
-            <div>
+            <div class="form-group">
                 <label>Mobile Number</label>
                 <input type="tel" [(ngModel)]="profileData.phone" name="phone" />
             </div>
-            <div>
+            <div class="form-group">
                 <label>City</label>
                 <select [(ngModel)]="profileData.city" name="city">
                     @for (city of cities; track city) {
@@ -37,53 +37,53 @@
                 </select>
             </div>
 
-            <div>
-                <div>
+            <div class="form-row">
+                <div class="form-group">
                     <label>Budget Min (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMin" name="budgetMin" />
                 </div>
-                <div>
+                <div class="form-group">
                     <label>Budget Max (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMax" name="budgetMax" />
                 </div>
             </div>
 
-            <button (click)="saveProfile()" [disabled]="saving()">
+            <button class="btn-save" (click)="saveProfile()" [disabled]="saving()">
                 {{ saving() ? 'Saving...' : 'Save Profile' }}
             </button>
         </div>
 
-        <div>
+        <div class="pref-column">
             <h2>Alert Preferences</h2>
             <p>Choose how you want to receive updates and notifications.</p>
 
-            <form #prefForm="ngForm" (ngSubmit)="savePreferences()">
-                <div>
-                    <label>
+            <form class="pref-card" #prefForm="ngForm" (ngSubmit)="savePreferences()">
+                <div class="pref-group">
+                    <label class="checkbox-label">
                         <input type="checkbox" [(ngModel)]="preferenceData.emailAlerts" name="emailAlerts" />
-                        <span>
+                        <span class="checkbox-desc">
                             Email Alerts
                             <small>Receive application updates, rent reminders via email</small>
                         </span>
                     </label>
                 </div>
 
-                <div>
-                    <label>
+                <div class="pref-group">
+                    <label class="checkbox-label">
                         <input type="checkbox" [(ngModel)]="preferenceData.smsAlerts" name="smsAlerts" />
-                        <span>
+                        <span class="checkbox-desc">
                             SMS Alerts
                             <small>Get SMS notifications for urgent reminders</small>
                         </span>
                     </label>
                 </div>
 
-                <button type="submit" [disabled]="saving()">
+                <button class="btn-save" type="submit" [disabled]="saving()">
                     Save Preferences
                 </button>
             </form>
 
-            <div>
+            <div class="account-card">
                 <h3>Account Info</h3>
                 <p>Role: <strong>{{ auth.currentUser()?.role | titlecase }}</strong></p>
                 <p>Member since: <strong>{{ auth.currentUser()?.createdAt }}</strong></p>

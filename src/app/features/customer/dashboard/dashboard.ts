@@ -21,6 +21,7 @@ export class Dashboard {
   pendingRent = signal<any>(null);
   openRequests = signal(0);
   recentApplications = signal<any[]>([]);
+  hasApplicationAlert = signal(false);
 
   constructor(
     public auth: AuthService,
@@ -40,6 +41,8 @@ export class Dashboard {
     this.appService.getByCustomer(userId).subscribe(apps => {
       this.totalApplications.set(apps.length);
       this.recentApplications.set(apps.slice(-3).reverse());
+      const hasAlert = apps.some(app => app.status === 'rejected' || app.status === 'waitlisted');
+      this.hasApplicationAlert.set(hasAlert);
     });
 
     this.leaseService.getByTenant(userId).subscribe(leases => {

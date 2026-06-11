@@ -1,0 +1,113 @@
+.catalog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.catalog-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin-bottom: 4px;
+}
+
+.catalog-header p {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+}
+
+.catalog-split {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .catalog-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.filter-sidebar {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.filter-sidebar h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0 0 4px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn-apply {
+  width: 100%;
+  background-color: rgb(13, 148, 136);
+  color: rgb(255, 255, 255);
+}
+
+.btn-apply:hover {
+  background-color: rgb(15, 118, 110);
+}
+
+.btn-reset {
+  width: 100%;
+  background-color: transparent;
+  color: rgb(71, 85, 105);
+  border: 1px solid rgb(226, 232, 240);
+  margin-top: -4px;
+}
+
+.btn-reset:hover {
+  background-color: rgb(248, 250, 252);
+  color: rgb(15, 23, 42);
+  border-color: rgb(203, 213, 225);
+}
+
+.catalog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.results-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.catalog-placeholder {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  color: rgb(100, 116, 139);
+  font-size: 14px;
+}
+
+.catalog-placeholder p {
+  margin-bottom: 0;
+}

@@ -1,68 +1,129 @@
-<div>
-  <h2>Maintenance Requests</h2>
+<div class="maintenance-container">
+  <div class="page-header">
+    <div class="header-info">
+      <h1 class="page-title">Maintenance Requests</h1>
+      <p class="page-subtitle">Raise and track maintenance issues for your property.</p>
+    </div>
 
-  <div>
-    <h3>Raise New Request</h3>
+    <button class="btn-toggle-form" (click)="showForm.set(!showForm())">
+      {{ showForm() ? 'Cancel' : '+ New Request' }}
+    </button>
+  </div>
 
-    @for (field of formConfig; track field.name) {
-      <div>
-        <label>{{ field.label }}</label>
+  @if (successMsg()) {
+    <div class="alert alert-success">
+      {{ successMsg() }}
+    </div>
+  }
 
-        @if (field.type === 'select') {
-          <select
-            [ngModel]="getFieldValue(field.name)"
-            (ngModelChange)="setFieldValue(field.name, $event)"
-          >
-            @for (option of field.options; track option) {
-              <option [value]="option">
-                {{ option }}
-              </option>
+  @if (errorMsg()) {
+    <div class="alert alert-error">
+      {{ errorMsg() }}
+    </div>
+  }
+
+  @if (showForm()) {
+    <div class="card-form">
+      <h3 class="form-title">New Maintenance Request</h3>
+      <p class="form-helper">Fill out the details below to raise a new request for your property.</p>
+
+      <form [formGroup]="maintenanceForm" (ngSubmit)="onSubmit()">
+        @for (field of formConfig; track field.name) {
+          <div class="form-group">
+            <label class="form-label" [for]="field.name">
+              {{ field.label }}
+            </label>
+
+            @if (field.type === 'select') {
+              <select class="form-select" [id]="field.name" [formControlName]="field.name">
+                <option value="">Select {{ field.label }}</option>
+
+                @for (opt of field.options; track opt) {
+                  <option [value]="opt">
+                    {{ opt | titlecase }}
+                  </option>
+                }
+              </select>
+
+            } @else if (field.type === 'textarea') {
+              <textarea
+                class="form-textarea"
+                [id]="field.name"
+                [formControlName]="field.name"
+                [placeholder]="field.placeholder || ''"
+              >
+              </textarea>
+
+            } @else {
+              <input
+                class="form-input"
+                [type]="field.type"
+                [id]="field.name"
+                [formControlName]="field.name"
+                [placeholder]="field.placeholder || ''"
+              />
             }
-          </select>
+
+            @if (maintenanceForm.get(field.name)?.invalid && maintenanceForm.get(field.name)?.touched
+            ) {
+              <span class="error-msg">{{ field.label }} is required.</span>
+            }
+          </div>
         }
 
-        @if (field.type === 'textarea') {
-          <textarea
-            rows="4"
-            [placeholder]="field.placeholder"
-            [ngModel]="getFieldValue(field.name)"
-            (ngModelChange)="setFieldValue(field.name, $event)"
-          >
-          </textarea>
+        <button type="submit" class="btn-submit" [disabled]="submitting()">
+          {{ submitting() ? 'Submitting...' : 'Submit Request' }}
+        </button>
+      </form>
+    </div>
+  }
+
+  @if (loading()) {
+    <div class="loading">Loading requests...</div>
+
+  } @else if (requests().length === 0) {
+    <div class="list-placeholder">No maintenance requests found. All clear!</div>
+
+  } @else {
+    <div class="requests-section">
+      <h3 class="section-title">My Requests</h3>
+
+      <div class="requests-list">
+        @for (req of requests(); track req.id) {
+          <div class="request-card">
+            <div class="card-header">
+              <div class="header-main">
+                <h4 class="request-category">{{ req.category }}</h4>
+                <app-status-badge [status]="req.status"></app-status-badge>
+              </div>
+
+              <span class="urgency-tag" [ngClass]="urgencyClass(req.urgency)">
+                {{ req.urgency | titlecase }} Priority
+              </span>
+            </div>
+
+            <p class="request-description">
+              {{ req.description }}
+            </p>
+
+            <div class="card-footer">
+              <div class="footer-dates">
+                <span class="raised-date">Raised: {{ req.raisedAt }}</span>
+                @if (req.resolvedAt) {
+                  <span class="resolved-date">Resolved: {{ req.resolvedAt }}</span>
+                }
+              </div>
+
+              @if (req.adminNote) {
+                <div class="admin-note">
+                  <span class="note-label">Admin Note:</span> {{ req.adminNote }}
+                </div>
+              }
+            </div>
+          </div>
         }
       </div>
-    }
-
-    <button (click)="submitRequest()">Submit Request</button>
-  </div>
-
-  <div>
-    <h3>My Requests</h3>
-
-    @if (requests.length === 0) {
-      <div>No maintenance requests found.</div>
-    }
-
-    @for (request of requests; track request.id) {
-      <div>
-        <div>
-          <h4>{{ request.category }}</h4>
-
-          <span [class]="getStatusClass(request.status)">
-            {{ request.status }}
-          </span>
-        </div>
-
-        <p>{{ request.description }}</p>
-
-        <div>
-          <span [class]="getUrgencyClass(request.urgency)">
-            {{ request.urgency }}
-          </span>
-
-          <span> Raised: {{ request.raisedAt }} </span>
-        </div>
-      </div>
-    }
-  </div>
+    </div>
+  }
 </div>
+

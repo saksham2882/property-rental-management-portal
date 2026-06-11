@@ -1,24 +1,24 @@
-<div class="page">
+<div class="page-detail-container">
   @if (loading()) {
     <div class="loading">Loading property details...</div>
   } @else if (property()) {
     @let p = property()!;
 
-    <a routerLink="/customer/properties">Back to Listings</a>
+    <a class="btn-back" routerLink="/customer/properties">Back to Listings</a>
 
-    <div>
+    <div class="detail-split">
       
-      <div>
-        <div>
-          <img [src]="p.images[activeImageIndex()]" [alt]="p.title" />
-          <span>
+      <div class="detail-gallery">
+        <div class="main-frame">
+          <img class="main-img" [src]="p.images[activeImageIndex()]" [alt]="p.title" />
+          <span class="availability-badge" [class.available]="p.available" [class.unavailable]="!p.available">
             {{ p.available ? 'Available' : 'Not Available' }}
           </span>
         </div>
         @if (p.images.length > 1) {
-          <div>
+          <div class="thumbs-row">
             @for (img of p.images; track $index) {
-              <img [src]="img" (click)="selectImage($index)"
+              <img class="thumb-img" [src]="img" (click)="selectImage($index)"
                    [class.active-thumb]="activeImageIndex() === $index" />
             }
           </div>
@@ -26,58 +26,57 @@
       </div>
 
       
-      <div>
-        <h1>{{ p.title }}</h1>
-        <p>{{ p.locality }}, {{ p.city }}</p>
+      <div class="detail-info">
+        <h1 class="detail-title">{{ p.title }}</h1>
+        <p class="detail-location">{{ p.locality }}, {{ p.city }}</p>
 
-        <div>
+        <div class="detail-specs">
           <span>{{ p.bedrooms }} BHK</span>
           <span>{{ p.bathrooms }} Bath</span>
           <span>{{ p.area }} sqft</span>
           <span>{{ p.furnishing }}</span>
         </div>
 
-        <div>
-          <span>{{ p.rent | rentFormat }}</span>
-          <span>Deposit: ₹{{ p.deposit | number }}</span>
+        <div class="rent-card">
+          <span class="rent-price">{{ p.rent | rentFormat }}</span>
+          <span class="deposit-fee">Deposit: ₹{{ p.deposit | number }}</span>
         </div>
 
-        <p>{{ p.description }}</p>
+        <p class="detail-description">{{ p.description }}</p>
 
-        <div>
+        <div class="amenities-panel">
           <h3>Amenities</h3>
-          <div>
+          <div class="amenities-list">
             @for (a of p.amenities; track a) {
-              <span>{{ a }}</span>
+              <span class="amenity-badge">{{ a }}</span>
             }
           </div>
         </div>
 
-        <div>
+        <div class="detail-meta">
           <span>Available from: <strong>{{ p.availableFrom }}</strong></span>
           <span>Type: <strong>{{ p.type }}</strong></span>
         </div>
 
         @if (p.available && auth.isCustomer()) {
           @if (alreadyApplied()) {
-            <button style="background-color: #6c757d; color: #fff; cursor: not-allowed;" disabled>
+            <button class="btn-disabled" disabled>
               Already Applied
             </button>
           } @else {
-            <a [routerLink]="['/customer/apply', p.id]">
+            <a class="btn-apply" [routerLink]="['/customer/apply', p.id]">
               Apply Now
             </a>
           }
         } @else if (!p.available) {
-          <button disabled>Property Not Available</button>
+          <button class="btn-disabled" disabled>Property Not Available</button>
         }
       </div>
     </div>
   } @else {
-    <div>
+    <div class="catalog-placeholder">
       <p>Property not found.</p>
-      <a routerLink="/customer/properties">Back to Listings</a>
+      <a class="btn-back" routerLink="/customer/properties">Back to Listings</a>
     </div>
   }
 </div>
-

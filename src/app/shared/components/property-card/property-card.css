@@ -1,0 +1,143 @@
+.property-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+  border-color: rgb(203, 213, 225);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: rgb(241, 245, 249);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.property-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.availability-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.availability-badge.available {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+}
+
+.availability-badge.unavailable {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+}
+
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-location {
+  font-size: 13px;
+  color: rgb(71, 85, 105);
+  margin-top: -6px;
+  margin-bottom: 0;
+}
+
+.card-specs {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.card-specs span {
+  font-size: 13px;
+  color: rgb(100, 116, 139);
+  display: inline-flex;
+  align-items: center;
+}
+
+.card-labels {
+  display: flex;
+  gap: 8px;
+}
+
+.card-labels span {
+  font-size: 11px;
+  font-weight: 500;
+  background-color: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.card-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(13, 148, 136);
+}
+
+.btn-view-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background-color: rgb(13, 148, 136);
+  color: rgb(255, 255, 255);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-view-details:hover {
+  background-color: rgb(15, 118, 110);
+}

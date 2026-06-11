@@ -1,0 +1,138 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(226, 232, 240);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.navbar-brand a {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(9, 83, 76);
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand a span {
+  font-weight: 800;
+  color: rgb(6, 83, 78);
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.navbar-toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: rgb(71, 85, 105);
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  color: rgb(71, 85, 105);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+
+.navbar-link:hover {
+  color: rgb(13, 148, 136);
+  background-color: rgb(240, 253, 250);
+}
+
+.navbar-link.active {
+  color: rgb(13, 148, 136);
+  background-color: rgb(240, 253, 250);
+  font-weight: 600;
+}
+
+.notification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(225, 29, 72);
+  color: rgb(255, 255, 255);
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.btn-logout {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: rgb(225, 29, 72);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn-logout:hover {
+  background-color: rgb(255, 228, 230);
+  color: rgb(225, 29, 72);
+  border-color: rgb(225, 29, 72);
+}
+
+@media (max-width: 900px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(226, 232, 240);
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  .btn-logout {
+    width: 100%;
+    justify-content: center;
+  }
+}

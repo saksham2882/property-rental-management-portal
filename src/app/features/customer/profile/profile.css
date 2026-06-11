@@ -1,0 +1,197 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.profile-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin-bottom: 4px;
+}
+
+.profile-header p {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+}
+
+.alert-success,
+.alert-danger {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+}
+
+.alert-success {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+  border-color: rgba(4, 120, 87, 0.1);
+}
+
+.alert-danger {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+  border-color: rgba(190, 24, 74, 0.1);
+}
+
+.profile-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .profile-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.profile-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.profile-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  border-bottom: 1px solid rgb(241, 245, 249);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn-save {
+  align-self: flex-start;
+  padding: 11px 24px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.pref-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pref-column h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin-bottom: 4px;
+}
+
+.pref-column > p {
+  font-size: 13px;
+  color: rgb(100, 116, 139);
+  margin-top: -16px;
+  margin-bottom: 4px;
+}
+
+.pref-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.pref-group {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 0;
+  color: rgb(15, 23, 42);
+  width: 100%;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: rgb(13, 148, 136);
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.checkbox-desc {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  line-height: 1.4;
+}
+
+.checkbox-desc small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(100, 116, 139);
+  margin-top: 2px;
+}
+
+.account-card {
+  background-color: rgb(248, 250, 252);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.account-card p {
+  font-size: 13px;
+  color: rgb(71, 85, 105);
+  margin: 0;
+}
+
+.account-card strong {
+  color: rgb(15, 23, 42);
+}

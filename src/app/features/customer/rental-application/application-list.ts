@@ -8,7 +8,6 @@ import { RentalApplication } from '../../../core/models/application-model';
 
 @Component({
   selector: 'app-application-list',
-  standalone: true,
   imports: [CommonModule, RouterLink, StatusBadgeComponent],
   templateUrl: './application-list.html',
   styleUrl: './application-list.css'

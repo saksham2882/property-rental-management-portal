@@ -9,7 +9,6 @@ import { PropertyFilter } from '../../../core/models/property-model';
 
 @Component({
   selector: 'app-property-catalog',
-  standalone: true,
   imports: [CommonModule, FormsModule, PropertyCardComponent],
   templateUrl: './property-catalog.html',
   styleUrl: './property-catalog.css'

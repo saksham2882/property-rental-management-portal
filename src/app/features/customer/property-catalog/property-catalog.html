@@ -1,15 +1,15 @@
-<div>
-  <div>
+<div class="catalog-container">
+  <div class="catalog-header">
     <h1>Browse Properties</h1>
     <p>Find your ideal rental from our curated listings.</p>
   </div>
 
-  <div>
+  <div class="catalog-split">
   
-    <aside>
+    <aside class="filter-sidebar">
       <h3>Filter Properties</h3>
 
-      <div>
+      <div class="filter-group">
         <label>City</label>
         <select [(ngModel)]="filters.city">
           <option value="">All Cities</option>
@@ -19,7 +19,7 @@
         </select>
       </div>
 
-      <div>
+      <div class="filter-group">
         <label>Property Type</label>
         <select [(ngModel)]="filters.type">
           <option value="">All Types</option>
@@ -29,7 +29,7 @@
         </select>
       </div>
 
-      <div>
+      <div class="filter-group">
         <label>Bedrooms</label>
         <select [(ngModel)]="filters.bedrooms">
           <option [ngValue]="undefined">Any</option>
@@ -39,7 +39,7 @@
         </select>
       </div>
 
-      <div>
+      <div class="filter-group">
         <label>Furnishing</label>
         <select [(ngModel)]="filters.furnishing">
           <option value="">Any</option>
@@ -49,34 +49,34 @@
         </select>
       </div>
 
-      <div>
+      <div class="filter-group">
         <label>Min Rent (₹)</label>
         <input type="number" [(ngModel)]="filters.minRent" placeholder="e.g. 10000" />
       </div>
 
-      <div>
+      <div class="filter-group">
         <label>Max Rent (₹)</label>
         <input type="number" [(ngModel)]="filters.maxRent" placeholder="e.g. 50000" />
       </div>
 
-      <button (click)="applyFilters()">Apply Filters</button>
-      <button (click)="resetFilters()">Reset</button>
+      <button class="btn-apply" (click)="applyFilters()">Apply Filters</button>
+      <button class="btn-reset" (click)="resetFilters()">Reset</button>
     </aside>
 
-    <div>
+    <div class="catalog-content">
       @if (loading$ | async) {
-        <div>Loading properties...</div>
+        <div class="catalog-placeholder">Loading properties...</div>
       } @else {
         @let props = properties$ | async;
         @if (props && props.length > 0) {
-          <div>{{ props.length }} properties found</div>
-          <div>
+          <div class="results-count">{{ props.length }} properties found</div>
+          <div class="property-grid">
             @for (property of props; track property.id) {
               <app-property-card [property]="property"></app-property-card>
             }
           </div>
         } @else {
-          <div>
+          <div class="catalog-placeholder">
             <p>No properties match your filters. Try adjusting them.</p>
           </div>
         }

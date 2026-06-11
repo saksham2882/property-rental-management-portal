@@ -1,42 +1,42 @@
-<div>
-  <div>
+<div class="page-container">
+  <div class="page-header">
     <h1>Maintenance Management</h1>
     <p>Review and update all tenant maintenance requests.</p>
   </div>
 
   @if (successMsg()) {
-    <div>{{ successMsg() }}</div>
+    <div class="alert-success">{{ successMsg() }}</div>
   }
 
   @if (loading()) {
-    <div>Loading requests...</div>
+    <div class="list-placeholder">Loading requests...</div>
   } 
   @else if (requests().length === 0) {
-    <div>No maintenance requests found.</div>
+    <div class="list-placeholder">No maintenance requests found.</div>
   } 
   @else {
-    <div>
+    <div class="requests-list">
       @for (req of requests(); track req.id) {
-        <div>
-          <div>
+        <div class="request-card">
+          <div class="card-header">
             <span>{{ req.category }}</span>
-            <span [ngClass]="urgencyClass(req.urgency)">
+            <span class="urgency-badge" [ngClass]="urgencyClass(req.urgency)">
               {{ req.urgency | titlecase }}
-              </span>
+            </span>
           </div>
           <app-status-badge [status]="req.status"></app-status-badge>
 
-          <p>{{ req.description }}</p>
-          <p>Raised: {{ req.raisedAt }} | Tenant ID: {{ req.tenantId }} | Property ID: {{ req.propertyId }}</p>
+          <p class="request-desc">{{ req.description }}</p>
+          <p class="request-meta">Raised: {{ req.raisedAt }} | Tenant ID: {{ req.tenantId }} | Property ID: {{ req.propertyId }}</p>
 
           @if (req.adminNote) {
-            <p>Note: {{ req.adminNote }}</p>
+            <p class="admin-note">Note: {{ req.adminNote }}</p>
           }
 
           @if (editingId() === req.id) {
            
-            <div>
-              <div>
+            <div class="editor-card">
+              <div class="form-group">
                 <label>Update Status</label>
                 <select [(ngModel)]="editStatus">
                   <option>Pending</option>
@@ -44,17 +44,17 @@
                   <option>Resolved</option>
                 </select>
               </div>
-              <div>
+              <div class="form-group">
                 <label>Admin Note</label>
                 <textarea [(ngModel)]="editNote" placeholder="Add a note for the tenant..."></textarea>
               </div>
-              <div>
-                <button (click)="saveUpdate(req)">Save</button>
-                <button (click)="cancelEdit()">Cancel</button>
+              <div class="form-actions">
+                <button class="btn-save" (click)="saveUpdate(req)">Save</button>
+                <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
               </div>
             </div>
           } @else {
-            <button (click)="startEdit(req)">Update Request</button>
+            <button class="btn-update" (click)="startEdit(req)">Update Request</button>
           }
         </div>
       }

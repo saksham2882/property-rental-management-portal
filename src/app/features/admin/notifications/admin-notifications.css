@@ -1,0 +1,127 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.page-header p {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  margin: 0;
+}
+
+.list-placeholder {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  color: rgb(100, 116, 139);
+  font-size: 14px;
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alert-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+  transition: all 0.15s ease-in-out;
+}
+
+.alert-card:hover {
+  border-color: rgb(203, 213, 225);
+  background-color: rgb(250, 251, 252);
+}
+
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 6px;
+  line-height: 1;
+  height: 24px;
+  background-color: rgb(224, 231, 255);
+  color: rgb(67, 56, 202);
+  letter-spacing: 0.05em;
+  min-width: 80px;
+  text-align: center;
+}
+
+.alert-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.alert-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.alert-desc {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.alert-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: rgb(148, 163, 184);
+  margin-top: 2px;
+}
+
+.alert-card.unread {
+  border-left: 4px solid rgb(13, 148, 136);
+  background-color: rgb(250, 252, 251);
+}
+
+.alert-card.unread .alert-title {
+  font-weight: 700;
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: rgb(13, 148, 136);
+  align-self: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
