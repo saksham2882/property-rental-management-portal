@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NotificationService } from '../../../core/services/notification.service';
+import { NotificationService } from '../../../core/services/notification-service';
 import {Notification} from '../../../core/models/notification-model';
 
 // interface Notification {
