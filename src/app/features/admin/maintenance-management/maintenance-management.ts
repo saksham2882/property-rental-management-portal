@@ -8,7 +8,6 @@ import { MaintenanceRequest } from '../../../core/models/maintenance-model';
 
 @Component({
   selector: 'app-maintenance-management',
-  standalone: true,
   imports: [CommonModule, FormsModule, StatusBadgeComponent, TitleCasePipe],
   templateUrl: './maintenance-management.html',
   styleUrl: './maintenance-management.css'

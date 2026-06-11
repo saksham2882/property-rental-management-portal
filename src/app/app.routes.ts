@@ -76,6 +76,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/admin/application-review/application-review').then(a => a.ApplicationReviewComponent)
             },
             {
+                path: 'tenants',
+                loadComponent: () => import('./features/admin/tenant-management/tenant-management').then(t => t.TenantManagementComponent)
+            },
+            {
                 path: 'maintenance',
                 loadComponent: () => import('./features/admin/maintenance-management/maintenance-management').then(m => m.MaintenanceManagementComponent)
             },

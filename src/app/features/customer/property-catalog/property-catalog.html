@@ -1,15 +1,15 @@
-<div class="page catalog-page">
-  <div class="page-header">
-    <h1 class="page-title">Browse Properties</h1>
-    <p class="page-sub">Find your ideal rental from our curated listings.</p>
+<div class="catalog-container">
+  <div class="catalog-header">
+    <h1>Browse Properties</h1>
+    <p>Find your ideal rental from our curated listings.</p>
   </div>
 
-  <div class="catalog-layout">
+  <div class="catalog-split">
   
-    <aside class="filter-panel card">
-      <h3 class="filter-title">Filter Properties</h3>
+    <aside class="filter-sidebar">
+      <h3>Filter Properties</h3>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>City</label>
         <select [(ngModel)]="filters.city">
           <option value="">All Cities</option>
@@ -19,7 +19,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>Property Type</label>
         <select [(ngModel)]="filters.type">
           <option value="">All Types</option>
@@ -29,7 +29,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>Bedrooms</label>
         <select [(ngModel)]="filters.bedrooms">
           <option [ngValue]="undefined">Any</option>
@@ -39,7 +39,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>Furnishing</label>
         <select [(ngModel)]="filters.furnishing">
           <option value="">Any</option>
@@ -49,34 +49,34 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>Min Rent (₹)</label>
         <input type="number" [(ngModel)]="filters.minRent" placeholder="e.g. 10000" />
       </div>
 
-      <div class="form-group">
+      <div class="filter-group">
         <label>Max Rent (₹)</label>
         <input type="number" [(ngModel)]="filters.maxRent" placeholder="e.g. 50000" />
       </div>
 
-      <button class="btn btn-primary" style="width:100%" (click)="applyFilters()">Apply Filters</button>
-      <button class="btn btn-secondary mt-16" style="width:100%" (click)="resetFilters()">Reset</button>
+      <button class="btn-apply" (click)="applyFilters()">Apply Filters</button>
+      <button class="btn-reset" (click)="resetFilters()">Reset</button>
     </aside>
 
-    <div class="property-section">
+    <div class="catalog-content">
       @if (loading$ | async) {
-        <div class="loading">Loading properties...</div>
+        <div class="catalog-placeholder">Loading properties...</div>
       } @else {
         @let props = properties$ | async;
         @if (props && props.length > 0) {
           <div class="results-count">{{ props.length }} properties found</div>
-          <div class="grid-3">
+          <div class="property-grid">
             @for (property of props; track property.id) {
               <app-property-card [property]="property"></app-property-card>
             }
           </div>
         } @else {
-          <div class="empty-state">
+          <div class="catalog-placeholder">
             <p>No properties match your filters. Try adjusting them.</p>
           </div>
         }

@@ -7,7 +7,6 @@ import { RentFormatPipe } from '../../../shared/pipes/rent-format.pipe';
 
 @Component({
   selector: 'app-property-management',
-  standalone: true,
   imports: [CommonModule, FormsModule, RentFormatPipe],
   templateUrl: './property-management.html',
   styleUrl: './property-management.css'

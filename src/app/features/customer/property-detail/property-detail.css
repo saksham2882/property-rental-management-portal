@@ -1,149 +1,240 @@
-.back-link {
-  display: inline-block;
-  color: #3b82f6;
-  text-decoration: none;
-  font-size: 13.5px;
-  margin-bottom: 20px;
+.page-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.detail-layout {
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(13, 148, 136);
+  align-self: flex-start;
+  margin-bottom: 8px;
+}
+
+.btn-back::before {
+  content: "← ";
+  margin-right: 4px;
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+  color: rgb(100, 116, 139);
+  font-size: 15px;
+}
+
+.detail-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   align-items: start;
 }
 
-.main-image {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  height: 340px;
+@media (max-width: 768px) {
+  .detail-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
-.main-image img {
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.main-frame {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgb(226, 232, 240);
+  background-color: rgb(241, 245, 249);
+}
+
+.main-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.avail-badge {
+.availability-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 13px;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.avail { background: #d1fae5; color: #065f46; }
-.unavail { background: #fee2e2; color: #991b1b; }
+.availability-badge.available {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+}
 
-.thumbnail-row {
+.availability-badge.unavailable {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+}
+
+.thumbs-row {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
-.thumb {
-  width: 70px;
-  height: 55px;
+.thumb-img {
+  width: 80px;
+  height: 60px;
+  border-radius: 6px;
   object-fit: cover;
-  border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: border-color 0.2s;
+  transition: all 0.15s ease-in-out;
 }
 
-.active-thumb { border-color: #2563eb; }
+.thumb-img.active-thumb {
+  border-color: rgb(13, 148, 136);
+  transform: scale(1.02);
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .detail-title {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 6px;
+  color: rgb(15, 23, 42);
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.detail-loc {
-  color: #64748b;
+.detail-location {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+  margin-top: -12px;
+  margin-bottom: 0;
+}
+
+.detail-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.detail-specs span {
+  background-color: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.rent-card {
+  background-color: rgb(240, 253, 250);
+  border: 1px solid rgb(204, 251, 241);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rent-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(13, 148, 136);
+}
+
+.deposit-fee {
   font-size: 14px;
-  margin-bottom: 14px;
+  font-weight: 500;
+  color: rgb(15, 118, 110);
+}
+
+.detail-description {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.amenities-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.amenities-panel h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.amenity-badge {
+  border: 1px solid rgb(226, 232, 240);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: rgb(71, 85, 105);
+  background-color: rgb(255, 255, 255);
 }
 
 .detail-meta {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid rgb(241, 245, 249);
   font-size: 14px;
-  color: #475569;
-  margin-bottom: 16px;
-  padding: 12px;
-  background: #f8fafc;
+  color: rgb(71, 85, 105);
+}
+
+.btn-apply {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: rgb(13, 148, 136);
+  color: rgb(255, 255, 255);
   border-radius: 8px;
-}
-
-.price-box {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.rent-big {
-  font-size: 26px;
-  font-weight: 700;
-  color: #2563eb;
-}
-
-.deposit-info {
-  font-size: 13px;
-  color: #64748b;
-}
-
-.detail-desc {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.amenities-section h3 {
   font-size: 15px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #1e293b;
-}
-
-.amenity-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.amenity-tag {
-  background: #eff6ff;
-  color: #1d4ed8;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-}
-
-.avail-info {
-  display: flex;
-  gap: 20px;
-  font-size: 13.5px;
-  color: #475569;
-  margin-bottom: 24px;
-}
-
-.apply-btn {
-  width: 100%;
   text-align: center;
-  padding: 12px;
-  font-size: 15px;
+  transition: background-color 0.15s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  .detail-layout { grid-template-columns: 1fr; }
+.btn-apply:hover {
+  background-color: rgb(15, 118, 110);
+}
+
+.btn-disabled {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background-color: rgb(226, 232, 240) !important;
+  color: rgb(148, 163, 184) !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
 }

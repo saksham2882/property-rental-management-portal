@@ -26,7 +26,7 @@
       "budgetMax": 30000,
       "createdAt": "2024-02-10",
       "emailAlerts": true,
-      "smsAlerts": true
+      "smsAlerts": false
     },
     {
       "name": "Sam",
@@ -139,7 +139,7 @@
       "rent": 22000,
       "deposit": 66000,
       "furnishing": "Semi-Furnished",
-      "available": false,
+      "available": true,
       "availableFrom": "2024-08-01",
       "area": 880,
       "description": "Well-maintained 2 BHK in prime Aundh locality with easy access to IT hubs.",
@@ -557,7 +557,7 @@
       "title": "Application Approved",
       "message": "Your rental application for 1 BHK Studio in Bandra East has been approved!",
       "type": "success",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2024-05-15"
     },
     {
@@ -566,7 +566,7 @@
       "title": "Rent Due Reminder",
       "message": "Your rent of ₹18,000 for August 2024 is overdue. Please pay immediately.",
       "type": "warning",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2024-08-06"
     },
     {
@@ -584,7 +584,7 @@
       "title": "New Application Received",
       "message": "Priya Mehta has applied for 2 BHK Apartment in Andheri West.",
       "type": "info",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2024-05-20"
     },
     {
@@ -592,25 +592,16 @@
       "title": "Application Submitted",
       "message": "Your application for \"2 BHK Apartment in Andheri West\" has been submitted and is under review.",
       "type": "info",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2026-06-10",
       "id": "NViJQ7tRPrU"
-    },
-    {
-      "userId": "2",
-      "title": "Application waitlisted 🕐",
-      "message": "Your rental application #UAkMTV7dK_k has been waitlisted 🕐.",
-      "type": "info",
-      "isRead": false,
-      "createdAt": "2026-06-10",
-      "id": "8ufku3qqjow"
     },
     {
       "userId": 2,
       "title": "Maintenance Update",
       "message": "Your maintenance request (Plumbing) status is now: resolved.",
       "type": "success",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2026-06-10",
       "id": "tShbKkWWWUY"
     },
@@ -619,7 +610,7 @@
       "title": "Application Submitted",
       "message": "Your application for \"3 BHK Villa in Kothrud\" has been submitted and is under review.",
       "type": "info",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2026-06-10",
       "id": "mDL18NqZ0tU"
     },
@@ -628,18 +619,9 @@
       "title": "Maintenance Request Submitted",
       "message": "Your maintenance request (Carpentry) has been raised.",
       "type": "info",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2026-06-10",
       "id": "eRhUoln5SD4"
-    },
-    {
-      "userId": "2",
-      "title": "Application approved ✅",
-      "message": "Your rental application #mb_dUaW_MTE has been approved ✅.",
-      "type": "success",
-      "isRead": false,
-      "createdAt": "2026-06-10",
-      "id": "daohF8JX76A"
     },
     {
       "userId": "2",
@@ -652,15 +634,6 @@
     },
     {
       "userId": "FqO47LlZVI8",
-      "title": "Application approved ✅",
-      "message": "Your rental application #QLEjn7Rwskc has been approved ✅.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "rnozgd27PyA"
-    },
-    {
-      "userId": "FqO47LlZVI8",
       "title": "Application Submitted",
       "message": "Your application for \"3 BHK Premium Flat in Juhu\" has been submitted and is under review.",
       "type": "info",
@@ -670,30 +643,12 @@
     },
     {
       "userId": "FqO47LlZVI8",
-      "title": "Application approved ✅",
-      "message": "Your rental application #zjWDcADSC5c has been approved ✅.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "q6_CpuTzXPA"
-    },
-    {
-      "userId": "FqO47LlZVI8",
       "title": "Application Submitted",
       "message": "Your application for \"2 BHK Flat in Aundh\" has been submitted and is under review.",
       "type": "info",
       "isRead": true,
       "createdAt": "2026-06-10",
       "id": "a0bZfH5R9m0"
-    },
-    {
-      "userId": "FqO47LlZVI8",
-      "title": "Application approved ✅",
-      "message": "Your rental application #M1tvMcglVNU has been approved ✅.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "YV-qBNvkN_Q"
     },
     {
       "userId": "FqO47LlZVI8",

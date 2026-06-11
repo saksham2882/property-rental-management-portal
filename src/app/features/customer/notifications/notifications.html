@@ -1,68 +1,39 @@
-<div class="notifications-page">
-
-  <div class="header">
-    <h2>Notifications</h2>
-
-    <span class="badge">
-      {{ getUnreadCount() }} Unread
-    </span>
+<div class="notifications-container">
+  <div class="notifications-header">
+    <h1 class="notifications-title">Notifications</h1>
+    <p class="notifications-subtitle">Stay updated on your applications, rent dues, and maintenance.</p>
   </div>
 
-  @if (notifications.length === 0) {
-
-    <div class="empty-state">
-      <h3>No Notifications</h3>
-      <p>You don't have any notifications yet.</p>
+  @if (loading()) {
+    <div class="notifications-loading">Loading notifications...</div>
+  } 
+  @else if (notifications().length === 0) {
+    <div class="notifications-empty">
+      <p class="notifications-empty-text">No notifications yet.</p>
     </div>
-
-  }
-
-  @for (notification of notifications; track notification.id) {
-
-    <div
-      class="notification-card"
-      [class.unread]="!notification.isRead"
-      [class.success]="notification.type === 'success'"
-      [class.warning]="notification.type === 'warning'"
-      [class.info]="notification.type === 'info'"
-      [class.error]="notification.type === 'error'">
-
-      <div class="notification-content">
-
-        <div class="title-row">
-
-          <h4>{{ notification.title }}</h4>
-
-          <span class="type-badge">
-            {{ notification.type }}
-          </span>
-
+  } 
+  @else {
+    <div class="notifications-list">
+      @for (notif of notifications(); track notif.id) {
+        <div
+          class="notification-card"
+          [class.unread]="!notif.isRead"
+          [class.type-success]="notif.type === 'success'"
+          [class.type-warning]="notif.type === 'warning'"
+          [class.type-error]="notif.type === 'error'"
+          (click)="markRead(notif)"
+        >
+          <div class="notification-content">
+            <h3 class="notification-title">{{ notif.title }}</h3>
+            <p class="notification-message">{{ notif.message }}</p>
+            <span class="notification-date">{{ notif.createdAt }}</span>
+          </div>
+          @if (!notif.isRead) {
+            <span class="notification-unread-dot"></span>
+          }
         </div>
-
-        <p>
-          {{ notification.message }}
-        </p>
-
-        <small>
-          {{ notification.createdAt }}
-        </small>
-
-      </div>
-
-      @if (!notification.isRead) {
-
-        <button
-          class="read-btn"
-          (click)="markAsRead(notification.id)">
-
-          Mark Read
-
-        </button>
-
       }
-
     </div>
-
   }
-
 </div>
+

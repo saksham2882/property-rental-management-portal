@@ -1,13 +1,14 @@
-<div class="page">
+<div class="page-container">
   <div class="page-header">
-    <h1 class="page-title">Tenant Management</h1>
-    <p class="page-sub">View all current and past tenants with lease information.</p>
+    <h1>Tenant Management</h1>
+    <p>View all current and past tenants with lease information.</p>
   </div>
 
   @if (loading()) {
-    <div class="loading">Loading tenant records...</div>
-  } @else {
-    <div class="card table-wrap">
+    <div class="list-placeholder">Loading tenant records...</div>
+  } 
+  @else {
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -22,18 +23,18 @@
         </thead>
         <tbody>
           @for (lease of leases(); track lease.id) {
-            @let tenant = getUserById(lease.tenantId);
+            @let tenant = getTenantDetails(lease);
             <tr>
               <td>
-                <strong>{{ tenant?.name || 'Unknown' }}</strong>
+                <strong>{{ tenant.name }}</strong>
                 <br /><small>ID: {{ lease.tenantId }}</small>
               </td>
               <td>
-                <span>{{ tenant?.email }}</span>
-                <br /><small>{{ tenant?.phone }}</small>
+                <span>{{ tenant.email }}</span>
+                <br /><small>{{ tenant.phone }}</small>
               </td>
               <td>{{ lease.propertyTitle }}</td>
-              <td>{{ lease.startDate }} → {{ lease.endDate }}</td>
+              <td>{{ lease.startDate }} -> {{ lease.endDate }}</td>
               <td>{{ lease.monthlyRent | rentFormat }}</td>
               <td>₹{{ lease.deposit | number }}</td>
               <td><app-status-badge [status]="lease.status"></app-status-badge></td>
@@ -43,16 +44,16 @@
       </table>
     </div>
 
-    <div class="card mt-24">
-      <h2 class="section-title">Registered Customers</h2>
-      <div class="customers-grid">
+    <div class="customers-panel">
+      <h2 class="panel-title">Registered Customers</h2>
+      <div class="profiles-grid">
         @for (user of users(); track user.id) {
-          <div class="customer-card">
-            <div class="cust-avatar">{{ user.name.charAt(0) }}</div>
-            <div class="cust-info">
+          <div class="user-card">
+            <div class="avatar-circle">{{ user.name.charAt(0) }}</div>
+            <div class="user-info">
               <strong>{{ user.name }}</strong>
-              <span>{{ user.email }}</span>
-              <span>{{ user.city }}</span>
+              <span class="user-detail">{{ user.email }}</span>
+              <span class="user-detail user-city">{{ user.city }}</span>
             </div>
           </div>
         }

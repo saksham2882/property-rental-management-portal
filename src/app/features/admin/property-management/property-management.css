@@ -1,29 +1,196 @@
-.form-section-title { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: #1e293b; }
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 
-.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(241, 245, 249);
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+}
 
-.avail-toggle {
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+@media (max-width: 600px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.header-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin-bottom: 4px;
+}
+
+.header-title p {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+}
+
+.btn-add {
+  padding: 10px 20px;
   font-weight: 600;
 }
-.avail { background: #d1fae5; color: #065f46; }
-.unavail { background: #fee2e2; color: #991b1b; }
 
-.action-btns { display: flex; gap: 6px; }
-
-.btn-sm {
-  padding: 4px 10px;
-  font-size: 12px;
-  border: 1px solid #3b82f6;
-  color: #3b82f6;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
+.alert-success {
+  padding: 12px 16px;
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+  border: 1px solid rgba(4, 120, 87, 0.1);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.btn-sm:hover { background: #eff6ff; }
-.btn-sm.danger { border-color: #ef4444; color: #ef4444; }
-.btn-sm.danger:hover { background: #fee2e2; }
+.form-card {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  border-bottom: 1px solid rgb(241, 245, 249);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 180px;
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.form-card textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-submit {
+  padding: 11px 24px;
+  font-weight: 600;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: rgb(71, 85, 105);
+  border: 1px solid rgb(226, 232, 240);
+  padding: 11px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-cancel:hover {
+  background-color: rgb(248, 250, 252);
+  color: rgb(15, 23, 42);
+  border-color: rgb(203, 213, 225);
+}
+
+.list-placeholder {
+  text-align: center;
+  padding: 48px;
+  color: rgb(100, 116, 139);
+  font-size: 14px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.status-badge.available {
+  background-color: rgb(209, 250, 229);
+  color: rgb(4, 120, 87);
+}
+
+.status-badge.unavailable {
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+}
+
+.cell-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-action {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid rgb(226, 232, 240);
+  color: rgb(71, 85, 105);
+}
+
+.btn-action:hover {
+  background-color: rgb(248, 250, 252);
+  color: rgb(15, 23, 42);
+  border-color: rgb(203, 213, 225);
+}
+
+.btn-danger {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: transparent;
+  color: rgb(225, 29, 72);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+}
+
+.btn-danger:hover {
+  background-color: rgb(255, 228, 230);
+  border-color: rgb(225, 29, 72);
+}

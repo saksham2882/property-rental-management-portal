@@ -1,27 +1,26 @@
-<div class="auth-page">
+<div class="page-container">
   <div class="auth-card">
-    <div class="auth-logo"></div>
     <h1 class="auth-title">Create Account</h1>
-    <p class="auth-sub">Join RentEasy and find your perfect home</p>
+    <p class="auth-subtitle">Join RentEasy and find your perfect home</p>
 
     @if (errorMsg) {
-      <div class="alert alert-error">{{ errorMsg }}</div>
+      <div class="alert-danger">{{ errorMsg }}</div>
     }
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
         <div class="form-group">
           <label for="reg-name">Full Name</label>
           <input id="reg-name" type="text" formControlName="name" placeholder="Rahul Sharma" />
           @if (f['name'].invalid && f['name'].touched) {
-            <span class="error-msg">Name must be at least 2 characters.</span>
+            <span class="error-text">Name must be at least 2 characters.</span>
           }
         </div>
         <div class="form-group">
           <label for="reg-phone">Mobile Number</label>
           <input id="reg-phone" type="tel" formControlName="phone" placeholder="9876543210" />
           @if (f['phone'].invalid && f['phone'].touched) {
-            <span class="error-msg">
+            <span class="error-text">
               @if (f['phone'].errors?.['required']) { Phone is required. }
               @if (f['phone'].errors?.['invalidPhone']) { {{ f['phone'].errors?.['invalidPhone'] }} }
             </span>
@@ -33,7 +32,7 @@
         <label for="reg-email">Email Address</label>
         <input id="reg-email" type="email" formControlName="email" placeholder="you@example.com" />
         @if (f['email'].invalid && f['email'].touched) {
-          <span class="error-msg">Enter a valid email address.</span>
+          <span class="error-text">Enter a valid email address.</span>
         }
       </div>
 
@@ -49,7 +48,7 @@
           <option>Chennai</option>
         </select>
         @if (f['city'].invalid && f['city'].touched) {
-          <span class="error-msg">Please select a city.</span>
+          <span class="error-text">Please select a city.</span>
         }
       </div>
 
@@ -69,24 +68,24 @@
           <label for="reg-pw">Password</label>
           <input id="reg-pw" type="password" formControlName="password" placeholder="Min 6 characters" />
           @if (f['password'].invalid && f['password'].touched) {
-            <span class="error-msg">Password must be at least 6 characters.</span>
+            <span class="error-text">Password must be at least 6 characters.</span>
           }
         </div>
         <div class="form-group">
           <label for="reg-cpw">Confirm Password</label>
           <input id="reg-cpw" type="password" formControlName="confirmPassword" placeholder="Repeat password" />
           @if (f['confirmPassword'].errors?.['mismatch'] && f['confirmPassword'].touched) {
-            <span class="error-msg">Passwords do not match.</span>
+            <span class="error-text">Passwords do not match.</span>
           }
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary auth-submit" [disabled]="loading">
+      <button class="btn-submit" type="submit" [disabled]="loading">
         {{ loading ? 'Creating Account...' : 'Create Account' }}
       </button>
     </form>
 
-    <p class="auth-switch">
+    <p class="redirect-wrapper">
       Already have an account? <a routerLink="/auth/login">Sign In</a>
     </p>
   </div>

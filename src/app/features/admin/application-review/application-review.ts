@@ -11,7 +11,6 @@ import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-application-review',
-  standalone: true,
   imports: [CommonModule, StatusBadgeComponent],
   templateUrl: './application-review.html',
   styleUrl: './application-review.css'

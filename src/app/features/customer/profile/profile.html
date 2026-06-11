@@ -1,20 +1,20 @@
-<div class="page">
-    <div class="page-header">
-        <h1 class="page-title">My Profile</h1>
-        <p class="page-sub">Manage your personal details and rental preferences.</p>
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>My Profile</h1>
+        <p>Manage your personal details and rental preferences.</p>
     </div>
 
     @if (successMsg()) {
-        <div class="alert alert-success">{{ successMsg() }}</div>
+        <div class="alert-success">{{ successMsg() }}</div>
     }
     @if (errorMsg()) {
-        <div class="alert alert-error">{{ errorMsg() }}</div>
+        <div class="alert-danger">{{ errorMsg() }}</div>
     }
 
-    <div class="profile-layout">
+    <div class="profile-split">
 
-        <div class="card">
-            <h2 class="section-title">Personal Information</h2>
+        <div class="profile-card">
+            <h2>Personal Information</h2>
 
             <div class="form-group">
                 <label>Full Name</label>
@@ -48,42 +48,42 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary" (click)="saveProfile()" [disabled]="saving()">
+            <button class="btn-save" (click)="saveProfile()" [disabled]="saving()">
                 {{ saving() ? 'Saving...' : 'Save Profile' }}
             </button>
         </div>
 
-        <div class="card">
-            <h2 class="section-title">Alert Preferences</h2>
-            <p class="pref-note">Choose how you want to receive updates and notifications.</p>
+        <div class="pref-column">
+            <h2>Alert Preferences</h2>
+            <p>Choose how you want to receive updates and notifications.</p>
 
-            <form #prefForm="ngForm" (ngSubmit)="savePreferences()">
-                <div class="pref-item">
-                    <label class="toggle-label">
+            <form class="pref-card" #prefForm="ngForm" (ngSubmit)="savePreferences()">
+                <div class="pref-group">
+                    <label class="checkbox-label">
                         <input type="checkbox" [(ngModel)]="preferenceData.emailAlerts" name="emailAlerts" />
-                        <span class="toggle-text">
+                        <span class="checkbox-desc">
                             Email Alerts
                             <small>Receive application updates, rent reminders via email</small>
                         </span>
                     </label>
                 </div>
 
-                <div class="pref-item">
-                    <label class="toggle-label">
+                <div class="pref-group">
+                    <label class="checkbox-label">
                         <input type="checkbox" [(ngModel)]="preferenceData.smsAlerts" name="smsAlerts" />
-                        <span class="toggle-text">
+                        <span class="checkbox-desc">
                             SMS Alerts
                             <small>Get SMS notifications for urgent reminders</small>
                         </span>
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-16" [disabled]="saving()">
+                <button class="btn-save" type="submit" [disabled]="saving()">
                     Save Preferences
                 </button>
             </form>
 
-            <div class="account-info mt-16">
+            <div class="account-card">
                 <h3>Account Info</h3>
                 <p>Role: <strong>{{ auth.currentUser()?.role | titlecase }}</strong></p>
                 <p>Member since: <strong>{{ auth.currentUser()?.createdAt }}</strong></p>

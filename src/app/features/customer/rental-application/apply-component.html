@@ -1,38 +1,38 @@
-<div class="page">
-  <a routerLink="/customer/properties" class="back-link">← Back to Properties</a>
+<div class="page-container">
+  <a routerLink="/customer/properties" class="btn-back">Back to Properties</a>
 
   <div class="page-header">
-    <h1 class="page-title">Rental Application</h1>
+    <h1>Rental Application</h1>
     @if (property()) {
-      <p class="page-sub">Applying for: <strong>{{ property()!.title }}</strong> — {{ property()!.rent | rentFormat }}</p>
+      <p>Applying for: <strong>{{ property()!.title }}</strong> — {{ property()!.rent | rentFormat }}</p>
     }
   </div>
 
   @if (successMsg) {
-    <div class="alert alert-success">{{ successMsg }}</div>
+    <div class="alert-success">{{ successMsg }}</div>
   }
 
   @if (errorMsg) {
-    <div class="alert alert-error">{{ errorMsg }}</div>
+    <div class="alert-danger">{{ errorMsg }}</div>
   }
 
   @if (applyForm() && !alreadyApplied()) {
-    <form [formGroup]="applyForm()!" (ngSubmit)="onSubmit()" class="apply-form card">
+    <form class="app-form" [formGroup]="applyForm()!" (ngSubmit)="onSubmit()">
 
-      <h3 class="section-head">Applicant Details</h3>
+      <h3>Applicant Details</h3>
       <div class="form-row">
         <div class="form-group">
           <label>Full Name</label>
           <input type="text" formControlName="applicantName" />
           @if (f['applicantName']?.invalid && f['applicantName']?.touched) {
-            <span class="error-msg">Name is required.</span>
+            <span class="error-text">Name is required.</span>
           }
         </div>
         <div class="form-group">
           <label>Email</label>
           <input type="email" formControlName="applicantEmail" />
           @if (f['applicantEmail']?.invalid && f['applicantEmail']?.touched) {
-            <span class="error-msg">Valid email required.</span>
+            <span class="error-text">Valid email required.</span>
           }
         </div>
       </div>
@@ -42,7 +42,7 @@
           <label>Mobile Number</label>
           <input type="tel" formControlName="applicantPhone" placeholder="10-digit mobile" />
           @if (f['applicantPhone']?.invalid && f['applicantPhone']?.touched) {
-            <span class="error-msg">
+            <span class="error-text">
               @if (f['applicantPhone']?.errors?.['invalidPhone']) {
                 {{ f['applicantPhone']?.errors?.['invalidPhone'] }}
               } @else {
@@ -55,7 +55,7 @@
           <label>Preferred Move-in Date</label>
           <input type="date" formControlName="moveInDate" />
           @if (f['moveInDate']?.invalid && f['moveInDate']?.touched) {
-            <span class="error-msg">
+            <span class="error-text">
               @if (f['moveInDate']?.errors?.['moveInTooSoon']) {
                 {{ f['moveInDate']?.errors?.['moveInTooSoon'] }}
               } @else {
@@ -71,7 +71,7 @@
           <label>Monthly Income (₹)</label>
           <input type="number" formControlName="monthlyIncome" placeholder="Your monthly income" />
           @if (f['monthlyIncome']?.invalid && f['monthlyIncome']?.touched) {
-            <span class="error-msg">
+            <span class="error-text">
               @if (f['monthlyIncome']?.errors?.['incomeTooLow']) {
                 {{ f['monthlyIncome']?.errors?.['incomeTooLow'] }}
               } @else {
@@ -84,7 +84,7 @@
           <label>Number of Occupants</label>
           <input type="number" formControlName="occupants" min="1" />
           @if (f['occupants']?.invalid && f['occupants']?.touched) {
-            <span class="error-msg">
+            <span class="error-text">
               @if (f['occupants']?.errors?.['occupancyExceeded']) {
                 {{ f['occupants']?.errors?.['occupancyExceeded'] }}
               } @else {
@@ -99,15 +99,15 @@
         <label>Message to Landlord</label>
         <textarea formControlName="message" placeholder="Tell us about yourself and your rental needs..."></textarea>
         @if (f['message']?.invalid && f['message']?.touched) {
-          <span class="error-msg">Please write a short message.</span>
+          <span class="error-text">Please write a short message.</span>
         }
       </div>
 
-      <h3 class="section-head">Supporting Documents</h3>
-      <p class="doc-hint">Select all documents you will provide:</p>
-      <div class="doc-list">
+      <h3>Supporting Documents</h3>
+      <p>Select all documents you will provide:</p>
+      <div class="docs-grid">
         @for (doc of availableDocuments; track doc) {
-          <label class="doc-item" [class.selected]="selectedDocs.includes(doc)">
+          <label class="doc-label" [class.selected]="selectedDocs.includes(doc)">
             <input type="checkbox" [checked]="selectedDocs.includes(doc)" (change)="toggleDocument(doc)" />
             {{ doc }}
           </label>
@@ -115,10 +115,10 @@
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary" [disabled]="loading">
+        <button class="btn-submit" type="submit" [disabled]="loading">
           {{ loading ? 'Submitting...' : 'Submit Application' }}
         </button>
-        <a routerLink="/customer/properties" class="btn btn-secondary">Cancel</a>
+        <a class="btn-cancel" routerLink="/customer/properties">Cancel</a>
       </div>
     </form>
   }

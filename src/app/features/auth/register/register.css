@@ -1,50 +1,97 @@
-.auth-page {
-  min-height: 100vh;
+.page-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
-  padding: 24px;
+  align-items: center;
+  min-height: calc(100vh - 240px);
+  padding: 32px 16px;
 }
 
 .auth-card {
-  background: white;
-  border-radius: 16px;
-  padding: 40px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 32px;
   width: 100%;
-  max-width: 560px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  max-width: 580px;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.03);
 }
 
-.auth-logo { font-size: 40px; text-align: center; margin-bottom: 12px; }
-.auth-title { font-size: 22px; font-weight: 700; text-align: center; color: #1e293b; margin-bottom: 4px; }
-.auth-sub { text-align: center; color: #64748b; font-size: 14px; margin-bottom: 24px; }
+.auth-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.alert-danger {
+  padding: 10px 14px;
+  background-color: rgb(255, 228, 230);
+  color: rgb(190, 24, 74);
+  border: 1px solid rgba(190, 24, 74, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
 
 .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.auth-submit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
   width: 100%;
-  padding: 11px;
-  font-size: 15px;
-  margin-top: 4px;
 }
 
-.auth-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+.form-row .form-group {
+  flex: 1;
+  min-width: 220px;
+}
 
-.auth-switch {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+.error-text {
+  display: block;
+  font-size: 12px;
+  color: rgb(190, 24, 74);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.redirect-wrapper {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
   text-align: center;
   margin-top: 20px;
-  font-size: 13.5px;
-  color: #64748b;
-}
-
-.auth-switch a { color: #2563eb; font-weight: 500; text-decoration: none; }
-
-@media (max-width: 480px) {
-  .form-row { grid-template-columns: 1fr; }
-  .auth-card { padding: 28px 20px; }
+  margin-bottom: 0;
 }

@@ -1,64 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { NotificationService } from '../../../core/services/notification-service';
-import {Notification} from '../../../core/models/notification-model';
-
-// interface Notification {
-//   id: number;
-//   title?: string;
-//   message?: string;
-//   isRead: boolean;
-//   createdAt?: string;
-// }
+import { AuthService } from '../../../core/services/auth-service';
+import { Notification } from '../../../core/models/notification-model';
 
 @Component({
-  selector: 'app-notifications',
-  standalone: true,
+  selector: 'app-customer-notifications',
   imports: [CommonModule],
   templateUrl: './notifications.html',
-  styleUrl: './notifications.css',
+  styleUrl: './notifications.css'
 })
 export class NotificationsComponent implements OnInit {
 
-  notifications: Notification[] = [];
+  notifications = signal<Notification[]>([]);
+  loading = signal(true);
 
   constructor(
-    private notificationService: NotificationService
-  ) {}
+    private notifService: NotificationService,
+    private auth: AuthService
+  ) { }
 
-  ngOnInit(): void {
-    this.loadNotifications();
+  ngOnInit() {
+    const userId = this.auth.currentUser()!.id;
+    this.notifService.getByUser(userId).subscribe({
+      next: (data) => {
+        this.notifications.set(data.reverse());
+        this.loading.set(false);
+      },
+      error: () => this.loading.set(false)
+    });
   }
 
-  loadNotifications(): void {
-    const userId = 1; 
-
-    this.notificationService
-      .getByUser(userId)
-      .subscribe({
-        next: (data) => {
-          this.notifications = data;
-        },
-        error: (err) => {
-          console.error('Failed to load notifications', err);
-        }
-      });
-  }
-
-  markAsRead(id: number): void {
-    this.notificationService
-      .markAsRead(id)
-      .subscribe(() => {
-        this.notifications = this.notifications.map(notification =>
-          notification.id === id
-            ? { ...notification, isRead: true }
-            : notification
-        );
-      });
-  }
-
-  getUnreadCount(): number {
-    return this.notifications.filter(n => !n.isRead).length;
+  markRead(notif: Notification) {
+    if (notif.isRead) return;
+    this.notifService.markAsRead(notif.id).subscribe(() => {
+      const updated = this.notifications().map(n =>
+        n.id === notif.id ? { ...n, isRead: true } : n
+      );
+      this.notifications.set(updated);
+      const count = updated.filter(n => !n.isRead).length;
+      this.notifService.unreadCount.set(count);
+    });
   }
 }

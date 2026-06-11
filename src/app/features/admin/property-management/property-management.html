@@ -1,22 +1,21 @@
-<div class="page">
-  <div class="flex-between page-header">
-    <div>
-      <h1 class="page-title">Property Management</h1>
-      <p class="page-sub">Add, update, and manage all rental properties.</p>
+<div class="page-container">
+  <div class="page-header">
+    <div class="header-title">
+      <h1>Property Management</h1>
+      <p>Add, update, and manage all rental properties.</p>
     </div>
-    <button class="btn btn-primary" (click)="showAddForm.set(!showAddForm())">
+    <button class="btn-add" (click)="showAddForm.set(!showAddForm())">
       {{ showAddForm() ? 'Cancel' : '+ Add Property' }}
     </button>
   </div>
 
   @if (successMsg()) {
-    <div class="alert alert-success">{{ successMsg() }}</div>
+    <div class="alert-success">{{ successMsg() }}</div>
   }
 
-
   @if (showAddForm()) {
-    <div class="card mb-16">
-      <h3 class="form-section-title">Add New Property</h3>
+    <div class="form-card">
+      <h3 class="card-title">Add New Property</h3>
       <div class="form-row">
         <div class="form-group">
           <label>Title</label>
@@ -79,14 +78,15 @@
         <label>Description</label>
         <textarea [(ngModel)]="newProperty.description" placeholder="Brief description..."></textarea>
       </div>
-      <button class="btn btn-primary" (click)="addProperty()">Add Property</button>
+      <div class="form-actions">
+        <button class="btn-submit" (click)="addProperty()">Add Property</button>
+      </div>
     </div>
   }
 
-
   @if (showEditForm()) {
-    <div class="card mb-16">
-      <h3 class="form-section-title">Edit Property</h3>
+    <div class="form-card">
+      <h3 class="card-title">Edit Property</h3>
       <div class="form-row">
         <div class="form-group">
           <label>Title</label>
@@ -149,18 +149,18 @@
         <label>Description</label>
         <textarea [(ngModel)]="editPropertyData.description" placeholder="Brief description..."></textarea>
       </div>
-      <div class="flex-row gap-8" style="display: flex; gap: 8px;">
-        <button class="btn btn-primary" (click)="saveEdit()">Save Changes</button>
-        <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+      <div class="form-actions">
+        <button class="btn-submit" (click)="saveEdit()">Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
       </div>
     </div>
   }
 
-
   @if (loading()) {
-    <div class="loading">Loading properties...</div>
-  } @else {
-    <div class="card table-wrap">
+    <div class="list-placeholder">Loading properties...</div>
+  } 
+  @else {
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -185,17 +185,17 @@
               <td>{{ prop.rent | rentFormat }}</td>
               <td>{{ prop.furnishing }}</td>
               <td>
-                <span class="avail-toggle" [class.avail]="prop.available" [class.unavail]="!prop.available">
+                <span class="status-badge" [class.available]="prop.available" [class.unavailable]="!prop.available">
                   {{ prop.available ? 'Available' : 'Unavailable' }}
                 </span>
               </td>
               <td>
-                <div class="action-btns">
-                  <button class="btn-sm" (click)="startEdit(prop)">Edit</button>
-                  <button class="btn-sm" (click)="toggleAvailability(prop)">
+                <div class="cell-actions">
+                  <button class="btn-action" (click)="startEdit(prop)">Edit</button>
+                  <button class="btn-action" (click)="toggleAvailability(prop)">
                     {{ prop.available ? 'Mark Unavailable' : 'Mark Available' }}
                   </button>
-                  <button class="btn-sm danger" (click)="deleteProperty(prop.id)">Delete</button>
+                  <button class="btn-danger" (click)="deleteProperty(prop.id)">Delete</button>
                 </div>
               </td>
             </tr>

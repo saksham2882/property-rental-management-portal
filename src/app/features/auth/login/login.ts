@@ -6,7 +6,6 @@ import { AuthService } from '../../../core/services/auth-service';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
@@ -61,4 +60,18 @@ export class LoginComponent {
 
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
+
+  fillCredentials(role: 'admin' | 'customer') {
+    if (role === 'admin') {
+      this.loginForm.patchValue({
+        email: 'admin@rental.com',
+        password: 'admin123'
+      });
+    } else {
+      this.loginForm.patchValue({
+        email: 'rahul@gmail.com',
+        password: 'rahul123'
+      });
+    }
+  }
 }

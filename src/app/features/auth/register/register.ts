@@ -7,7 +7,6 @@ import { phoneValidator } from '../../../shared/validators/rental-validators';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css'

@@ -1,19 +1,18 @@
-<div class="auth-page">
+<div class="page-container">
   <div class="auth-card">
-    <div class="auth-logo"></div>
     <h1 class="auth-title">Welcome to RentEasy</h1>
-    <p class="auth-sub">Sign in to your account</p>
+    <p class="auth-subtitle">Sign in to your account</p>
 
     @if (errorMsg) {
-      <div class="alert alert-error">{{ errorMsg }}</div>
+      <div class="alert-danger">{{ errorMsg }}</div>
     }
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email Address</label>
         <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
         @if (email?.invalid && email?.touched) {
-          <span class="error-msg">
+          <span class="error-text">
             @if (email?.errors?.['required']) { Email is required. }
             @if (email?.errors?.['email']) { Enter a valid email address. }
           </span>
@@ -24,26 +23,32 @@
         <label for="password">Password</label>
         <input id="password" type="password" formControlName="password" placeholder="••••••••" />
         @if (password?.invalid && password?.touched) {
-          <span class="error-msg">
+          <span class="error-text">
             @if (password?.errors?.['required']) { Password is required. }
             @if (password?.errors?.['minlength']) { Password must be at least 6 characters. }
           </span>
         }
       </div>
 
-      <button type="submit" class="btn btn-primary auth-submit" [disabled]="loading">
+      <button class="btn-submit" type="submit" [disabled]="loading">
         {{ loading ? 'Signing in...' : 'Sign In' }}
       </button>
     </form>
 
-    <p class="auth-switch">
+    <p class="redirect-wrapper">
       Don't have an account? <a routerLink="/auth/register">Register here</a>
     </p>
 
-    <div class="demo-creds">
-      <p><strong>Demo Credentials:</strong></p>
-      <p>Admin: admin&#64;rental.com / admin123</p>
-      <p>Customer: rahul&#64;gmail.com / rahul123</p>
+    <div class="demo-credentials">
+      <p class="demo-label">Quick Demo Access:</p>
+      <div class="demo-buttons">
+        <button type="button" class="btn-demo" (click)="fillCredentials('customer')">
+          Customer Demo
+        </button>
+        <button type="button" class="btn-demo" (click)="fillCredentials('admin')">
+          Admin Demo
+        </button>
+      </div>
     </div>
   </div>
 </div>

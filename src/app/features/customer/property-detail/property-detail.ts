@@ -9,7 +9,6 @@ import { AuthService } from '../../../core/services/auth-service';
 
 @Component({
   selector: 'app-property-detail',
-  standalone: true,
   imports: [CommonModule, RouterLink, RentFormatPipe],
   templateUrl: './property-detail.html',
   styleUrl: './property-detail.css'
