@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Notification } from '../models/notification.model';
+import { Notification } from '../models/notification-model';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {

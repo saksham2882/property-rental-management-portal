@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MaintenanceRequest } from '../models/maintenance.model';
+import { MaintenanceRequest } from '../models/maintenance-model';
 
 @Injectable({ providedIn: 'root' })
 export class MaintenanceService {

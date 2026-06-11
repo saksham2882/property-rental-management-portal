@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropertyService } from '../../../core/services/property.service';
 import { Property } from '../../../core/models/property-model';
-import { RentFormatPipe } from '../../../shared/pipes/rent-format-pipe';
+import { RentFormatPipe } from '../../../shared/pipes/rent-format.pipe';
 
 @Component({
   selector: 'app-property-management',
