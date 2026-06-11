@@ -1,1 +1,83 @@
-<p>property-detail works!</p>
+<div class="page">
+  @if (loading()) {
+    <div class="loading">Loading property details...</div>
+  } @else if (property()) {
+    @let p = property()!;
+
+    <a routerLink="/customer/properties" class="back-link">← Back to Listings</a>
+
+    <div class="detail-layout">
+      
+      <div class="image-section">
+        <div class="main-image">
+          <img [src]="p.images[activeImageIndex()]" [alt]="p.title" />
+          <span class="avail-badge" [class.avail]="p.available" [class.unavail]="!p.available">
+            {{ p.available ? 'Available' : 'Not Available' }}
+          </span>
+        </div>
+        @if (p.images.length > 1) {
+          <div class="thumbnail-row">
+            @for (img of p.images; track $index) {
+              <img [src]="img" (click)="selectImage($index)"
+                   [class.active-thumb]="activeImageIndex() === $index" class="thumb" />
+            }
+          </div>
+        }
+      </div>
+
+      
+      <div class="info-section">
+        <h1 class="detail-title">{{ p.title }}</h1>
+        <p class="detail-loc">{{ p.locality }}, {{ p.city }}</p>
+
+        <div class="detail-meta">
+          <span>{{ p.bedrooms }} BHK</span>
+          <span>{{ p.bathrooms }} Bath</span>
+          <span>{{ p.area }} sqft</span>
+          <span>{{ p.furnishing }}</span>
+        </div>
+
+        <div class="price-box">
+          <span class="rent-big">{{ p.rent | rentFormat }}</span>
+          <span class="deposit-info">Deposit: ₹{{ p.deposit | number }}</span>
+        </div>
+
+        <p class="detail-desc">{{ p.description }}</p>
+
+        <div class="amenities-section">
+          <h3>Amenities</h3>
+          <div class="amenity-tags">
+            @for (a of p.amenities; track a) {
+              <span class="amenity-tag">✓ {{ a }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="avail-info">
+          <span>Available from: <strong>{{ p.availableFrom }}</strong></span>
+          <span>Type: <strong>{{ p.type }}</strong></span>
+        </div>
+
+        @if (p.available && auth.isCustomer()) {
+          @if (alreadyApplied()) {
+            <button class="btn btn-secondary apply-btn" style="background-color: #6c757d; color: #fff; cursor: not-allowed;" disabled>
+              Already Applied
+            </button>
+          } @else {
+            <a [routerLink]="['/customer/apply', p.id]" class="btn btn-primary apply-btn">
+              Apply Now →
+            </a>
+          }
+        } @else if (!p.available) {
+          <button class="btn btn-secondary apply-btn" disabled>Property Not Available</button>
+        }
+      </div>
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p>Property not found.</p>
+      <a routerLink="/customer/properties">← Back to Listings</a>
+    </div>
+  }
+</div>
+
