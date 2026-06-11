@@ -1,0 +1,51 @@
+.back-link { display: inline-block; color: #3b82f6; text-decoration: none; font-size: 13.5px; margin-bottom: 20px; }
+
+.apply-form { max-width: 760px; }
+
+.section-head {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 20px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.doc-hint { font-size: 13px; color: #64748b; margin-bottom: 10px; }
+
+.doc-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  transition: all 0.2s;
+}
+
+.doc-item.selected {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.doc-item input { cursor: pointer; }
+
+.form-actions { display: flex; gap: 12px; margin-top: 20px; }
+
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }

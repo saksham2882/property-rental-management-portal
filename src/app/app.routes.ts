@@ -43,11 +43,11 @@ export const routes: Routes = [
             },
             {
                 path: 'applications',
-                loadComponent: () => import('./features/customer/rental-application/rental-application').then(a => a.RentalApplication)
+                loadComponent: () => import('./features/customer/rental-application/application-list').then(a => a.ApplicationListComponent)
             },
             {
                 path: 'apply/:propertyId',
-                loadComponent: () => import('./features/customer/rental-application/rental-application').then(r => r.RentalApplication)
+                loadComponent: () => import('./features/customer/rental-application/apply-component').then(r => r.ApplyComponent)
             },
             {
                 path: 'maintenance',

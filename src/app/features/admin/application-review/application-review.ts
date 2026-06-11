@@ -1,10 +1,10 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApplicationService } from '../../../core/services/application-service';
-import { NotificationService } from '../../../core/services/notification.service';
-import { PropertyService } from '../../../core/services/property.service';
+import { NotificationService } from '../../../core/services/notification-service';
+import { PropertyService } from '../../../core/services/property-service';
 import { LeaseService } from '../../../core/services/lease-service';
-import { RentService } from '../../../core/services/rent.service';
+import { RentService } from '../../../core/services/rent-service';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge/status-badge';
 import { RentalApplication } from '../../../core/models/application-model';
 import { forkJoin } from 'rxjs';
