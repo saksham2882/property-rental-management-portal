@@ -1,8 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaintenanceService } from '../../../core/services/maintenance-service';
-import { NotificationService } from '../../../core/services/notification-service';
+import { MaintenanceService } from '../../../core/services/maintenance.service';
+import { NotificationService } from '../../../core/services/notification.service';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge/status-badge';
 import { MaintenanceRequest } from '../../../core/models/maintenance-model';
 
