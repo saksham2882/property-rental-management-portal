@@ -1,4 +1,4 @@
-<div class="property-card">
+<div class="property-card" [appHighlight]="'rgb(240, 253, 250)'">
   <div class="card-image-wrapper">
     <img class="card-img" [src]="property.images[0]" [alt]="property.title" loading="lazy" />
     <span class="availability-badge" [class.available]="property.available" [class.unavailable]="!property.available">
