@@ -2,15 +2,15 @@ import { Component, signal } from '@angular/core';
 import { AuthService } from '../../../core/services/auth-service';
 import { ApplicationService } from '../../../core/services/application-service';
 import { LeaseService } from '../../../core/services/lease-service';
-import { RentService } from '../../../core/services/rent.service';
-import { MaintenanceService } from '../../../core/services/maintenance.service';
+import { RentService } from '../../../core/services/rent-service';
+import { MaintenanceService } from '../../../core/services/maintenance-service';
 import { RouterLink } from '@angular/router';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge/status-badge';
 import { RentFormatPipe } from '../../../shared/pipes/rent-format.pipe';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, StatusBadgeComponent, RentFormatPipe],
+  imports: [RouterLink, StatusBadgeComponent,RentFormatPipe],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })

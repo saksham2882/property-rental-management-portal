@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth-service';
-import { NotificationService } from '../../../core/services/notification.service';
+import { NotificationService } from '../../../core/services/notification-service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
