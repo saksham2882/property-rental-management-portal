@@ -35,11 +35,11 @@ export const routes: Routes = [
             },
             {
                 path: 'properties',
-                loadComponent: () => import('./features/customer/property-catalog/property-catalog').then(p => p.PropertyCatalog)
+                loadComponent: () => import('./features/customer/property-catalog/property-catalog').then(p => p.PropertyCatalogComponent)
             },
             {
                 path: 'properties/:id',
-                loadComponent: () => import('./features/customer/property-detail/property-detail').then(p => p.PropertyDetail)
+                loadComponent: () => import('./features/customer/property-detail/property-detail').then(p => p.PropertyDetailComponent)
             },
             {
                 path: 'applications',
