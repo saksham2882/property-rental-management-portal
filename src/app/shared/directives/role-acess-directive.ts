@@ -1,7 +1,6 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthService } from '../../core/services/auth-service';
 
-// Usage: *appRoleAccess="'admin'"  or  *appRoleAccess="'customer'"
 @Directive({
   selector: '[appRoleAccess]',
   standalone: true
