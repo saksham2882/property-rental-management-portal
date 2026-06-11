@@ -65,23 +65,23 @@ export const routes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                loadComponent: () => import('./features/admin/dashboard/dashboard').then(d => d.Dashboard)
+                loadComponent: () => import('./features/admin/dashboard/admin-dashboard').then(d => d.AdminDashboard)
             },
             {
                 path: 'properties',
-                loadComponent: () => import('./features/admin/property-management/property-management').then(p => p.PropertyManagement)
+                loadComponent: () => import('./features/admin/property-management/property-management').then(p => p.PropertyManagementComponent)
             },
             {
                 path: 'applications',
-                loadComponent: () => import('./features/admin/application-review/application-review').then(a => a.ApplicationReview)
+                loadComponent: () => import('./features/admin/application-review/application-review').then(a => a.ApplicationReviewComponent)
             },
             {
                 path: 'maintenance',
-                loadComponent: () => import('./features/admin/maintenance-management/maintenance-management').then(m => m.MaintenanceManagement)
+                loadComponent: () => import('./features/admin/maintenance-management/maintenance-management').then(m => m.MaintenanceManagementComponent)
             },
             {
                 path: 'notifications',
-                loadComponent: () => import('./features/admin/notifications/notifications').then(n => n.Notifications)
+                loadComponent: () => import('./features/admin/notifications/admin-notifications').then(n => n.AdminNotificationsComponent)
             }
         ]
     },
