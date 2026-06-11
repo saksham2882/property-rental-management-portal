@@ -6,7 +6,7 @@ import { PropertyService } from '../../../core/services/property.service';
 import { LeaseService } from '../../../core/services/lease-service';
 import { RentService } from '../../../core/services/rent.service';
 import { StatusBadgeComponent } from '../../../shared/components/status-badge/status-badge';
-import { RentalApplication } from '../../../core/models/application.model';
+import { RentalApplication } from '../../../core/models/application-model';
 import { forkJoin } from 'rxjs';
 
 @Component({
