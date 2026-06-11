@@ -11,8 +11,8 @@ import { PropertyFilter } from '../../../core/models/property-model';
   selector: 'app-property-catalog',
   standalone: true,
   imports: [CommonModule, FormsModule, PropertyCardComponent],
-  templateUrl: './property-catalog.component.html',
-  styleUrl: './property-catalog.component.css'
+  templateUrl: './property-catalog.html',
+  styleUrl: './property-catalog.css'
 })
 export class PropertyCatalogComponent implements OnInit {
 

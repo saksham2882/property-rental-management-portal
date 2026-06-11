@@ -7,7 +7,7 @@ import {
   loadProperties,
   loadPropertiesSuccess,
   loadPropertiesFailure
-} from './property-actions';
+} from './property-actions';24
 
 @Injectable()
 export class PropertyEffects {

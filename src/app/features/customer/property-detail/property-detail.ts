@@ -11,8 +11,8 @@ import { AuthService } from '../../../core/services/auth-service';
   selector: 'app-property-detail',
   standalone: true,
   imports: [CommonModule, RouterLink, RentFormatPipe],
-  templateUrl: './property-detail.component.html',
-  styleUrl: './property-detail.component.css'
+  templateUrl: './property-detail.html',
+  styleUrl: './property-detail.css'
 })
 export class PropertyDetailComponent implements OnInit {
 
