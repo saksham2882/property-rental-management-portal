@@ -51,7 +51,7 @@ export const routes: Routes = [
             },
             {
                 path: 'maintenance',
-                loadComponent: () => import('./features/customer/maintenance/maintenance').then(m => m.Maintenance)
+                loadComponent: () => import('./features/customer/maintenance/maintenance').then(m => m.MaintenanceComponent)
             },
             {
                 path: 'notifications',
