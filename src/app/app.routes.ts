@@ -81,7 +81,7 @@ export const routes: Routes = [
             },
             {
                 path: 'notifications',
-                loadComponent: () => import('./features/admin/notifications/notifications').then(n => n.Notifications)
+                loadComponent: () => import('./features/admin/notifications/admin-notifications').then(n => n.Notifications)
             }
         ]
     },

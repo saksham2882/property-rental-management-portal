@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PropertyService } from '../../../core/services/property-service';
+import { PropertyService } from '../../../core/services/property.service';
 import { Property } from '../../../core/models/property-model';
 import { RentFormatPipe } from '../../../shared/pipes/rent-format-pipe';
 

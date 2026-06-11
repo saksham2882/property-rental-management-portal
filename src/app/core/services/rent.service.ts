@@ -17,22 +17,22 @@ export class RentService {
 
   getByTenant(tenantId: any): Observable<Rent[]> {
     return this.http.get<Rent[]>(this.apiUrl).pipe(
-      map(rents =>
-        rents.filter(
-          r => String(r.tenantId) === String(tenantId)
-        )
-      )
+      map(rents => rents.filter(r => String(r.tenantId) === String(tenantId)))
     );
   }
 
-  getById(id: number): Observable<Rent> {
-    return this.http.get<Rent>(`${this.apiUrl}/${id}`);
+  getByLease(leaseId: any): Observable<Rent[]> {
+    return this.http.get<Rent[]>(this.apiUrl).pipe(
+      map(rents => rents.filter(r => String(r.leaseId) === String(leaseId)))
+    );
   }
 
-  updateStatus(id: number, status: string): Observable<Rent> {
-    return this.http.patch<Rent>(
-      `${this.apiUrl}/${id}`,
-      { status }
-    );
+  markPaid(id: number): Observable<Rent> {
+    const paidDate = new Date().toISOString().split('T')[0];
+    return this.http.patch<Rent>(`${this.apiUrl}/${id}`, { status: 'paid', paidDate });
+  }
+
+  create(rent: Partial<Rent>): Observable<Rent> {
+    return this.http.post<Rent>(this.apiUrl, rent);
   }
 }
