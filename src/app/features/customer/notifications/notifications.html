@@ -1,1 +1,68 @@
-<p>notifications works!</p>
+<div class="notifications-page">
+
+  <div class="header">
+    <h2>Notifications</h2>
+
+    <span class="badge">
+      {{ getUnreadCount() }} Unread
+    </span>
+  </div>
+
+  @if (notifications.length === 0) {
+
+    <div class="empty-state">
+      <h3>No Notifications</h3>
+      <p>You don't have any notifications yet.</p>
+    </div>
+
+  }
+
+  @for (notification of notifications; track notification.id) {
+
+    <div
+      class="notification-card"
+      [class.unread]="!notification.isRead"
+      [class.success]="notification.type === 'success'"
+      [class.warning]="notification.type === 'warning'"
+      [class.info]="notification.type === 'info'"
+      [class.error]="notification.type === 'error'">
+
+      <div class="notification-content">
+
+        <div class="title-row">
+
+          <h4>{{ notification.title }}</h4>
+
+          <span class="type-badge">
+            {{ notification.type }}
+          </span>
+
+        </div>
+
+        <p>
+          {{ notification.message }}
+        </p>
+
+        <small>
+          {{ notification.createdAt }}
+        </small>
+
+      </div>
+
+      @if (!notification.isRead) {
+
+        <button
+          class="read-btn"
+          (click)="markAsRead(notification.id)">
+
+          Mark Read
+
+        </button>
+
+      }
+
+    </div>
+
+  }
+
+</div>
