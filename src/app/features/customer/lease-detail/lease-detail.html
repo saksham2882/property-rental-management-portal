@@ -1,0 +1,61 @@
+<div class="page">
+  <div class="page-header">
+    <h1 class="page-title">My Lease Details</h1>
+    <p class="page-sub">View your active and past lease agreements.</p>
+  </div>
+
+  @if (loading()) {
+    <div class="loading">Loading lease information...</div>
+  } @else if (leases().length === 0) {
+    <div class="empty-state card">
+      <p>No lease records found. Your approved application will generate a lease.</p>
+    </div>
+  } @else {
+    @for (lease of leases(); track lease.id) {
+      <div class="lease-card card mb-16">
+        <div class="lease-header">
+          <div>
+            <h2 class="lease-prop"> {{ lease.propertyTitle }}</h2>
+            <p class="lease-id">Lease #{{ lease.id }}</p>
+          </div>
+          <app-status-badge [status]="lease.status"></app-status-badge>
+        </div>
+
+        <div class="lease-grid">
+          <div class="lease-item">
+            <span class="li-label">Start Date</span>
+            <span class="li-value">{{ lease.startDate }}</span>
+          </div>
+          <div class="lease-item">
+            <span class="li-label">End Date</span>
+            <span class="li-value">{{ lease.endDate }}</span>
+          </div>
+          <div class="lease-item">
+            <span class="li-label">Monthly Rent</span>
+            <span class="li-value rent">{{ lease.monthlyRent | rentFormat }}</span>
+          </div>
+          <div class="lease-item">
+            <span class="li-label">Security Deposit</span>
+            <span class="li-value">₹{{ lease.deposit | number }}</span>
+          </div>
+          @if (lease.status === 'active') {
+            <div class="lease-item">
+              <span class="li-label">Days Remaining</span>
+              <span class="li-value" [class.warning-text]="daysRemaining(lease.endDate) < 30">
+                {{ daysRemaining(lease.endDate) }} days
+                @if (daysRemaining(lease.endDate) < 30) {Expiring soon }
+              </span>
+            </div>
+          }
+        </div>
+
+        @if (lease.conditions) {
+          <div class="conditions-box">
+            <h4>Lease Conditions</h4>
+            <p>{{ lease.conditions }}</p>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

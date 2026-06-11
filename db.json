@@ -39,6 +39,18 @@
       "role": "customer",
       "createdAt": "2026-06-11",
       "id": "vzKixjDNrcY"
+    },
+    {
+      "name": "Siddhant Singh",
+      "email": "abc@gmail.com",
+      "phone": "9157295628",
+      "city": "Pune",
+      "password": "123456",
+      "budgetMin": 100000,
+      "budgetMax": 1000000,
+      "role": "customer",
+      "createdAt": "2026-06-11",
+      "id": "KINzdEgqkfQ"
     }
   ],
   "properties": [
@@ -110,7 +122,7 @@
       "rent": 45000,
       "deposit": 135000,
       "furnishing": "Unfurnished",
-      "available": true,
+      "available": false,
       "availableFrom": "2024-07-01",
       "area": 1800,
       "description": "Independent villa with large garden, great for families looking for space and privacy.",
@@ -335,6 +347,23 @@
       "status": "approved",
       "appliedAt": "2026-06-10",
       "id": "M1tvMcglVNU"
+    },
+    {
+      "applicantName": "Siddhant Singh",
+      "applicantEmail": "abc@gmail.com",
+      "applicantPhone": "9157295628",
+      "moveInDate": "2026-06-20",
+      "monthlyIncome": 30000000,
+      "occupants": 4,
+      "message": "hgcghcmhncmnvvhgvcgvgcnhgcnhgc",
+      "propertyId": "3",
+      "customerId": "KINzdEgqkfQ",
+      "documents": [
+        "Income Certificate"
+      ],
+      "status": "approved",
+      "appliedAt": "2026-06-11",
+      "id": "4fxeYaBwmR8"
     }
   ],
   "leases": [
@@ -376,6 +405,19 @@
       "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
       "propertyTitle": "2 BHK Flat in Aundh",
       "id": "D2M2N7yFdhw"
+    },
+    {
+      "applicationId": "4fxeYaBwmR8",
+      "propertyId": 3,
+      "tenantId": "KINzdEgqkfQ",
+      "startDate": "2026-06-20",
+      "endDate": "2027-06-19",
+      "monthlyRent": 45000,
+      "deposit": 135000,
+      "status": "active",
+      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
+      "propertyTitle": "3 BHK Villa in Kothrud",
+      "id": "oPSMVmCbIjk"
     }
   ],
   "rents": [
@@ -498,6 +540,46 @@
       "paidDate": null,
       "status": "pending",
       "id": "HVdlpqdJmyc"
+    },
+    {
+      "leaseId": "oPSMVmCbIjk",
+      "tenantId": "KINzdEgqkfQ",
+      "month": "June 2026",
+      "amount": 45000,
+      "dueDate": "2026-06-05",
+      "paidDate": null,
+      "status": "overdue",
+      "id": "-TROyYoioLg"
+    },
+    {
+      "leaseId": "oPSMVmCbIjk",
+      "tenantId": "KINzdEgqkfQ",
+      "month": "July 2026",
+      "amount": 45000,
+      "dueDate": "2026-07-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "i3Nw-6azAXE"
+    },
+    {
+      "leaseId": "oPSMVmCbIjk",
+      "tenantId": "KINzdEgqkfQ",
+      "month": "August 2026",
+      "amount": 45000,
+      "dueDate": "2026-08-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "WhybHa3lNw4"
+    },
+    {
+      "leaseId": "oPSMVmCbIjk",
+      "tenantId": "KINzdEgqkfQ",
+      "month": "September 2026",
+      "amount": 45000,
+      "dueDate": "2026-09-05",
+      "paidDate": null,
+      "status": "pending",
+      "id": "wxyAHR8xDoU"
     }
   ],
   "maintenanceRequests": [
@@ -508,7 +590,7 @@
       "category": "Plumbing",
       "description": "Bathroom tap is leaking continuously.",
       "urgency": "high",
-      "status": "resolved",
+      "status": "Resolved",
       "raisedAt": "2024-06-15",
       "resolvedAt": "2026-06-10",
       "adminNote": "Replaced the tap. Issue resolved."
@@ -548,6 +630,18 @@
       "resolvedAt": "2026-06-10",
       "adminNote": "",
       "id": "lT64Oe2xvT4"
+    },
+    {
+      "category": "Carpentry",
+      "description": "Tera darwaaza phat gaya hai theek kara.",
+      "urgency": "low",
+      "propertyId": 3,
+      "tenantId": "KINzdEgqkfQ",
+      "status": "pending",
+      "raisedAt": "2026-06-11",
+      "resolvedAt": null,
+      "adminNote": "",
+      "id": "n1A3xOr8laI"
     }
   ],
   "notifications": [
@@ -676,6 +770,42 @@
       "isRead": true,
       "createdAt": "2026-06-10",
       "id": "2I1JXjEpWng"
+    },
+    {
+      "userId": 2,
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Plumbing) status is now: Resolved.",
+      "type": "info",
+      "isRead": true,
+      "createdAt": "2026-06-11",
+      "id": "tRHPNbec4lw"
+    },
+    {
+      "userId": "KINzdEgqkfQ",
+      "title": "Application Submitted",
+      "message": "Your application for \"3 BHK Villa in Kothrud\" has been submitted and is under review.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-11",
+      "id": "sFVjVLqACUk"
+    },
+    {
+      "userId": "KINzdEgqkfQ",
+      "title": "Application approved",
+      "message": "Your rental application #4fxeYaBwmR8 has been approved.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-06-11",
+      "id": "M0TJsQpphaM"
+    },
+    {
+      "userId": "KINzdEgqkfQ",
+      "title": "Maintenance Request Submitted",
+      "message": "Your maintenance request (Carpentry) has been raised.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-11",
+      "id": "2UkVUsJzQ2g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
