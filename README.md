@@ -4,78 +4,70 @@ Welcome to the **Property Rental & Tenant Management Portal**—a state-of-the-a
 
 ---
 
-## 🚀 Complete Project Workflow & Component Architecture
+## 🚀 System Workflows & Component Architecture
 
-Below is the end-to-end component flow and system architecture, illustrating routing, services, role separation, and local database integration.
+To guarantee rendering compatibility on GitHub and keep the documentation clean, the application workflow is divided into three lightweight component flows:
+
+### 1. Authentication & Route Protection
+This flow illustrates the user entry route, credential check via `AuthService`, and role protection using Angular Guards.
 
 ```mermaid
 graph TD
-    %% Define styles / themes
-    classDef auth fill:#fdf2f8,stroke:#db2777,stroke-width:2px;
-    classDef admin fill:#eff6ff,stroke:#2563eb,stroke-width:2px;
-    classDef customer fill:#ecfdf5,stroke:#059669,stroke-width:2px;
-    classDef core fill:#fef3c7,stroke:#d97706,stroke-width:2px;
-    classDef shared fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px;
+    Start([App Landing]) --> Redirect[Redirect to /auth/login]
+    Redirect --> LoginComponent[LoginComponent]
+    LoginComponent --> RegisterComponent[RegisterComponent]
+    RegisterComponent -->|Registration Success| LoginComponent
+    LoginComponent -->|Submit Credentials| AuthService[AuthService]
+    AuthService --> Router{Role Check}
+    Router -->|is Admin?| adminGuard[adminGuard] --> AdminDashboard[AdminDashboard]
+    Router -->|is Customer?| authGuard[authGuard] --> Dashboard[Dashboard]
+```
+
+### 2. Customer / Tenant Journey
+This flow traces customer behaviors, input validations, property browsing, submitting applications, and raising maintenance complaints.
+
+```mermaid
+graph TD
+    Dashboard[Dashboard] --> PropertyCatalogComponent[PropertyCatalogComponent]
+    Dashboard --> ApplicationListComponent[ApplicationListComponent]
+    Dashboard --> MaintenanceComponent[MaintenanceComponent]
+    Dashboard --> Profile[Profile]
     
-    subgraph Welcome ["Entry & Authentication Flow"]
-        StartNode(["App Landing / Redirect"]) --> LoginComp["LoginComponent<br/>(auth/login)"]
-        LoginComp --> RegisterComp["RegisterComponent<br/>(auth/register)"]
-        RegisterComp -->|Sign Up Success| LoginComp
-    end
-
-    subgraph AuthGuardSec ["Route Protection & Roles"]
-        LoginComp -->|Submit Credentials| AuthService["AuthService<br/>(auth-service.ts)"]
-        AuthService -->|Authenticate & Store Session| RouterGuard{"Route Guard Check"}
-        RouterGuard -->|is Admin?| AdminGuard["AdminGuard<br/>(admin-guard.ts)"]
-        RouterGuard -->|is Customer?| AuthGuard["AuthGuard<br/>(auth-guard.ts)"]
-    end
+    PropertyCatalogComponent -->|View Card| PropertyCardComponent[PropertyCardComponent]
+    PropertyCardComponent -->|View Details| PropertyDetailComponent[PropertyDetailComponent]
+    PropertyDetailComponent -->|Apply Now| ApplyComponent[ApplyComponent]
     
-    subgraph AdminModule ["Admin Operations Portal"]
-        AdminGuard -->|Allow Access| AdminDashboard["AdminDashboardComponent<br/>(admin/dashboard)"]
-        
-        AdminDashboard --> AdminPropMgmt["PropertyManagementComponent<br/>(admin/properties)"]
-        AdminDashboard --> AdminTenantMgmt["TenantManagementComponent<br/>(admin/tenants)"]
-        AdminDashboard --> AdminAppReview["ApplicationReviewComponent<br/>(admin/applications)"]
-        AdminDashboard --> AdminMaintMgmt["MaintenanceManagementComponent<br/>(admin/maintenance)"]
-        AdminDashboard --> AdminNotif["AdminNotificationsComponent<br/>(admin/notifications)"]
-
-        AdminPropMgmt -->|Add/Edit/Delete| PropertyService["PropertyService<br/>(property-service.ts)"]
-        AdminAppReview -->|Approve/Reject Application| ApplicationService["ApplicationService<br/>(application-service.ts)"]
-        AdminAppReview -->|Creates Active Lease| LeaseService["LeaseService<br/>(lease-service.ts)"]
-        AdminMaintMgmt -->|Assign Priority & Status Update| MaintenanceService["MaintenanceService<br/>(maintenance-service.ts)"]
-    end
+    ApplyComponent -->|Validate Inputs| RentalValidators[RentalValidators]
+    ApplyComponent -->|Submit Rental Application| ApplicationService[ApplicationService]
+    ApplicationService -->|Save Request| DB[(Local DB)]
     
-    subgraph CustomerModule ["Customer / Tenant Portal"]
-        AuthGuard -->|Allow Access| CustomerDashboard["DashboardComponent<br/>(customer/dashboard)"]
-        
-        CustomerDashboard --> PropCatalog["PropertyCatalogComponent<br/>(customer/properties)"]
-        CustomerDashboard --> CustMaint["MaintenanceComponent<br/>(customer/maintenance)"]
-        CustomerDashboard --> CustProfile["ProfileComponent<br/>(customer/profile)"]
-        CustomerDashboard --> CustNotif["NotificationsComponent<br/>(customer/notifications)"]
-        CustomerDashboard --> CustAppList["ApplicationListComponent<br/>(customer/applications)"]
-        
-        PropCatalog -->|View Detail| PropDetail["PropertyDetailComponent<br/>(customer/properties/:id)"]
-        PropDetail -->|Apply| CustApply["ApplyComponent<br/>(customer/apply/:propertyId)"]
-        
-        CustApply -->|Validate Inputs| CustomValidators["RentalValidators<br/>(rental-validators.ts)"]
-        CustApply -->|Submit Rental Request| ApplicationService
-        CustMaint -->|Submit Issue Ticket| MaintenanceService
-        CustProfile -->|View Active Lease Agreement| LeaseService
-    end
+    MaintenanceComponent -->|Submit Ticket| MaintenanceService[MaintenanceService]
+    MaintenanceService -->|Save Complaint| DB
+    
+    Profile -->|Fetch Lease Details| LeaseService[LeaseService]
+    LeaseService -->|Retrieve Lease| DB
+```
 
-    subgraph DataStore ["State & Data Management"]
-        PropertyService <--> NgRxStore["NgRx Store<br/>(store/property)"]
-        ApplicationService <--> DB["Local Backend DB<br/>(db.json via JSON-Server)"]
-        MaintenanceService <--> DB
-        LeaseService <--> DB
-    end
+### 3. Admin Operations Portal
+This flow details administration options, portfolio handling, applications appraisal, and lease setups.
 
-    %% Apply Classes
-    class LoginComp,RegisterComp auth;
-    class AdminDashboard,AdminPropMgmt,AdminTenantMgmt,AdminAppReview,AdminMaintMgmt,AdminNotif admin;
-    class CustomerDashboard,PropCatalog,PropDetail,CustApply,CustMaint,CustProfile,CustNotif,CustAppList customer;
-    class AuthService,PropertyService,ApplicationService,LeaseService,MaintenanceService,CustomValidators core;
-    class RouterGuard,AdminGuard,AuthGuard shared;
+```mermaid
+graph TD
+    AdminDashboard[AdminDashboard] --> PropertyManagementComponent[PropertyManagementComponent]
+    AdminDashboard --> ApplicationReviewComponent[ApplicationReviewComponent]
+    AdminDashboard --> TenantManagementComponent[TenantManagementComponent]
+    AdminDashboard --> MaintenanceManagementComponent[MaintenanceManagementComponent]
+    
+    PropertyManagementComponent -->|CRUD Operations| PropertyService[PropertyService]
+    PropertyService -->|Fetch & Update State| DB[(Local DB)]
+    
+    ApplicationReviewComponent -->|Approve & Create Lease| LeaseService[LeaseService]
+    ApplicationReviewComponent -->|Reject Application| ApplicationService[ApplicationService]
+    LeaseService -->|Save Active Lease| DB
+    ApplicationService -->|Update Application Status| DB
+    
+    MaintenanceManagementComponent -->|Update Priority & Status| MaintenanceService[MaintenanceService]
+    MaintenanceService -->|Save Complaint Updates| DB
 ```
 
 ---
