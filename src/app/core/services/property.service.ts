@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Property } from '../models/property-model';
+import { Property, PropertyFilter } from '../models/property-model';
 
 @Injectable({ providedIn: 'root' })
 export class PropertyService {
@@ -16,6 +16,16 @@ export class PropertyService {
 
   getById(id: number): Observable<Property> {
     return this.http.get<Property>(`${this.apiUrl}/${id}`);
+  }
+
+  getFiltered(filters: PropertyFilter): Observable<Property[]> {
+    let params = new HttpParams();
+    if (filters.city) params = params.set('city', filters.city);
+    if (filters.type) params = params.set('type', filters.type);
+    if (filters.bedrooms) params = params.set('bedrooms', filters.bedrooms.toString());
+    if (filters.furnishing) params = params.set('furnishing', filters.furnishing);
+    if (filters.available !== undefined) params = params.set('available', String(filters.available));
+    return this.http.get<Property[]>(this.apiUrl, { params });
   }
 
   create(property: Partial<Property>): Observable<Property> {

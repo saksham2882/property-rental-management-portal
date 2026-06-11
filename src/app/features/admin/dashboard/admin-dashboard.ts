@@ -1,10 +1,10 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PropertyService } from '../../../core/services/property-service';
+import { PropertyService } from '../../../core/services/property.service';
 import { ApplicationService } from '../../../core/services/application-service';
-import { MaintenanceService } from '../../../core/services/maintenance-service';
-import { NotificationService } from '../../../core/services/notification-service';
+import { MaintenanceService } from '../../../core/services/maintenance.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-admin-dashboard',
