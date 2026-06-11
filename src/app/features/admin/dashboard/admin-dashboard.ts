@@ -13,7 +13,7 @@ import { NotificationService } from '../../../core/services/notification.service
   templateUrl: './admin-dashboard.html',
   styleUrl: './admin-dashboard.css'
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboard implements OnInit {
 
   totalProperties = signal(0);
   availableProperties = signal(0);
