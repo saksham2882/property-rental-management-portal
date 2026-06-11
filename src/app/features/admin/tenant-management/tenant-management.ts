@@ -14,8 +14,8 @@ interface TenantRecord {
   selector: 'app-tenant-management',
   standalone: true,
   imports: [CommonModule, RentFormatPipe, StatusBadgeComponent],
-  templateUrl: './tenant-management.component.html',
-  styleUrl: './tenant-management.component.css'
+  templateUrl: './tenant-management.html',
+  styleUrl: './tenant-management.css'
 })
 export class TenantManagementComponent implements OnInit {
 
