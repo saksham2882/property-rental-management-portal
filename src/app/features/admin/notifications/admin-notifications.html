@@ -1,29 +1,31 @@
-<div class="page">
-  <div class="page-header">
-    <h1 class="page-title">System Notifications</h1>
-    <p class="page-sub">All platform alerts and tenant notifications.</p>
+<div>
+  <div>
+    <h1>System Notifications</h1>
+    <p>All platform alerts and tenant notifications.</p>
   </div>
 
   @if (loading()) {
-    <div class="loading">Loading notifications...</div>
-  } @else if (notifications().length === 0) {
-    <div class="empty-state card">No notifications.</div>
-  } @else {
-    <div class="notif-list">
+    <div>Loading notifications...</div>
+  } 
+  @else if (notifications().length === 0) {
+    <div>No notifications.</div>
+  } 
+  @else {
+    <div>
       @for (notif of notifications(); track notif.id) {
-        <div class="notif-item card" [class.unread]="!notif.isRead"
+        <div [class.unread]="!notif.isRead"
              (click)="markRead(notif)">
-          <div class="notif-icon">{{ iconFor(notif.type) }}</div>
-          <div class="notif-body">
-            <h3 class="notif-title">{{ notif.title }}</h3>
-            <p class="notif-msg">{{ notif.message }}</p>
-            <div class="notif-meta">
+          <div>{{ iconFor(notif.type) }}</div>
+          <div>
+            <h3>{{ notif.title }}</h3>
+            <p>{{ notif.message }}</p>
+            <div>
               <span>User ID: {{ notif.userId }}</span>
               <span>{{ notif.createdAt }}</span>
             </div>
           </div>
           @if (!notif.isRead) {
-            <span class="unread-dot"></span>
+            <span></span>
           }
         </div>
       }

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MaintenanceService } from '../../../core/services/maintenance-service';
 import {
   MaintenanceRequest,
-  MAINTENANCE_FORM_CONFIG
+  MAINTENANCE_FORM_CONFIG,
 } from '../../../core/models/maintenance-model';
 
 @Component({
@@ -13,10 +13,9 @@ import {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './maintenance.html',
-  styleUrl: './maintenance.css'
+  styleUrl: './maintenance.css',
 })
 export class MaintenanceComponent implements OnInit {
-
   requests: MaintenanceRequest[] = [];
 
   formConfig = MAINTENANCE_FORM_CONFIG;
@@ -24,50 +23,41 @@ export class MaintenanceComponent implements OnInit {
   formData = {
     category: '',
     description: '',
-    urgency: 'medium'
+    urgency: 'medium',
   };
 
-  constructor(
-    private maintenanceService: MaintenanceService
-  ) {}
+  constructor(private maintenanceService: MaintenanceService) {}
 
   ngOnInit(): void {
     this.loadRequests();
   }
 
   loadRequests(): void {
+    const tenantId = 1;
 
-    const tenantId = 1; // replace later
-
-    this.maintenanceService
-      .getByTenant(tenantId)
-      .subscribe(data => {
-        this.requests = data;
-      });
+    this.maintenanceService.getByTenant(tenantId).subscribe((data) => {
+      this.requests = data;
+    });
   }
 
   submitRequest(): void {
-
     const request = {
       propertyId: 1,
       tenantId: 1,
       category: this.formData.category,
       description: this.formData.description,
-      urgency: this.formData.urgency as 'low' | 'medium' | 'high'
+      urgency: this.formData.urgency as 'low' | 'medium' | 'high',
     };
 
-    this.maintenanceService
-      .submit(request)
-      .subscribe(() => {
+    this.maintenanceService.submit(request).subscribe(() => {
+      this.formData = {
+        category: '',
+        description: '',
+        urgency: 'medium',
+      };
 
-        this.formData = {
-          category: '',
-          description: '',
-          urgency: 'medium'
-        };
-
-        this.loadRequests();
-      });
+      this.loadRequests();
+    });
   }
 
   getStatusClass(status: string): string {
@@ -79,11 +69,10 @@ export class MaintenanceComponent implements OnInit {
   }
 
   getFieldValue(fieldName: string): string {
-  return this.formData[fieldName as keyof typeof this.formData];
-}
+    return this.formData[fieldName as keyof typeof this.formData];
+  }
 
-setFieldValue(fieldName: string, value: string): void {
-  this.formData[fieldName as keyof typeof this.formData] = value;
-}
-
+  setFieldValue(fieldName: string, value: string): void {
+    this.formData[fieldName as keyof typeof this.formData] = value;
+  }
 }

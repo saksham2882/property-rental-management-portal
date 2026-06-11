@@ -1,19 +1,19 @@
-<div class="page">
-  <div class="page-header">
-    <h1 class="page-title">Application Review</h1>
-    <p class="page-sub">Review and process all incoming rental applications.</p>
+<div>
+  <div>
+    <h1>Application Review</h1>
+    <p>Review and process all incoming rental applications.</p>
   </div>
 
   @if (successMsg()) {
-    <div class="alert alert-success">{{ successMsg() }}</div>
+    <div>{{ successMsg() }}</div>
   }
 
   @if (loading()) {
-    <div class="loading">Loading applications...</div>
+    <div>Loading applications...</div>
   } @else if (applications().length === 0) {
-    <div class="empty-state card">No applications found.</div>
+    <div >No applications found.</div>
   } @else {
-    <div class="card table-wrap">
+    <div>
       <table>
         <thead>
           <tr>
@@ -44,13 +44,13 @@
               <td><app-status-badge [status]="app.status"></app-status-badge></td>
               <td>
                 @if (app.status === 'under_review') {
-                  <div class="review-actions">
-                    <button class="action-btn approve" (click)="updateStatus(app, 'approved')">Approve</button>
-                    <button class="action-btn reject" (click)="updateStatus(app, 'rejected')">Reject</button>
-                    <button class="action-btn waitlist" (click)="updateStatus(app, 'waitlisted')">Waitlist</button>
+                  <div >
+                    <button (click)="updateStatus(app, 'approved')">Approve</button>
+                    <button (click)="updateStatus(app, 'rejected')">Reject</button>
+                    <button (click)="updateStatus(app, 'waitlisted')">Waitlist</button>
                   </div>
                 } @else {
-                  <span class="processed-tag">Processed</span>
+                  <span>Processed</span>
                 }
               </td>
             </tr>

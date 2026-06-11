@@ -1,102 +1,68 @@
-<div class="maintenance-page">
-
+<div>
   <h2>Maintenance Requests</h2>
 
-  <div class="request-form">
-
+  <div>
     <h3>Raise New Request</h3>
 
-    @for(field of formConfig; track field.name){
-
-      <div class="form-group">
-
+    @for (field of formConfig; track field.name) {
+      <div>
         <label>{{ field.label }}</label>
 
-        @if(field.type === 'select'){
-
+        @if (field.type === 'select') {
           <select
             [ngModel]="getFieldValue(field.name)"
-            (ngModelChange)="setFieldValue(field.name, $event)">
-
-            @for(option of field.options; track option){
+            (ngModelChange)="setFieldValue(field.name, $event)"
+          >
+            @for (option of field.options; track option) {
               <option [value]="option">
                 {{ option }}
               </option>
             }
-
           </select>
-
         }
 
-        @if(field.type === 'textarea'){
-
-        <textarea
+        @if (field.type === 'textarea') {
+          <textarea
             rows="4"
             [placeholder]="field.placeholder"
             [ngModel]="getFieldValue(field.name)"
-            (ngModelChange)="setFieldValue(field.name, $event)">
-        </textarea>
-
+            (ngModelChange)="setFieldValue(field.name, $event)"
+          >
+          </textarea>
         }
-
       </div>
-
     }
 
-    <button (click)="submitRequest()">
-      Submit Request
-    </button>
-
+    <button (click)="submitRequest()">Submit Request</button>
   </div>
 
-  <div class="requests-list">
-
+  <div>
     <h3>My Requests</h3>
 
-    @if(requests.length === 0){
-
-      <div class="empty-state">
-        No maintenance requests found.
-      </div>
-
+    @if (requests.length === 0) {
+      <div>No maintenance requests found.</div>
     }
 
-    @for(request of requests; track request.id){
-
-      <div class="request-card">
-
-        <div class="card-header">
-
+    @for (request of requests; track request.id) {
+      <div>
+        <div>
           <h4>{{ request.category }}</h4>
 
-          <span
-            class="status"
-            [class]="getStatusClass(request.status)">
+          <span [class]="getStatusClass(request.status)">
             {{ request.status }}
           </span>
-
         </div>
 
         <p>{{ request.description }}</p>
 
-        <div class="details">
-
-          <span
-            class="urgency"
-            [class]="getUrgencyClass(request.urgency)">
+        <div>
+          <span [class]="getUrgencyClass(request.urgency)">
             {{ request.urgency }}
           </span>
 
-          <span>
-            Raised: {{ request.raisedAt }}
-          </span>
-
+          <span> Raised: {{ request.raisedAt }} </span>
         </div>
-
       </div>
-
     }
-
   </div>
-
 </div>

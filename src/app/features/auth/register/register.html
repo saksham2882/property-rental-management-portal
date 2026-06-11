@@ -1,27 +1,26 @@
-<div class="auth-page">
-  <div class="auth-card">
-    <div class="auth-logo"></div>
-    <h1 class="auth-title">Create Account</h1>
-    <p class="auth-sub">Join RentEasy and find your perfect home</p>
+<div>
+  <div>
+    <h1>Create Account</h1>
+    <p>Join RentEasy and find your perfect home</p>
 
     @if (errorMsg) {
-      <div class="alert alert-error">{{ errorMsg }}</div>
+      <div>{{ errorMsg }}</div>
     }
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div class="form-row">
-        <div class="form-group">
+      <div>
+        <div>
           <label for="reg-name">Full Name</label>
           <input id="reg-name" type="text" formControlName="name" placeholder="Rahul Sharma" />
           @if (f['name'].invalid && f['name'].touched) {
-            <span class="error-msg">Name must be at least 2 characters.</span>
+            <span>Name must be at least 2 characters.</span>
           }
         </div>
-        <div class="form-group">
+        <div>
           <label for="reg-phone">Mobile Number</label>
           <input id="reg-phone" type="tel" formControlName="phone" placeholder="9876543210" />
           @if (f['phone'].invalid && f['phone'].touched) {
-            <span class="error-msg">
+            <span>
               @if (f['phone'].errors?.['required']) { Phone is required. }
               @if (f['phone'].errors?.['invalidPhone']) { {{ f['phone'].errors?.['invalidPhone'] }} }
             </span>
@@ -29,15 +28,15 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div>
         <label for="reg-email">Email Address</label>
         <input id="reg-email" type="email" formControlName="email" placeholder="you@example.com" />
         @if (f['email'].invalid && f['email'].touched) {
-          <span class="error-msg">Enter a valid email address.</span>
+          <span>Enter a valid email address.</span>
         }
       </div>
 
-      <div class="form-group">
+      <div>
         <label for="reg-city">City</label>
         <select id="reg-city" formControlName="city">
           <option value="">Select your city</option>
@@ -49,44 +48,44 @@
           <option>Chennai</option>
         </select>
         @if (f['city'].invalid && f['city'].touched) {
-          <span class="error-msg">Please select a city.</span>
+          <span>Please select a city.</span>
         }
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
+      <div>
+        <div>
           <label for="reg-budgetMin">Budget Min (₹)</label>
           <input id="reg-budgetMin" type="number" formControlName="budgetMin" placeholder="10000" />
         </div>
-        <div class="form-group">
+        <div>
           <label for="reg-budgetMax">Budget Max (₹)</label>
           <input id="reg-budgetMax" type="number" formControlName="budgetMax" placeholder="30000" />
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
+      <div>
+        <div>
           <label for="reg-pw">Password</label>
           <input id="reg-pw" type="password" formControlName="password" placeholder="Min 6 characters" />
           @if (f['password'].invalid && f['password'].touched) {
-            <span class="error-msg">Password must be at least 6 characters.</span>
+            <span>Password must be at least 6 characters.</span>
           }
         </div>
-        <div class="form-group">
+        <div>
           <label for="reg-cpw">Confirm Password</label>
           <input id="reg-cpw" type="password" formControlName="confirmPassword" placeholder="Repeat password" />
           @if (f['confirmPassword'].errors?.['mismatch'] && f['confirmPassword'].touched) {
-            <span class="error-msg">Passwords do not match.</span>
+            <span>Passwords do not match.</span>
           }
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary auth-submit" [disabled]="loading">
+      <button type="submit" [disabled]="loading">
         {{ loading ? 'Creating Account...' : 'Create Account' }}
       </button>
     </form>
 
-    <p class="auth-switch">
+    <p>
       Already have an account? <a routerLink="/auth/login">Sign In</a>
     </p>
   </div>

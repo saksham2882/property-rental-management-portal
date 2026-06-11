@@ -1,48 +1,48 @@
-<div class="page">
-  <a routerLink="/customer/properties" class="back-link">← Back to Properties</a>
+<div>
+  <a routerLink="/customer/properties" class="back-link">Back to Properties</a>
 
-  <div class="page-header">
-    <h1 class="page-title">Rental Application</h1>
+  <div>
+    <h1>Rental Application</h1>
     @if (property()) {
-      <p class="page-sub">Applying for: <strong>{{ property()!.title }}</strong> — {{ property()!.rent | rentFormat }}</p>
+      <p>Applying for: <strong>{{ property()!.title }}</strong> — {{ property()!.rent | rentFormat }}</p>
     }
   </div>
 
   @if (successMsg) {
-    <div class="alert alert-success">{{ successMsg }}</div>
+    <div>{{ successMsg }}</div>
   }
 
   @if (errorMsg) {
-    <div class="alert alert-error">{{ errorMsg }}</div>
+    <div>{{ errorMsg }}</div>
   }
 
   @if (applyForm() && !alreadyApplied()) {
-    <form [formGroup]="applyForm()!" (ngSubmit)="onSubmit()" class="apply-form card">
+    <form [formGroup]="applyForm()!" (ngSubmit)="onSubmit()">
 
-      <h3 class="section-head">Applicant Details</h3>
-      <div class="form-row">
-        <div class="form-group">
+      <h3>Applicant Details</h3>
+      <div >
+        <div >
           <label>Full Name</label>
           <input type="text" formControlName="applicantName" />
           @if (f['applicantName']?.invalid && f['applicantName']?.touched) {
-            <span class="error-msg">Name is required.</span>
+            <span>Name is required.</span>
           }
         </div>
-        <div class="form-group">
+        <div >
           <label>Email</label>
           <input type="email" formControlName="applicantEmail" />
           @if (f['applicantEmail']?.invalid && f['applicantEmail']?.touched) {
-            <span class="error-msg">Valid email required.</span>
+            <span>Valid email required.</span>
           }
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
+      <div >
+        <div >
           <label>Mobile Number</label>
           <input type="tel" formControlName="applicantPhone" placeholder="10-digit mobile" />
           @if (f['applicantPhone']?.invalid && f['applicantPhone']?.touched) {
-            <span class="error-msg">
+            <span>
               @if (f['applicantPhone']?.errors?.['invalidPhone']) {
                 {{ f['applicantPhone']?.errors?.['invalidPhone'] }}
               } @else {
@@ -51,11 +51,11 @@
             </span>
           }
         </div>
-        <div class="form-group">
+        <div >
           <label>Preferred Move-in Date</label>
           <input type="date" formControlName="moveInDate" />
           @if (f['moveInDate']?.invalid && f['moveInDate']?.touched) {
-            <span class="error-msg">
+            <span>
               @if (f['moveInDate']?.errors?.['moveInTooSoon']) {
                 {{ f['moveInDate']?.errors?.['moveInTooSoon'] }}
               } @else {
@@ -66,12 +66,12 @@
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
+      <div>
+        <div>
           <label>Monthly Income (₹)</label>
           <input type="number" formControlName="monthlyIncome" placeholder="Your monthly income" />
           @if (f['monthlyIncome']?.invalid && f['monthlyIncome']?.touched) {
-            <span class="error-msg">
+            <span>
               @if (f['monthlyIncome']?.errors?.['incomeTooLow']) {
                 {{ f['monthlyIncome']?.errors?.['incomeTooLow'] }}
               } @else {
@@ -80,11 +80,11 @@
             </span>
           }
         </div>
-        <div class="form-group">
+        <div>
           <label>Number of Occupants</label>
           <input type="number" formControlName="occupants" min="1" />
           @if (f['occupants']?.invalid && f['occupants']?.touched) {
-            <span class="error-msg">
+            <span>
               @if (f['occupants']?.errors?.['occupancyExceeded']) {
                 {{ f['occupants']?.errors?.['occupancyExceeded'] }}
               } @else {
@@ -95,30 +95,30 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div>
         <label>Message to Landlord</label>
         <textarea formControlName="message" placeholder="Tell us about yourself and your rental needs..."></textarea>
         @if (f['message']?.invalid && f['message']?.touched) {
-          <span class="error-msg">Please write a short message.</span>
+          <span>Please write a short message.</span>
         }
       </div>
 
-      <h3 class="section-head">Supporting Documents</h3>
-      <p class="doc-hint">Select all documents you will provide:</p>
-      <div class="doc-list">
+      <h3>Supporting Documents</h3>
+      <p>Select all documents you will provide:</p>
+      <div>
         @for (doc of availableDocuments; track doc) {
-          <label class="doc-item" [class.selected]="selectedDocs.includes(doc)">
+          <label  [class.selected]="selectedDocs.includes(doc)">
             <input type="checkbox" [checked]="selectedDocs.includes(doc)" (change)="toggleDocument(doc)" />
             {{ doc }}
           </label>
         }
       </div>
 
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary" [disabled]="loading">
+      <div>
+        <button type="submit" [disabled]="loading">
           {{ loading ? 'Submitting...' : 'Submit Application' }}
         </button>
-        <a routerLink="/customer/properties" class="btn btn-secondary">Cancel</a>
+        <a routerLink="/customer/properties">Cancel</a>
       </div>
     </form>
   }

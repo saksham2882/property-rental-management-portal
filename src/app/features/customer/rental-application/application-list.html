@@ -1,63 +1,64 @@
 
-<div class="page">
-  <div class="flex-between page-header">
+<div>
+  <div >
     <div>
-      <h1 class="page-title">My Applications</h1>
-      <p class="page-sub">Track all your rental applications in one place.</p>
+      <h1>My Applications</h1>
+      <p>Track all your rental applications in one place.</p>
     </div>
-    <a routerLink="/customer/properties" class="btn btn-primary">Browse More Properties</a>
+    <a routerLink="/customer/properties">Browse More Properties</a>
   </div>
 
   @if (loading()) {
-    <div class="loading">Loading your applications...</div>
-  } @else if (applications().length === 0) {
-    <div class="empty-state card">
-      <p style="font-size:48px">📭</p>
+    <div>Loading your applications...</div>
+  } 
+  @else if (applications().length === 0) {
+    <div>
       <p>You haven't applied for any property yet.</p>
-      <a routerLink="/customer/properties" class="btn btn-primary mt-16">Browse Properties</a>
+      <a routerLink="/customer/properties" >Browse Properties</a>
     </div>
-  } @else {
-    <div class="app-list">
+  } 
+  @else {
+    <div>
       @for (app of applications(); track app.id) {
-        <div class="app-card card">
-          <div class="app-card-header">
+        <div>
+          <div>
             <div>
-              <h3 class="app-id">Application #{{ app.id }}</h3>
-              <p class="app-date">Applied on {{ app.appliedAt }}</p>
+              <h3>Application #{{ app.id }}</h3>
+              <p>Applied on {{ app.appliedAt }}</p>
             </div>
             <app-status-badge [status]="app.status"></app-status-badge>
           </div>
 
-          <div class="app-details">
-            <div class="app-detail-row">
-              <span class="d-label">Property ID</span>
+          <div>
+            <div >
+              <span>Property ID</span>
               <span>{{ app.propertyId }}</span>
             </div>
-            <div class="app-detail-row">
-              <span class="d-label">Move-in Date</span>
+            <div>
+              <span>Move-in Date</span>
               <span>{{ app.moveInDate }}</span>
             </div>
-            <div class="app-detail-row">
-              <span class="d-label">Occupants</span>
+            <div>
+              <span>Occupants</span>
               <span>{{ app.occupants }}</span>
             </div>
-            <div class="app-detail-row">
-              <span class="d-label">Monthly Income</span>
+            <div>
+              <span>Monthly Income</span>
               <span>₹{{ app.monthlyIncome | number }}</span>
             </div>
           </div>
 
           @if (app.documents.length > 0) {
-            <div class="docs-row">
-              <span class="d-label">Documents:</span>
+            <div>
+              <span>Documents:</span>
               @for (doc of app.documents; track doc) {
-                <span class="doc-chip">{{ doc }}</span>
+                <span>{{ doc }}</span>
               }
             </div>
           }
 
           @if (app.message) {
-            <p class="app-msg">"{{ app.message }}"</p>
+            <p>"{{ app.message }}"</p>
           }
         </div>
       }

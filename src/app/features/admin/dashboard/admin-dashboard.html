@@ -1,60 +1,60 @@
-<div class="page">
-  <div class="page-header">
-    <h1 class="page-title">Admin Dashboard</h1>
-    <p class="page-sub">Platform overview: manage properties, applications, and tenants.</p>
+<div>
+  <div>
+    <h1>Admin Dashboard</h1>
+    <p>Platform overview: manage properties, applications, and tenants.</p>
   </div>
 
-  <div class="stat-grid">
-    <div class="stat-card blue">
-      <div class="sc-body">
-        <span class="sc-value">{{ totalProperties() }}</span>
-        <span class="sc-label">Total Properties</span>
-        <span class="sc-sub">{{ availableProperties() }} available</span>
+  <div>
+    <div>
+      <div>
+        <span>{{ totalProperties() }}</span>
+        <span>Total Properties</span>
+        <span>{{ availableProperties() }} available</span>
       </div>
-      <a routerLink="/admin/properties" class="sc-link">Manage →</a>
+      <a routerLink="/admin/properties">Manage</a>
     </div>
 
-    <div class="stat-card orange">
-      <div class="sc-body">
-        <span class="sc-value">{{ totalApplications() }}</span>
-        <span class="sc-label">Applications</span>
-        <span class="sc-sub">{{ pendingApplications() }} pending review</span>
+    <div>
+      <div>
+        <span>{{ totalApplications() }}</span>
+        <span>Applications</span>
+        <span>{{ pendingApplications() }} pending review</span>
       </div>
-      <a routerLink="/admin/applications" class="sc-link">Review →</a>
+      <a routerLink="/admin/applications">Review</a>
     </div>
 
-    <div class="stat-card red">
-      <div class="sc-body">
-        <span class="sc-value">{{ openMaintenance() }}</span>
-        <span class="sc-label">Open Maintenance</span>
-        <span class="sc-sub">Requests pending</span>
+    <div>
+      <div>
+        <span>{{ openMaintenance() }}</span>
+        <span>Open Maintenance</span>
+        <span>Requests pending</span>
       </div>
-      <a routerLink="/admin/maintenance" class="sc-link">Manage →</a>
+      <a routerLink="/admin/maintenance">Manage</a>
     </div>
 
-    <div class="stat-card green">
-      <div class="sc-body">
-        <span class="sc-value">{{ totalNotifications() }}</span>
-        <span class="sc-label">Unread Alerts</span>
-        <span class="sc-sub">System notifications</span>
+    <div>
+      <div>
+        <span>{{ totalNotifications() }}</span>
+        <span>Unread Alerts</span>
+        <span>System notifications</span>
       </div>
-      <a routerLink="/admin/notifications" class="sc-link">View →</a>
+      <a routerLink="/admin/notifications">View</a>
     </div>
   </div>
 
-  <div class="quick-actions card mt-24">
-    <h2 class="section-title">Quick Actions</h2>
-    <div class="action-grid">
-      <a routerLink="/admin/properties" class="action-btn">
+  <div>
+    <h2>Quick Actions</h2>
+    <div>
+      <a routerLink="/admin/properties">
         Add New Property
       </a>
-      <a routerLink="/admin/applications" class="action-btn">
+      <a routerLink="/admin/applications">
         Review Applications
       </a>
-      <a routerLink="/admin/tenants" class="action-btn">
+      <a routerLink="/admin/tenants">
         View Tenants
       </a>
-      <a routerLink="/admin/maintenance" class="action-btn">
+      <a routerLink="/admin/maintenance">
         Update Maintenance
       </a>
     </div>

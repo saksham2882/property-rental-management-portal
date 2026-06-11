@@ -4,13 +4,6 @@ import { CommonModule } from '@angular/common';
 import { NotificationService } from '../../../core/services/notification-service';
 import {Notification} from '../../../core/models/notification-model';
 
-// interface Notification {
-//   id: number;
-//   title?: string;
-//   message?: string;
-//   isRead: boolean;
-//   createdAt?: string;
-// }
 
 @Component({
   selector: 'app-notifications',

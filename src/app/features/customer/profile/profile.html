@@ -1,34 +1,34 @@
-<div class="page">
-    <div class="page-header">
-        <h1 class="page-title">My Profile</h1>
-        <p class="page-sub">Manage your personal details and rental preferences.</p>
+<div>
+    <div>
+        <h1>My Profile</h1>
+        <p>Manage your personal details and rental preferences.</p>
     </div>
 
     @if (successMsg()) {
-        <div class="alert alert-success">{{ successMsg() }}</div>
+        <div>{{ successMsg() }}</div>
     }
     @if (errorMsg()) {
-        <div class="alert alert-error">{{ errorMsg() }}</div>
+        <div>{{ errorMsg() }}</div>
     }
 
-    <div class="profile-layout">
+    <div>
 
-        <div class="card">
-            <h2 class="section-title">Personal Information</h2>
+        <div>
+            <h2>Personal Information</h2>
 
-            <div class="form-group">
+            <div>
                 <label>Full Name</label>
                 <input type="text" [(ngModel)]="profileData.name" name="name" />
             </div>
-            <div class="form-group">
+            <div>
                 <label>Email Address</label>
                 <input type="email" [(ngModel)]="profileData.email" name="email" />
             </div>
-            <div class="form-group">
+            <div>
                 <label>Mobile Number</label>
                 <input type="tel" [(ngModel)]="profileData.phone" name="phone" />
             </div>
-            <div class="form-group">
+            <div>
                 <label>City</label>
                 <select [(ngModel)]="profileData.city" name="city">
                     @for (city of cities; track city) {
@@ -37,53 +37,53 @@
                 </select>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
+            <div>
+                <div>
                     <label>Budget Min (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMin" name="budgetMin" />
                 </div>
-                <div class="form-group">
+                <div>
                     <label>Budget Max (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMax" name="budgetMax" />
                 </div>
             </div>
 
-            <button class="btn btn-primary" (click)="saveProfile()" [disabled]="saving()">
+            <button (click)="saveProfile()" [disabled]="saving()">
                 {{ saving() ? 'Saving...' : 'Save Profile' }}
             </button>
         </div>
 
-        <div class="card">
-            <h2 class="section-title">Alert Preferences</h2>
-            <p class="pref-note">Choose how you want to receive updates and notifications.</p>
+        <div>
+            <h2>Alert Preferences</h2>
+            <p>Choose how you want to receive updates and notifications.</p>
 
             <form #prefForm="ngForm" (ngSubmit)="savePreferences()">
-                <div class="pref-item">
-                    <label class="toggle-label">
+                <div>
+                    <label>
                         <input type="checkbox" [(ngModel)]="preferenceData.emailAlerts" name="emailAlerts" />
-                        <span class="toggle-text">
+                        <span>
                             Email Alerts
                             <small>Receive application updates, rent reminders via email</small>
                         </span>
                     </label>
                 </div>
 
-                <div class="pref-item">
-                    <label class="toggle-label">
+                <div>
+                    <label>
                         <input type="checkbox" [(ngModel)]="preferenceData.smsAlerts" name="smsAlerts" />
-                        <span class="toggle-text">
+                        <span>
                             SMS Alerts
                             <small>Get SMS notifications for urgent reminders</small>
                         </span>
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-16" [disabled]="saving()">
+                <button type="submit" [disabled]="saving()">
                     Save Preferences
                 </button>
             </form>
 
-            <div class="account-info mt-16">
+            <div>
                 <h3>Account Info</h3>
                 <p>Role: <strong>{{ auth.currentUser()?.role | titlecase }}</strong></p>
                 <p>Member since: <strong>{{ auth.currentUser()?.createdAt }}</strong></p>
