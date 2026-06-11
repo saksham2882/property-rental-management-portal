@@ -1,0 +1,35 @@
+.catalog-page { padding: 24px; max-width: 1280px; margin: 0 auto; }
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.filter-panel {
+  position: sticky;
+  top: 80px;
+}
+
+.filter-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.results-count {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+  .filter-panel { position: static; }
+}
