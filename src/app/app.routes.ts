@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth-guard';
+import { redirectIfLoggedInGuard } from './core/guards/auth-guard';
 import { adminGuard } from './core/guards/admin-guard';
+import { customerGuard } from './core/guards/customer-guard';
 
 export const routes: Routes = [
     {
@@ -10,6 +11,7 @@ export const routes: Routes = [
     },
     {
         path: 'auth',
+        canActivate: [redirectIfLoggedInGuard],
         children: [
             {
                 path: 'login',
@@ -23,7 +25,7 @@ export const routes: Routes = [
     },
     {
         path: 'customer',
-        canActivate: [authGuard],
+        canActivate: [customerGuard],
         children: [
             {
                 path: 'dashboard',
