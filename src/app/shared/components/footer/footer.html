@@ -1,60 +1,60 @@
-<footer class="site-footer">
-    <div class="footer-grid">
+<footer class="footer">
+    <div class="grid">
 
-        <div class="footer-column">
-            <h3 class="footer-logo">RentEase</h3>
-            <p class="footer-desc">
+        <div class="column">
+            <h3 class="logo">RentEase</h3>
+            <p class="desc">
                 Find your perfect rental property with ease. Browse listings,
                 manage bookings, and connect with property owners seamlessly.
             </p>
         </div>
 
-        <div class="footer-column">
-            <h4 class="footer-title">Quick Links</h4>
-            <ul class="footer-links">
+        <div class="column">
+            <h4 class="title">Quick Links</h4>
+            <ul class="links">
                 @if (auth.isLoggedIn()) {
                     @if (auth.isAdmin()) {
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/admin/dashboard">Home</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/admin/properties">Properties</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/admin/applications">Applications</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/admin/tenants">Tenants</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/admin/maintenance">Maintenance</a></li>
+                        <li><a class="link" routerLink="/admin/dashboard">Home</a></li>
+                        <li><a class="link" routerLink="/admin/properties">Properties</a></li>
+                        <li><a class="link" routerLink="/admin/applications">Applications</a></li>
+                        <li><a class="link" routerLink="/admin/tenants">Tenants</a></li>
+                        <li><a class="link" routerLink="/admin/maintenance">Maintenance</a></li>
                     } @else if (auth.isCustomer()) {
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/dashboard">Home</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/properties">Properties</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/applications">My Applications</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/lease">My Lease</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/maintenance">Maintenance</a></li>
-                        <li class="footer-link-item"><a class="footer-link" routerLink="/customer/profile">Profile</a></li>
+                        <li><a class="link" routerLink="/customer/dashboard">Home</a></li>
+                        <li><a class="link" routerLink="/customer/properties">Properties</a></li>
+                        <li><a class="link" routerLink="/customer/applications">My Applications</a></li>
+                        <li><a class="link" routerLink="/customer/lease">My Lease</a></li>
+                        <li><a class="link" routerLink="/customer/maintenance">Maintenance</a></li>
+                        <li><a class="link" routerLink="/customer/profile">Profile</a></li>
                     }
                 } @else {
-                    <li class="footer-link-item"><a class="footer-link" routerLink="/auth/login">Login</a></li>
-                    <li class="footer-link-item"><a class="footer-link" routerLink="/auth/register">Register</a></li>
+                    <li><a class="link" routerLink="/auth/login">Login</a></li>
+                    <li><a class="link" routerLink="/auth/register">Register</a></li>
                 }
             </ul>
         </div>
 
-        <div class="footer-column">
-            <h4 class="footer-title">Support</h4>
-            <ul class="footer-links">
-                <li class="footer-link-item"><a class="footer-link" routerLink="#">Contact Us</a></li>
-                <li class="footer-link-item"><a class="footer-link" routerLink="#">FAQs</a></li>
-                <li class="footer-link-item"><a class="footer-link" routerLink="#">Privacy Policy</a></li>
-                <li class="footer-link-item"><a class="footer-link" routerLink="#">Terms & Conditions</a></li>
+        <div class="column">
+            <h4 class="title">Support</h4>
+            <ul class="links">
+                <li><a class="link" routerLink="#">Contact Us</a></li>
+                <li><a class="link" routerLink="#">FAQs</a></li>
+                <li><a class="link" routerLink="#">Privacy Policy</a></li>
+                <li><a class="link" routerLink="#">Terms & Conditions</a></li>
             </ul>
         </div>
 
-        <div class="footer-column">
-            <h4 class="footer-title">Contact</h4>
-            <p class="footer-info">Email: support@rentease.com</p>
-            <p class="footer-info">Phone: +91 9876543210</p>
-            <p class="footer-info">Location: Noida, Uttar Pradesh, India</p>
+        <div class="column">
+            <h4 class="title">Contact</h4>
+            <p class="info">Email: support@rentease.com</p>
+            <p class="info">Phone: +91 9876543210</p>
+            <p class="info">Location: Noida, Uttar Pradesh, India</p>
         </div>
 
     </div>
 
-    <div class="footer-bottom">
-        <p class="footer-copy">
+    <div class="bottom">
+        <p class="copy">
             Copyright &copy; {{ currentYear }} RentEase. All Rights Reserved.
         </p>
     </div>
