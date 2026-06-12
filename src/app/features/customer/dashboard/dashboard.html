@@ -1,75 +1,75 @@
-<div class="dashboard-container">
-    <div class="dashboard-header">
+<div class="container">
+    <div class="header">
         <h1>Hello, {{ auth.currentUser()?.name }}</h1>
         <p>Here's a quick overview of your rental activity.</p>
     </div>
 
-    <div class="stats-grid">
-        <div class="stat-card" [class.alert-card]="hasApplicationAlert()">
-            <div class="stat-content">
-                <span class="stat-value">{{ totalApplications() }}</span>
-                <span class="stat-label">My Applications</span>
+    <div class="grid">
+        <div class="card" [class.alert-card]="hasApplicationAlert()">
+            <div class="content">
+                <span class="value">{{ totalApplications() }}</span>
+                <span class="label">My Applications</span>
             </div>
-            <a class="stat-link" routerLink="/customer/applications">View</a>
+            <a class="link" routerLink="/customer/applications">View</a>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-content">
-                <span class="stat-value">{{ activeLease() ? 'Active' : 'None' }}</span>
-                <span class="stat-label">Current Lease</span>
+        <div class="card">
+            <div class="content">
+                <span class="value">{{ activeLease() ? 'Active' : 'None' }}</span>
+                <span class="label">Current Lease</span>
             </div>
-            <a class="stat-link" routerLink="/customer/lease">View</a>
+            <a class="link" routerLink="/customer/lease">View</a>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-content">
-                <span class="stat-value">{{ pendingRent() ? (pendingRent().amount | rentFormat) : 'Clear' }}</span>
-                <span class="stat-label">Rent Status</span>
+        <div class="card">
+            <div class="content">
+                <span class="value">{{ pendingRent() ? (pendingRent().amount | rentFormat) : 'Clear' }}</span>
+                <span class="label">Rent Status</span>
             </div>
-            <a class="stat-link" routerLink="/customer/rent">View</a>
+            <a class="link" routerLink="/customer/rent">View</a>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-content">
-                <span class="stat-value">{{ openRequests() }}</span>
-                <span class="stat-label">Open Maintenance</span>
+        <div class="card">
+            <div class="content">
+                <span class="value">{{ openRequests() }}</span>
+                <span class="label">Open Maintenance</span>
             </div>
-            <a class="stat-link" routerLink="/customer/maintenance">View</a>
+            <a class="link" routerLink="/customer/maintenance">View</a>
         </div>
     </div>
 
-    <div class="actions-container">
-        <a class="btn-action" routerLink="/customer/properties">
+    <div class="btns">
+        <a class="btn" routerLink="/customer/properties">
             Browse Properties
         </a>
-        <a class="btn-action" routerLink="/customer/maintenance">
+        <a class="btn" routerLink="/customer/maintenance">
             Raise Maintenance
         </a>
-        <a class="btn-action" routerLink="/customer/profile">
+        <a class="btn" routerLink="/customer/profile">
             Edit Profile
         </a>
-        <a class="btn-action" routerLink="/customer/notifications">
+        <a class="btn" routerLink="/customer/notifications">
             Notifications
         </a>
     </div>
 
     @if (activeLease()) {
-    <div class="dashboard-section">
-        <h2 class="section-title">Current Tenancy</h2>
-        <div class="tenancy-details">
-            <div class="detail-item">
+    <div class="section">
+        <h2 class="title">Current Tenancy</h2>
+        <div class="details">
+            <div class="item">
                 <span class="detail-label">Property</span>
                 <span class="detail-value">{{ activeLease().propertyTitle }}</span>
             </div>
-            <div class="detail-item">
+            <div class="item">
                 <span class="detail-label">Lease Period</span>
                 <span class="detail-value">{{ activeLease().startDate }} to {{ activeLease().endDate }}</span>
             </div>
-            <div class="detail-item">
+            <div class="item">
                 <span class="detail-label">Monthly Rent</span>
                 <span class="detail-value">{{ activeLease().monthlyRent | rentFormat }}</span>
             </div>
-            <div class="detail-item">
+            <div class="item">
                 <span class="detail-label">Status</span>
                 <app-status-badge [status]="activeLease().status"></app-status-badge>
             </div>
@@ -78,9 +78,9 @@
     }
 
     @if (recentApplications().length > 0) {
-    <div class="dashboard-section">
+    <div class="section">
         <div class="section-header">
-            <h2 class="section-title">Recent Applications</h2>
+            <h2 class="title">Recent Applications</h2>
             <a routerLink="/customer/applications">View All</a>
         </div>
         @for (app of recentApplications(); track app.id) {
@@ -94,6 +94,4 @@
         }
     </div>
     }
-
-    
 </div>

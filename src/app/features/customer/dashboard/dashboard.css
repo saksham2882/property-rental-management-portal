@@ -1,28 +1,28 @@
-.dashboard-container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
-.dashboard-header h1 {
+.header h1 {
   font-size: 28px;
   font-weight: 700;
   color: rgb(15, 23, 42);
   margin-bottom: 4px;
 }
 
-.dashboard-header p {
+.header p {
   font-size: 15px;
   color: rgb(71, 85, 105);
 }
 
-.stats-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-.stat-card {
+.card {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(226, 232, 240);
   border-radius: 10px;
@@ -34,19 +34,19 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.stat-content {
+.content {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.stat-value {
+.value {
   font-size: 24px;
   font-weight: 700;
   color: rgb(15, 23, 42);
 }
 
-.stat-label {
+.label {
   font-size: 12px;
   font-weight: 600;
   color: rgb(100, 116, 139);
@@ -54,7 +54,7 @@
   letter-spacing: 0.05em;
 }
 
-.stat-link {
+.link {
   font-size: 13px;
   font-weight: 600;
   color: rgb(13, 148, 136);
@@ -62,20 +62,20 @@
   align-self: flex-start;
 }
 
-.stat-card.alert-card {
+.card.alert-card {
   border-color: rgb(244, 63, 94);
   background-color: rgb(255, 241, 242);
 }
 
-.stat-card.alert-card .stat-value {
+.card.alert-card .value {
   color: rgb(225, 29, 72);
 }
 
-.stat-card.alert-card .stat-link {
+.card.alert-card .link {
   color: rgb(225, 29, 72);
 }
 
-.dashboard-section {
+.section {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(226, 232, 240);
   border-radius: 12px;
@@ -83,7 +83,7 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.section-title {
+.title {
   font-size: 18px;
   font-weight: 600;
   color: rgb(15, 23, 42);
@@ -92,13 +92,13 @@
   border-bottom: 1px solid rgb(241, 245, 249);
 }
 
-.tenancy-details {
+.details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.detail-item {
+.item {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -127,7 +127,7 @@
   margin-bottom: 16px;
 }
 
-.section-header .section-title {
+.section-header .title {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -141,7 +141,7 @@
   border-bottom: 1px solid rgb(241, 245, 249);
 }
 
-.dashboard-section .application-row:last-child {
+.section .application-row:last-child {
   border-bottom: none;
 }
 
@@ -157,13 +157,13 @@
   color: rgb(148, 163, 184);
 }
 
-.actions-container {
+.btns {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.btn-action {
+.btn {
   flex: 1;
   min-width: 160px;
   text-align: center;
@@ -177,7 +177,7 @@
   transition: all 0.15s ease-in-out;
 }
 
-.btn-action:hover {
+.btn:hover {
   border-color: rgb(13, 148, 136);
   color: rgb(13, 148, 136);
   background-color: rgb(240, 253, 250);
