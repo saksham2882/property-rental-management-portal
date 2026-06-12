@@ -1,34 +1,34 @@
-<div class="profile-container">
-    <div class="profile-header">
+<div class="container">
+    <div class="header">
         <h1>My Profile</h1>
         <p>Manage your personal details and rental preferences.</p>
     </div>
 
     @if (successMsg()) {
-        <div class="alert-success">{{ successMsg() }}</div>
+        <div class="success">{{ successMsg() }}</div>
     }
     @if (errorMsg()) {
-        <div class="alert-danger">{{ errorMsg() }}</div>
+        <div class="error">{{ errorMsg() }}</div>
     }
 
-    <div class="profile-split">
+    <div class="box">
 
-        <div class="profile-card">
+        <div class="card">
             <h2>Personal Information</h2>
 
-            <div class="form-group">
+            <div class="field">
                 <label>Full Name</label>
                 <input type="text" [(ngModel)]="profileData.name" name="name" />
             </div>
-            <div class="form-group">
+            <div class="field">
                 <label>Email Address</label>
                 <input type="email" [(ngModel)]="profileData.email" name="email" />
             </div>
-            <div class="form-group">
+            <div class="field">
                 <label>Mobile Number</label>
                 <input type="tel" [(ngModel)]="profileData.phone" name="phone" />
             </div>
-            <div class="form-group">
+            <div class="field">
                 <label>City</label>
                 <select [(ngModel)]="profileData.city" name="city">
                     @for (city of cities; track city) {
@@ -37,12 +37,12 @@
                 </select>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
+            <div class="row">
+                <div class="field">
                     <label>Budget Min (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMin" name="budgetMin" />
                 </div>
-                <div class="form-group">
+                <div class="field">
                     <label>Budget Max (₹/month)</label>
                     <input type="number" [(ngModel)]="profileData.budgetMax" name="budgetMax" />
                 </div>
@@ -53,7 +53,7 @@
             </button>
         </div>
 
-        <div class="pref-column">
+        <div class="preference">
             <h2>Alert Preferences</h2>
             <p>Choose how you want to receive updates and notifications.</p>
 
