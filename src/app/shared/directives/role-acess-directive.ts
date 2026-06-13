@@ -13,7 +13,7 @@ export class RoleAccessDirective implements OnInit {
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
     private auth: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     const role = this.auth.currentUser()?.role;
