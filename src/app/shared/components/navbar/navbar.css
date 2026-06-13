@@ -11,19 +11,19 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-.navbar-brand a {
+.brand a {
   font-size: 20px;
   font-weight: 700;
   color: rgb(9, 83, 76);
   letter-spacing: -0.02em;
 }
 
-.navbar-brand a span {
+.brand a span {
   font-weight: 800;
   color: rgb(6, 83, 78);
 }
 
-.navbar-toggle {
+.toggle {
   display: none;
   flex-direction: column;
   justify-content: space-around;
@@ -36,7 +36,7 @@
   box-shadow: none;
 }
 
-.navbar-toggle span {
+.toggle span {
   width: 24px;
   height: 2px;
   background-color: rgb(71, 85, 105);
@@ -44,7 +44,7 @@
   border-radius: 2px;
 }
 
-.navbar-menu {
+.menu {
   display: flex;
   list-style: none;
   align-items: center;
@@ -53,7 +53,7 @@
   margin: 0;
 }
 
-.navbar-link {
+.link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -65,12 +65,12 @@
   transition: all 0.15s ease-in-out;
 }
 
-.navbar-link:hover {
+.link:hover {
   color: rgb(13, 148, 136);
   background-color: rgb(240, 253, 250);
 }
 
-.navbar-link.active {
+.link.active {
   color: rgb(13, 148, 136);
   background-color: rgb(240, 253, 250);
   font-weight: 600;
@@ -91,7 +91,7 @@
   line-height: 1;
 }
 
-.btn-logout {
+.logout {
   padding: 8px 12px;
   background-color: transparent;
   color: rgb(225, 29, 72);
@@ -101,18 +101,18 @@
   font-weight: 500;
 }
 
-.btn-logout:hover {
+.logout:hover {
   background-color: rgb(255, 228, 230);
   color: rgb(225, 29, 72);
   border-color: rgb(225, 29, 72);
 }
 
 @media (max-width: 900px) {
-  .navbar-toggle {
+  .toggle {
     display: flex;
   }
 
-  .navbar-menu {
+  .menu {
     display: none;
     flex-direction: column;
     width: 100%;
@@ -127,11 +127,11 @@
     align-items: stretch;
   }
 
-  .navbar-menu.open {
+  .menu.open {
     display: flex;
   }
 
-  .btn-logout {
+  .logout {
     width: 100%;
     justify-content: center;
   }
