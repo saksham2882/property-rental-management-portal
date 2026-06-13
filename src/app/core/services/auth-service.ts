@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable, tap, map } from 'rxjs';
 import { User } from '../models/user-model';
 
 @Injectable({ providedIn: 'root' })
@@ -17,11 +17,18 @@ export class AuthService {
       const user: User = JSON.parse(saved);
       this.currentUser.set(user);
       this.isLoggedIn.set(true);
+      localStorage.setItem('rental_user', JSON.stringify(user));
     }
   }
 
   login(email: string, password: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/users?email=${email}&password=${password}`).pipe(
+    return this.http.get<User[]>(`${this.apiUrl}/users?email=${email}`).pipe(
+      map(users => {
+        if (users.length > 0 && String(users[0].password) === String(password)) {
+          return [users[0]];
+        }
+        return [];
+      }),
       tap(users => {
         if (users.length > 0) {
           const user = users[0];

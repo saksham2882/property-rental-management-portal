@@ -803,7 +803,7 @@
       "title": "Maintenance Request Submitted",
       "message": "Your maintenance request (Carpentry) has been raised.",
       "type": "info",
-      "isRead": false,
+      "isRead": true,
       "createdAt": "2026-06-11",
       "id": "2UkVUsJzQ2g"
     }
