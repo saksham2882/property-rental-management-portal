@@ -34,10 +34,12 @@ export class LeaseDetailComponent implements OnInit {
     });
   }
 
-  daysRemaining(endDate: string): number {
+  daysRemaining(startDate: string, endDate: string): number {
+    const start = new Date(startDate);
     const end = new Date(endDate);
     const today = new Date();
-    const diff = end.getTime() - today.getTime();
+    const referenceDate = today < start ? start : today;
+    const diff = end.getTime() - referenceDate.getTime();
     return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
   }
 }

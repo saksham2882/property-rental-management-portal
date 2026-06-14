@@ -41,10 +41,9 @@
           @if (lease.status === 'active') {
             <div class="lease-item">
               <span class="li-label">Days Remaining</span>
-              <span class="li-value" [class.warning-text]="daysRemaining(lease.endDate) < 30">
-                {{ daysRemaining(lease.endDate) }} days
-                @if (daysRemaining(lease.endDate) < 30) {Expiring soon }
-              </span>
+              <span class="li-value" [class.warning-text]="daysRemaining(lease.startDate, lease.endDate) < 30">
+                {{ daysRemaining(lease.startDate, lease.endDate) }} days
+                @if (daysRemaining(lease.startDate, lease.endDate) < 30) { Expiring soon } </span>
             </div>
           }
         </div>

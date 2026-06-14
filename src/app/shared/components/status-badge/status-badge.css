@@ -14,7 +14,8 @@
 .badge.approved,
 .badge.active,
 .badge.resolved,
-.badge.success {
+.badge.success,
+.badge.paid {
   background-color: rgb(209, 250, 229);
   color: rgb(4, 120, 87);
 }

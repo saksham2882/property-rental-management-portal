@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+}
+
+.note {
+  font-size: 15px;
+  color: rgb(71, 85, 105);
+}
+
+.alert {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  margin-bottom: 8px;
+}
+
+.success {
+  background-color: rgb(240, 253, 244);
+  border-color: rgb(187, 247, 208);
+  color: rgb(21, 128, 61);
+}
+
+.error {
+  background-color: rgb(254, 242, 242);
+  border-color: rgb(254, 226, 226);
+  color: rgb(185, 28, 28);
+}
+
+.box {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  background-color: rgb(13, 148, 136);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.pay-btn:hover {
+  background-color: rgb(15, 118, 110);
+}
+
+.paid {
+  font-weight: 600;
+  color: rgb(22, 163, 74);
+  font-size: 13px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: rgb(100, 116, 139);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.placeholder {
+  background-color: rgb(255, 255, 255);
+  border: 1px dashed rgb(203, 213, 225);
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  color: rgb(100, 116, 139);
+  font-size: 15px;
+  font-weight: 500;
+}

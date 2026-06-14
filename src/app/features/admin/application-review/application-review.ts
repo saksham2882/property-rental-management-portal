@@ -65,7 +65,6 @@ export class ApplicationReviewComponent implements OnInit {
         const propId = Number(app.propertyId) || app.propertyId;
         this.propertyService.getById(Number(propId)).subscribe({
           next: (prop) => {
-            // calculate start and end dates (1 year)
             const startDate = new Date(app.moveInDate);
             const endDate = new Date(startDate);
             endDate.setFullYear(endDate.getFullYear() + 1);
@@ -88,38 +87,29 @@ export class ApplicationReviewComponent implements OnInit {
               next: (newLease) => {
   
                 this.propertyService.update(Number(propId), { available: false }).subscribe();
+                   
+                const monthName = startDate.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+                const dueDate = app.moveInDate;
 
-  
-                const rentObs = [];
-                for (let i = 0; i < 4; i++) {
-                  const rentDate = new Date(startDate.getFullYear(), startDate.getMonth() + i, 1);
-                  const monthName = rentDate.toLocaleString('en-US', { month: 'long', year: 'numeric' });
-                  
-                  const dueYear = rentDate.getFullYear();
-                  const dueMonth = String(rentDate.getMonth() + 1).padStart(2, '0');
-                  const dueDate = `${dueYear}-${dueMonth}-05`;
-                  
-                  const todayStr = new Date().toISOString().split('T')[0];
-                  const rentStatus = dueDate < todayStr ? 'overdue' : 'pending';
+                const todayStr = new Date().toISOString().split('T')[0];
+                const rentStatus = dueDate < todayStr ? 'overdue' : 'pending';
 
-                  const rentRecord = {
-                    leaseId: (Number(newLease.id) || newLease.id) as any,
-                    tenantId: (Number(app.customerId) || app.customerId) as any,
-                    month: monthName,
-                    amount: prop.rent,
-                    dueDate: dueDate,
-                    paidDate: null,
-                    status: rentStatus as any
-                  };
-                  rentObs.push(this.rentService.create(rentRecord));
-                }
+                const rentRecord = {
+                  leaseId: (Number(newLease.id) || newLease.id) as any,
+                  tenantId: (Number(app.customerId) || app.customerId) as any,
+                  month: monthName,
+                  amount: prop.rent,
+                  dueDate: dueDate,
+                  paidDate: null,
+                  status: rentStatus as any
+                };
 
-                forkJoin(rentObs).subscribe({
+                this.rentService.create(rentRecord).subscribe({
                   next: () => {
-                    console.log('Lease and rents generated successfully');
+                    console.log('Lease and rent generated successfully');
                   },
                   error: (err) => {
-                    console.error('Failed to generate rent records', err);
+                    console.error('Failed to generate rent record', err);
                   }
                 });
               },
