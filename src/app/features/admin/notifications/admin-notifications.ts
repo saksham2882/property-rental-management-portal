@@ -5,10 +5,12 @@ import { Notification } from '../../../core/models/notification-model';
 
 @Component({
   selector: 'app-admin-notifications',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './admin-notifications.html',
   styleUrl: './admin-notifications.css'
 })
+
 export class AdminNotificationsComponent implements OnInit {
 
   notifications = signal<Notification[]>([]);
