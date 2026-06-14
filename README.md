@@ -17,10 +17,14 @@ graph TD
     Redirect --> LoginComponent[LoginComponent]
     LoginComponent --> RegisterComponent[RegisterComponent]
     RegisterComponent -->|Registration Success| LoginComponent
+    
+    LoginComponent -->|Check if Authenticated| redirectIfLoggedInGuard[redirectIfLoggedInGuard]
+    redirectIfLoggedInGuard -->|Already logged in| Router{Role Check}
+    
     LoginComponent -->|Submit Credentials| AuthService[AuthService]
     AuthService --> Router{Role Check}
     Router -->|is Admin?| adminGuard[adminGuard] --> AdminDashboard[AdminDashboard]
-    Router -->|is Customer?| authGuard[authGuard] --> Dashboard[Dashboard]
+    Router -->|is Customer?| customerGuard[customerGuard] --> Dashboard[Dashboard]
 ```
 
 ### 2. Customer / Tenant Journey
@@ -31,6 +35,7 @@ graph TD
     Dashboard[Dashboard] --> PropertyCatalogComponent[PropertyCatalogComponent]
     Dashboard --> ApplicationListComponent[ApplicationListComponent]
     Dashboard --> MaintenanceComponent[MaintenanceComponent]
+    Dashboard --> RentTracking[RentTracking]
     Dashboard --> Profile[Profile]
     
     PropertyCatalogComponent -->|View Card| PropertyCardComponent[PropertyCardComponent]
@@ -39,12 +44,17 @@ graph TD
     
     ApplyComponent -->|Validate Inputs| RentalValidators[RentalValidators]
     ApplyComponent -->|Submit Rental Application| ApplicationService[ApplicationService]
+    ApplyComponent -->|Deactivate Guard| confirmLeaveGuard[confirmLeaveGuard]
     ApplicationService -->|Save Request| DB[(Local DB)]
     
     MaintenanceComponent -->|Submit Ticket| MaintenanceService[MaintenanceService]
     MaintenanceService -->|Save Complaint| DB
     
+    RentTracking -->|Fetch & Pay Invoices| RentService[RentService]
+    RentService -->|Retrieve & Update Rents| DB
+    
     Profile -->|Fetch Lease Details| LeaseService[LeaseService]
+    Profile -->|Deactivate Guard| confirmLeaveGuard
     LeaseService -->|Retrieve Lease| DB
 ```
 
@@ -76,7 +86,11 @@ graph TD
 
 ### 🔑 Authentication & Access Control
 - **Dynamic Roles**: Support for `customer` and `admin` portals.
-- **Route Guards**: Unauthorized routes are automatically protected using `AuthGuard` and `AdminGuard`.
+- **Route Guards**:
+  - `adminGuard`: Restricts administrative routes to admin users only.
+  - `customerGuard`: Restricts tenant portal routes to customer users only.
+  - `redirectIfLoggedInGuard`: Automatically redirects authenticated users to their corresponding dashboard if they try to visit login/register routes.
+  - `confirmLeaveGuard` (`CanDeactivateFn`): Protects key forms (Profile, Rental Application) from accidental data loss by prompting a confirmation dialog when navigating away with unsaved changes.
 - **Preconfigured Credentials**: Dedicated buttons on the login screen to quickly autofill demo users:
   - **Admin**: `admin@rental.com` / `admin123`
   - **Customer**: `rahul@gmail.com` / `rahul123`
@@ -85,6 +99,7 @@ graph TD
 - **Dashboard**: Track rental application updates, rent cycles, lease status, and active tickets.
 - **Property Catalog**: Browse properties with dynamic hover highlighting using a custom `HighlightDirective`. Filter by bedrooms, rent, types, and furnishing configurations.
 - **Rental Applications**: Submit detailed rental requests with validation (Income checks, lease terms, custom validator constraints).
+- **Rent Tracking**: View all generated rent records, track historical payments, pay outstanding monthly rent invoices with instantaneous UI status updates, and automatically record confirmation notifications.
 - **Maintenance Desk**: Raise, track, and monitor maintenance tickets (Category: Plumbing, Electrical, Cleaning, Appliance, Structural) and view update logs.
 - **Profile / Active Lease**: Edit contact parameters and review current active lease terms (Start Date, End Date, Rent Amount).
 
@@ -103,7 +118,7 @@ graph TD
 - **State Management**: NgRx Store, Effects, and Entity selectors
 - **Styling**: Premium Vanilla CSS (custom design system tokens using HSL/RGB, smooth micro-animations, flat layout class structures)
 - **Mock Database**: JSON Server (watching local `db.json`)
-- **Testing**: Vitest for unit validation
+- **Testing**: Jasmine & Karma for robust unit validation and ChromeHeadless browser execution
 
 ---
 
@@ -112,13 +127,13 @@ graph TD
 ```bash
 src/app/
 ├── core/                        # Core Singletons, Guards & Models
-│   ├── guards/                  # Route activation guards (auth-guard.ts, admin-guard.ts)
-│   ├── models/                  # TypeScript interface definitions (user, property, lease, etc.)
-│   └── services/                # Core HTTP & data handlers (auth, property, application, lease, etc.)
+│   ├── guards/                  # Route activation guards (auth-guard.ts, admin-guard.ts, customer-guard.ts, unsaved-changes-guard.ts)
+│   ├── models/                  # TypeScript interface definitions (user, property, lease, rent, etc.)
+│   └── services/                # Core HTTP & data handlers (auth, property, application, lease, rent, etc.)
 ├── features/                    # Feature Modules
 │   ├── admin/                   # Admin pages (dashboard, applications, properties, maintenance, tenants)
 │   ├── auth/                    # Login and Registration components
-│   └── customer/                # Tenant pages (dashboard, catalog, apply, maintenance, profile)
+│   └── customer/                # Tenant pages (dashboard, catalog, apply, maintenance, profile, rent-tracking)
 ├── shared/                      # Reusable Layout, Pipes & Directives
 │   ├── components/              # Shared UI components (navbar, footer, property-card, status-badge)
 │   ├── directives/              # Custom attribute selectors (appHighlight, roleAccess)
