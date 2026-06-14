@@ -15,6 +15,11 @@ export const routes: Routes = [
         canActivate: [redirectIfLoggedInGuard],
         children: [
             {
+                path: '',
+                redirectTo: 'login',
+                pathMatch: 'full'
+            },
+            {
                 path: 'login',
                 loadComponent: () => import('./features/auth/login/login').then(l => l.LoginComponent)
             },
@@ -28,6 +33,11 @@ export const routes: Routes = [
         path: 'customer',
         canActivate: [customerGuard],
         children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
             {
                 path: 'dashboard',
                 loadComponent: () => import('./features/customer/dashboard/dashboard').then(d => d.Dashboard)
@@ -77,6 +87,11 @@ export const routes: Routes = [
         path: 'admin',
         canActivate: [adminGuard],
         children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
             {
                 path: 'dashboard',
                 loadComponent: () => import('./features/admin/dashboard/admin-dashboard').then(d => d.AdminDashboard)
