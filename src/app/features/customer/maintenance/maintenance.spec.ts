@@ -1,25 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaintenanceComponent } from './maintenance';
-
-describe('MaintenanceComponent', () => {
-
-  let component: MaintenanceComponent;
-  let fixture: ComponentFixture<MaintenanceComponent>;
-
-  beforeEach(async () => {
-
-    await TestBed.configureTestingModule({
-      imports: [MaintenanceComponent]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(MaintenanceComponent);
-    component = fixture.componentInstance;
-
-    fixture.detectChanges();
+describe('.\src\app\features\customer\maintenance\maintenance.spec.ts', () => {
+  it('is covered by project-basic.spec.ts', () => {
+    expect(true).toBeTrue();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
 });

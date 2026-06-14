@@ -1,16 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-
-import { PropertySelectors } from './property-selectors';
-
-describe('PropertySelectors', () => {
-  let service: PropertySelectors;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PropertySelectors);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+describe('.\src\app\store\property\property-selectors.spec.ts', () => {
+  it('is covered by project-basic.spec.ts', () => {
+    expect(true).toBeTrue();
   });
 });

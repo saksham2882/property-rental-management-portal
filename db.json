@@ -806,6 +806,15 @@
       "isRead": true,
       "createdAt": "2026-06-11",
       "id": "2UkVUsJzQ2g"
+    },
+    {
+      "userId": 2,
+      "title": "Maintenance Update",
+      "message": "Your maintenance request (Plumbing) status is now: Resolved.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-06-14",
+      "id": "7MpvX7hv1eQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
