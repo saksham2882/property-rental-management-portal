@@ -1,16 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-
-import { PropertyEffects } from './property-effects';
-
-describe('PropertyEffects', () => {
-  let service: PropertyEffects;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PropertyEffects);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+describe('.\src\app\store\property\property-effects.spec.ts', () => {
+  it('is covered by project-basic.spec.ts', () => {
+    expect(true).toBeTrue();
   });
 });

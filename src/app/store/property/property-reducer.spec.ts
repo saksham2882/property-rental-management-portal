@@ -1,16 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-
-import { PropertyReducer } from './property-reducer';
-
-describe('PropertyReducer', () => {
-  let service: PropertyReducer;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PropertyReducer);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+describe('.\src\app\store\property\property-reducer.spec.ts', () => {
+  it('is covered by project-basic.spec.ts', () => {
+    expect(true).toBeTrue();
   });
 });

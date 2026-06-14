@@ -66,8 +66,16 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
-        }
+  "builder": "@angular/build:karma",
+  "options": {
+    "polyfills": [
+      "zone.js",
+      "zone.js/testing"
+    ],
+    "tsConfig": "tsconfig.spec.json",
+    "karmaConfig": "src/karma.conf.js"
+  }
+}
       }
     }
   }
