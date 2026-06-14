@@ -15,6 +15,7 @@ import {
   requiredDocumentsValidator,
   phoneValidator
 } from '../../../shared/validators/rental-validators';
+import { PendingChanges } from '../../../core/guards/unsaved-changes-guard';
 
 @Component({
   selector: 'app-apply',
@@ -22,7 +23,7 @@ import {
   templateUrl: './apply-component.html',
   styleUrl: './apply-component.css'
 })
-export class ApplyComponent implements OnInit {
+export class ApplyComponent implements OnInit, PendingChanges {
 
   property = signal<Property | null>(null);
   applyForm = signal<FormGroup | null>(null);
@@ -162,5 +163,13 @@ export class ApplyComponent implements OnInit {
   get f() {
     const currentForm = this.applyForm();
     return currentForm ? currentForm.controls : {};
+  }
+
+  hasUnsavedChanges(): boolean {
+    const form = this.applyForm();
+    if (!form || this.successMsg) {
+      return false;
+    }
+    return form.dirty;
   }
 }

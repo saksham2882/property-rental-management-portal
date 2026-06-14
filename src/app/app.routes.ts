@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { redirectIfLoggedInGuard } from './core/guards/auth-guard';
 import { adminGuard } from './core/guards/admin-guard';
 import { customerGuard } from './core/guards/customer-guard';
+import { confirmLeaveGuard } from './core/guards/unsaved-changes-guard';
 
 export const routes: Routes = [
     {
@@ -33,7 +34,8 @@ export const routes: Routes = [
             },
             {
                 path: 'profile',
-                loadComponent: () => import('./features/customer/profile/profile').then(p => p.Profile)
+                loadComponent: () => import('./features/customer/profile/profile').then(p => p.Profile),
+                canDeactivate: [confirmLeaveGuard]
             },
             {
                 path: 'properties',
@@ -49,7 +51,8 @@ export const routes: Routes = [
             },
             {
                 path: 'apply/:propertyId',
-                loadComponent: () => import('./features/customer/rental-application/apply-component').then(r => r.ApplyComponent)
+                loadComponent: () => import('./features/customer/rental-application/apply-component').then(r => r.ApplyComponent),
+                canDeactivate: [confirmLeaveGuard]
             },
             {
                 path: 'lease',
