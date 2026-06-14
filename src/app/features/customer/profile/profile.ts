@@ -3,6 +3,7 @@ import { User } from '../../../core/models/user-model';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth-service';
+import { PendingChanges } from '../../../core/guards/unsaved-changes-guard';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { AuthService } from '../../../core/services/auth-service';
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
-export class Profile {
+export class Profile implements PendingChanges {
 
   profileData: Partial<User>;
   successMsg = signal('');
@@ -23,6 +24,9 @@ export class Profile {
   };
 
   cities = ['Mumbai', 'Pune', 'Bangalore', 'Delhi', 'Hyderabad', 'Chennai'];
+
+  originalProfileData: string;
+  originalPreferenceData: string;
 
   constructor(public auth: AuthService) {
     const user = auth.currentUser()!;
@@ -38,6 +42,8 @@ export class Profile {
       emailAlerts: user.emailAlerts ?? true,
       smsAlerts: user.smsAlerts ?? false
     };
+    this.originalProfileData = JSON.stringify(this.profileData);
+    this.originalPreferenceData = JSON.stringify(this.preferenceData);
   }
 
   saveProfile(form: NgForm) {
@@ -59,6 +65,7 @@ export class Profile {
       next: () => {
         this.saving.set(false);
         this.successMsg.set('Profile updated successfully!');
+        this.originalProfileData = JSON.stringify(this.profileData);
         setTimeout(() => this.successMsg.set(''), 3000);
       },
       error: () => {
@@ -75,6 +82,7 @@ export class Profile {
       next: () => {
         this.saving.set(false);
         this.successMsg.set('Preferences saved!');
+        this.originalPreferenceData = JSON.stringify(this.preferenceData);
         setTimeout(() => this.successMsg.set(''), 3000);
       },
       error: () => {
@@ -82,5 +90,11 @@ export class Profile {
         this.errorMsg.set('Failed to save preferences.');
       }
     });
+  }
+
+  hasUnsavedChanges(): boolean {
+    const currentProfile = JSON.stringify(this.profileData);
+    const currentPref = JSON.stringify(this.preferenceData);
+    return currentProfile !== this.originalProfileData || currentPref !== this.originalPreferenceData;
   }
 }
