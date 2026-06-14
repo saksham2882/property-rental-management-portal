@@ -1,5 +1,9 @@
-describe('.\src\app\shared\components\status-badge\status-badge.spec.ts', () => {
-  it('is covered by project-basic.spec.ts', () => {
-    expect(true).toBeTrue();
+import { StatusBadgeComponent } from './status-badge';
+
+describe('StatusBadgeComponent', () => {
+  it('creates status badge and returns style class for status', () => {
+    const badge = new StatusBadgeComponent();
+    badge.status = 'under_review';
+    expect(badge.statusClass).toBe('under_review');
   });
 });
