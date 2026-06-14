@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { User } from '../../../core/models/user-model';
 import { CommonModule, TitleCasePipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth-service';
 
 @Component({
@@ -40,7 +40,19 @@ export class Profile {
     };
   }
 
-  saveProfile() {
+  saveProfile(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    const min = this.profileData.budgetMin ?? 0;
+    const max = this.profileData.budgetMax ?? 0;
+    if (max < min) {
+      this.errorMsg.set('Maximum budget cannot be less than minimum budget.');
+      setTimeout(() => this.errorMsg.set(''), 5000);
+      return;
+    }
+
     this.saving.set(true);
     const userId = this.auth.currentUser()!.id;
     this.auth.updateProfile(userId, this.profileData).subscribe({

@@ -13,45 +13,64 @@
 
     <div class="box">
 
-        <div class="card">
+        <form class="card" #profileForm="ngForm" (ngSubmit)="saveProfile(profileForm)">
             <h2>Personal Information</h2>
 
             <div class="field">
                 <label>Full Name</label>
-                <input type="text" [(ngModel)]="profileData.name" name="name" />
+                <input type="text" [(ngModel)]="profileData.name" name="name" required #nameInput="ngModel" />
+                @if (nameInput.invalid && (nameInput.dirty || nameInput.touched)) {
+                    <span class="error-text">Full name is required.</span>
+                }
             </div>
             <div class="field">
                 <label>Email Address</label>
-                <input type="email" [(ngModel)]="profileData.email" name="email" />
+                <input type="email" [(ngModel)]="profileData.email" name="email" required email #emailInput="ngModel" />
+                @if (emailInput.invalid && (emailInput.dirty || emailInput.touched)) {
+                    <span class="error-text">Please enter a valid email address.</span>
+                }
             </div>
             <div class="field">
                 <label>Mobile Number</label>
-                <input type="tel" [(ngModel)]="profileData.phone" name="phone" />
+                <input type="tel" [(ngModel)]="profileData.phone" name="phone" required pattern="^[6-9]\d{9}$" #phoneInput="ngModel" />
+                @if (phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)) {
+                    <span class="error-text">Enter a valid 10-digit Indian mobile number.</span>
+                }
             </div>
             <div class="field">
                 <label>City</label>
-                <select [(ngModel)]="profileData.city" name="city">
+                <select [(ngModel)]="profileData.city" name="city" required #cityInput="ngModel">
+                    <option value="" disabled>Select a city</option>
                     @for (city of cities; track city) {
                         <option [value]="city">{{ city }}</option>
                     }
                 </select>
+                @if (cityInput.invalid && (cityInput.dirty || cityInput.touched)) {
+                    <span class="error-text">City is required.</span>
+                }
             </div>
 
             <div class="row">
                 <div class="field">
                     <label>Budget Min (₹/month)</label>
-                    <input type="number" [(ngModel)]="profileData.budgetMin" name="budgetMin" />
+                    <input type="number" [(ngModel)]="profileData.budgetMin" name="budgetMin" required min="0" #minInput="ngModel" />
+                    @if (minInput.invalid && (minInput.dirty || minInput.touched)) {
+                        <span class="error-text">Budget Min must be at least 0.</span>
+                    }
                 </div>
                 <div class="field">
                     <label>Budget Max (₹/month)</label>
-                    <input type="number" [(ngModel)]="profileData.budgetMax" name="budgetMax" />
+                    <input type="number" [(ngModel)]="profileData.budgetMax" name="budgetMax" required min="0" #maxInput="ngModel" />
+                    @if (maxInput.invalid && (maxInput.dirty || maxInput.touched)) {
+                        <span class="error-text">Budget Max must be at least 0.</span>
+                    }
                 </div>
             </div>
 
-            <button class="btn-save" (click)="saveProfile()" [disabled]="saving()">
+            <button type="submit" class="btn-save" [disabled]="saving() || profileForm.invalid">
                 {{ saving() ? 'Saving...' : 'Save Profile' }}
             </button>
-        </div>
+        </form>
 
         <div class="preference">
             <h2>Alert Preferences</h2>
