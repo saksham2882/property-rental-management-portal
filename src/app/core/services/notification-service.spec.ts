@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
-import { AuthService } from './auth-service';
-import { mockUser, routerMock } from '../../mock-data.spec';
+import { NotificationService } from './notification-service';
+import { mockNotification, routerMock } from '../../mock-data.spec';
 
-describe('AuthService', () => {
+describe('NotificationService', () => {
   let http: HttpTestingController;
 
   beforeEach(() => {
@@ -22,13 +22,10 @@ describe('AuthService', () => {
 
   afterEach(() => http.verify());
 
-  it('creates AuthService and logs in a matching user', () => {
-    const service = TestBed.inject(AuthService);
-    service.login(mockUser.email, mockUser.password!).subscribe(result => expect(result).toEqual([mockUser]));
-
-    const req = http.expectOne(`http://localhost:3000/users?email=${mockUser.email}`);
-    expect(req.request.method).toBe('GET');
-    req.flush([mockUser]);
-    expect(service.isLoggedIn()).toBeTrue();
+  it('creates NotificationService and updates unread count', () => {
+    const service = TestBed.inject(NotificationService);
+    service.getByUser(1).subscribe(result => expect(result).toEqual([mockNotification]));
+    http.expectOne('http://localhost:3000/notifications').flush([mockNotification, { ...mockNotification, id: 51, userId: 2 }]);
+    expect(service.unreadCount()).toBe(1);
   });
 });

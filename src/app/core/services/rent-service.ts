@@ -21,12 +21,6 @@ export class RentService {
     );
   }
 
-  getByLease(leaseId: any): Observable<Rent[]> {
-    return this.http.get<Rent[]>(this.apiUrl).pipe(
-      map(rents => rents.filter(r => String(r.leaseId) === String(leaseId)))
-    );
-  }
-
   markPaid(id: number): Observable<Rent> {
     const paidDate = new Date().toISOString().split('T')[0];
     return this.http.patch<Rent>(`${this.apiUrl}/${id}`, { status: 'paid', paidDate });
