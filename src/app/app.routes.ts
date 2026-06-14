@@ -64,6 +64,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/customer/maintenance/maintenance').then(m => m.MaintenanceComponent)
             },
             {
+                path: 'rent',
+                loadComponent: () => import('./features/customer/rent-tracking/rent-tracking').then(r => r.RentTracking)
+            },
+            {
                 path: 'notifications',
                 loadComponent: () => import('./features/customer/notifications/notifications').then(n => n.NotificationsComponent)
             }

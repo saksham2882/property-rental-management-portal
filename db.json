@@ -65,7 +65,7 @@
       "rent": 28000,
       "deposit": 84000,
       "furnishing": "Semi-Furnished",
-      "available": true,
+      "available": false,
       "availableFrom": "2024-06-01",
       "area": 950,
       "description": "Spacious 2 BHK flat with modern amenities, close to metro station and markets. idbhuvisdv",
@@ -122,7 +122,7 @@
       "rent": 45000,
       "deposit": 135000,
       "furnishing": "Unfurnished",
-      "available": false,
+      "available": true,
       "availableFrom": "2024-07-01",
       "area": 1800,
       "description": "Independent villa with large garden, great for families looking for space and privacy.",
@@ -190,8 +190,8 @@
         "WiFi"
       ],
       "images": [
-        "https://images.unsplash.com/photo-1493663284031-b7e3aaa4bfdd?w=600",
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600",
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=600"
       ],
       "ownerId": 1,
       "postedAt": "2024-05-18"
@@ -229,583 +229,100 @@
   ],
   "applications": [
     {
-      "id": "1",
-      "propertyId": 2,
-      "customerId": 2,
       "applicantName": "Rahul Sharma",
       "applicantEmail": "rahul@gmail.com",
-      "applicantPhone": "9123456789",
-      "moveInDate": "2024-06-01",
-      "monthlyIncome": 60000,
-      "occupants": 1,
-      "message": "Looking for a quiet place to stay. Working at a nearby IT firm.",
-      "status": "approved",
-      "documents": [
-        "ID Proof",
-        "Income Certificate"
-      ],
-      "appliedAt": "2024-05-10"
-    },
-    {
-      "id": "2",
-      "propertyId": 1,
-      "customerId": 3,
-      "applicantName": "Priya Mehta",
-      "applicantEmail": "priya@gmail.com",
-      "applicantPhone": "9988776655",
-      "moveInDate": "2024-07-01",
-      "monthlyIncome": 50000,
-      "occupants": 2,
-      "message": "Relocating from Pune. Family of two.",
-      "status": "under_review",
-      "documents": [
-        "ID Proof"
-      ],
-      "appliedAt": "2024-05-20"
-    },
-    {
-      "applicantName": "Rahul Sharma",
-      "applicantEmail": "rahul@gmail.com",
-      "applicantPhone": "9123456789",
-      "moveInDate": "2026-06-25",
-      "monthlyIncome": 7858959,
-      "occupants": 1,
-      "message": "jdsbjckwdbcowc",
+      "applicantPhone": "9876543210",
+      "moveInDate": "2026-06-28",
+      "monthlyIncome": 70000,
+      "occupants": 4,
+      "message": "Hello",
       "propertyId": "1",
       "customerId": "2",
       "documents": [
         "ID Proof"
       ],
-      "status": "waitlisted",
-      "appliedAt": "2026-06-10",
-      "id": "UAkMTV7dK_k"
-    },
-    {
-      "applicantName": "Rahul Sharma",
-      "applicantEmail": "rahul@gmail.com",
-      "applicantPhone": "9123456789",
-      "moveInDate": "2026-06-25",
-      "monthlyIncome": 82364923,
-      "occupants": 2,
-      "message": "sdjkkbvjksdviwv",
-      "propertyId": "3",
-      "customerId": "2",
-      "documents": [
-        "ID Proof"
-      ],
       "status": "approved",
-      "appliedAt": "2026-06-10",
-      "id": "mb_dUaW_MTE"
-    },
-    {
-      "applicantName": "test",
-      "applicantEmail": "test@gmail.com",
-      "applicantPhone": "9876543211",
-      "moveInDate": "2026-06-18",
-      "monthlyIncome": 8926442,
-      "occupants": 3,
-      "message": "djbcjwdbcowuvwouvw",
-      "propertyId": "1",
-      "customerId": "FqO47LlZVI8",
-      "documents": [
-        "Income Certificate"
-      ],
-      "status": "approved",
-      "appliedAt": "2026-06-10",
-      "id": "QLEjn7Rwskc"
-    },
-    {
-      "applicantName": "test",
-      "applicantEmail": "test@gmail.com",
-      "applicantPhone": "9876543211",
-      "moveInDate": "2026-06-25",
-      "monthlyIncome": 757575577557,
-      "occupants": 3,
-      "message": "dfuytdyttyidtxtfghi",
-      "propertyId": "6",
-      "customerId": "FqO47LlZVI8",
-      "documents": [
-        "Employment Letter"
-      ],
-      "status": "approved",
-      "appliedAt": "2026-06-10",
-      "id": "zjWDcADSC5c"
-    },
-    {
-      "applicantName": "test",
-      "applicantEmail": "test@gmail.com",
-      "applicantPhone": "9876543211",
-      "moveInDate": "2026-06-23",
-      "monthlyIncome": 8234872,
-      "occupants": 4,
-      "message": "auigfiuefiavasdivai",
-      "propertyId": "4",
-      "customerId": "FqO47LlZVI8",
-      "documents": [
-        "ID Proof"
-      ],
-      "status": "approved",
-      "appliedAt": "2026-06-10",
-      "id": "M1tvMcglVNU"
-    },
-    {
-      "applicantName": "Siddhant Singh",
-      "applicantEmail": "abc@gmail.com",
-      "applicantPhone": "9157295628",
-      "moveInDate": "2026-06-20",
-      "monthlyIncome": 30000000,
-      "occupants": 4,
-      "message": "hgcghcmhncmnvvhgvcgvgcnhgcnhgc",
-      "propertyId": "3",
-      "customerId": "KINzdEgqkfQ",
-      "documents": [
-        "Income Certificate"
-      ],
-      "status": "approved",
-      "appliedAt": "2026-06-11",
-      "id": "4fxeYaBwmR8"
+      "appliedAt": "2026-06-14",
+      "id": "AutcZpWjL18"
     }
   ],
   "leases": [
     {
-      "id": "1",
-      "applicationId": 1,
-      "propertyId": 2,
+      "applicationId": "AutcZpWjL18",
+      "propertyId": 1,
       "tenantId": 2,
-      "startDate": "2024-06-01",
-      "endDate": "2025-05-31",
-      "monthlyRent": 18000,
-      "deposit": 54000,
+      "startDate": "2026-06-28",
+      "endDate": "2027-06-27",
+      "monthlyRent": 28000,
+      "deposit": 84000,
       "status": "active",
       "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
-      "propertyTitle": "1 BHK Studio in Bandra East"
-    },
-    {
-      "applicationId": "zjWDcADSC5c",
-      "propertyId": 6,
-      "tenantId": "FqO47LlZVI8",
-      "startDate": "2026-06-25",
-      "endDate": "2027-06-24",
-      "monthlyRent": 65000,
-      "deposit": 195000,
-      "status": "active",
-      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
-      "propertyTitle": "3 BHK Premium Flat in Juhu",
-      "id": "0MyubBxD5_Y"
-    },
-    {
-      "applicationId": "M1tvMcglVNU",
-      "propertyId": 4,
-      "tenantId": "FqO47LlZVI8",
-      "startDate": "2026-06-23",
-      "endDate": "2027-06-22",
-      "monthlyRent": 22000,
-      "deposit": 66000,
-      "status": "active",
-      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
-      "propertyTitle": "2 BHK Flat in Aundh",
-      "id": "D2M2N7yFdhw"
-    },
-    {
-      "applicationId": "4fxeYaBwmR8",
-      "propertyId": 3,
-      "tenantId": "KINzdEgqkfQ",
-      "startDate": "2026-06-20",
-      "endDate": "2027-06-19",
-      "monthlyRent": 45000,
-      "deposit": 135000,
-      "status": "active",
-      "conditions": "No pets allowed. Maintenance charges extra. Notice period 2 months.",
-      "propertyTitle": "3 BHK Villa in Kothrud",
-      "id": "oPSMVmCbIjk"
+      "propertyTitle": "2 BHK Apartment in Andheri West",
+      "id": "cVtsDr57gVM"
     }
   ],
   "rents": [
     {
-      "id": "1",
-      "leaseId": 1,
+      "leaseId": "cVtsDr57gVM",
       "tenantId": 2,
-      "month": "June 2024",
-      "amount": 18000,
-      "dueDate": "2024-06-05",
-      "paidDate": "2024-06-03",
-      "status": "paid"
-    },
-    {
-      "id": "2",
-      "leaseId": 1,
-      "tenantId": 2,
-      "month": "July 2024",
-      "amount": 18000,
-      "dueDate": "2024-07-05",
-      "paidDate": "2024-07-07",
-      "status": "paid"
-    },
-    {
-      "id": "3",
-      "leaseId": 1,
-      "tenantId": 2,
-      "month": "August 2024",
-      "amount": 18000,
-      "dueDate": "2024-08-05",
-      "paidDate": null,
-      "status": "overdue"
-    },
-    {
-      "id": "4",
-      "leaseId": 1,
-      "tenantId": 2,
-      "month": "September 2024",
-      "amount": 18000,
-      "dueDate": "2024-09-05",
-      "paidDate": null,
-      "status": "pending"
-    },
-    {
-      "leaseId": "0MyubBxD5_Y",
-      "tenantId": "FqO47LlZVI8",
       "month": "June 2026",
-      "amount": 65000,
-      "dueDate": "2026-06-05",
-      "paidDate": null,
-      "status": "overdue",
-      "id": "vlmuHST8v2c"
-    },
-    {
-      "leaseId": "0MyubBxD5_Y",
-      "tenantId": "FqO47LlZVI8",
-      "month": "July 2026",
-      "amount": 65000,
-      "dueDate": "2026-07-05",
+      "amount": 28000,
+      "dueDate": "2026-06-28",
       "paidDate": null,
       "status": "pending",
-      "id": "2M8eFXjC-Oo"
-    },
-    {
-      "leaseId": "0MyubBxD5_Y",
-      "tenantId": "FqO47LlZVI8",
-      "month": "August 2026",
-      "amount": 65000,
-      "dueDate": "2026-08-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "pUQCef5QqPU"
-    },
-    {
-      "leaseId": "0MyubBxD5_Y",
-      "tenantId": "FqO47LlZVI8",
-      "month": "September 2026",
-      "amount": 65000,
-      "dueDate": "2026-09-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "9ET7fYemCMM"
-    },
-    {
-      "leaseId": "D2M2N7yFdhw",
-      "tenantId": "FqO47LlZVI8",
-      "month": "June 2026",
-      "amount": 22000,
-      "dueDate": "2026-06-05",
-      "paidDate": null,
-      "status": "overdue",
-      "id": "nyIRXP-NsPY"
-    },
-    {
-      "leaseId": "D2M2N7yFdhw",
-      "tenantId": "FqO47LlZVI8",
-      "month": "July 2026",
-      "amount": 22000,
-      "dueDate": "2026-07-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "x4SBKK0v1fA"
-    },
-    {
-      "leaseId": "D2M2N7yFdhw",
-      "tenantId": "FqO47LlZVI8",
-      "month": "September 2026",
-      "amount": 22000,
-      "dueDate": "2026-09-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "QTyappAXKZk"
-    },
-    {
-      "leaseId": "D2M2N7yFdhw",
-      "tenantId": "FqO47LlZVI8",
-      "month": "August 2026",
-      "amount": 22000,
-      "dueDate": "2026-08-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "HVdlpqdJmyc"
-    },
-    {
-      "leaseId": "oPSMVmCbIjk",
-      "tenantId": "KINzdEgqkfQ",
-      "month": "June 2026",
-      "amount": 45000,
-      "dueDate": "2026-06-05",
-      "paidDate": null,
-      "status": "overdue",
-      "id": "-TROyYoioLg"
-    },
-    {
-      "leaseId": "oPSMVmCbIjk",
-      "tenantId": "KINzdEgqkfQ",
-      "month": "July 2026",
-      "amount": 45000,
-      "dueDate": "2026-07-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "i3Nw-6azAXE"
-    },
-    {
-      "leaseId": "oPSMVmCbIjk",
-      "tenantId": "KINzdEgqkfQ",
-      "month": "August 2026",
-      "amount": 45000,
-      "dueDate": "2026-08-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "WhybHa3lNw4"
-    },
-    {
-      "leaseId": "oPSMVmCbIjk",
-      "tenantId": "KINzdEgqkfQ",
-      "month": "September 2026",
-      "amount": 45000,
-      "dueDate": "2026-09-05",
-      "paidDate": null,
-      "status": "pending",
-      "id": "wxyAHR8xDoU"
+      "id": "Dil4kCrf9RQ"
     }
   ],
   "maintenanceRequests": [
     {
-      "id": "1",
-      "propertyId": 2,
-      "tenantId": 2,
-      "category": "Plumbing",
-      "description": "Bathroom tap is leaking continuously.",
-      "urgency": "high",
-      "status": "Resolved",
-      "raisedAt": "2024-06-15",
-      "resolvedAt": "2026-06-10",
-      "adminNote": "Replaced the tap. Issue resolved."
-    },
-    {
-      "id": "2",
-      "propertyId": 2,
-      "tenantId": 2,
-      "category": "Electrical",
-      "description": "Living room light fixture not working.",
-      "urgency": "medium",
-      "status": "in_progress",
-      "raisedAt": "2024-08-01",
-      "resolvedAt": null,
-      "adminNote": "Electrician assigned."
-    },
-    {
-      "category": "Carpentry",
-      "description": "uuoiyiihh",
-      "urgency": "high",
-      "propertyId": 2,
-      "tenantId": "2",
-      "status": "resolved",
-      "raisedAt": "2026-06-10",
-      "resolvedAt": "2026-06-10",
-      "adminNote": "ebihciuer",
-      "id": "MWSpGTueIhY"
-    },
-    {
       "category": "Cleaning",
-      "description": "yguhitxtguhigictyhij",
+      "description": "abc",
       "urgency": "high",
-      "propertyId": 6,
-      "tenantId": "FqO47LlZVI8",
-      "status": "resolved",
-      "raisedAt": "2026-06-10",
-      "resolvedAt": "2026-06-10",
-      "adminNote": "",
-      "id": "lT64Oe2xvT4"
-    },
-    {
-      "category": "Carpentry",
-      "description": "Tera darwaaza phat gaya hai theek kara.",
-      "urgency": "low",
-      "propertyId": 3,
-      "tenantId": "KINzdEgqkfQ",
-      "status": "pending",
-      "raisedAt": "2026-06-11",
+      "propertyId": 1,
+      "tenantId": "2",
+      "status": "In Progress",
+      "raisedAt": "2026-06-14",
       "resolvedAt": null,
-      "adminNote": "",
-      "id": "n1A3xOr8laI"
+      "adminNote": "we consider this issue",
+      "id": "kPqwC9CXgc8"
     }
   ],
   "notifications": [
-    {
-      "id": "1",
-      "userId": 2,
-      "title": "Application Approved",
-      "message": "Your rental application for 1 BHK Studio in Bandra East has been approved!",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2024-05-15"
-    },
-    {
-      "id": "2",
-      "userId": 2,
-      "title": "Rent Due Reminder",
-      "message": "Your rent of ₹18,000 for August 2024 is overdue. Please pay immediately.",
-      "type": "warning",
-      "isRead": true,
-      "createdAt": "2024-08-06"
-    },
-    {
-      "id": "3",
-      "userId": 2,
-      "title": "Maintenance Update",
-      "message": "Your maintenance request for plumbing has been resolved.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2024-06-17"
-    },
-    {
-      "id": "4",
-      "userId": 1,
-      "title": "New Application Received",
-      "message": "Priya Mehta has applied for 2 BHK Apartment in Andheri West.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2024-05-20"
-    },
     {
       "userId": "2",
       "title": "Application Submitted",
       "message": "Your application for \"2 BHK Apartment in Andheri West\" has been submitted and is under review.",
       "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "NViJQ7tRPrU"
+      "isRead": false,
+      "createdAt": "2026-06-14",
+      "id": "HwUw9-KVEQ8"
     },
     {
-      "userId": 2,
-      "title": "Maintenance Update",
-      "message": "Your maintenance request (Plumbing) status is now: resolved.",
+      "userId": "2",
+      "title": "Application approved",
+      "message": "Your rental application #AutcZpWjL18 has been approved.",
       "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "tShbKkWWWUY"
+      "isRead": false,
+      "createdAt": "2026-06-14",
+      "id": "K5qa19aeQ6Q"
     },
     {
       "userId": "2",
-      "title": "Application Submitted",
-      "message": "Your application for \"3 BHK Villa in Kothrud\" has been submitted and is under review.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "mDL18NqZ0tU"
-    },
-    {
-      "userId": "2",
-      "title": "Maintenance Request Submitted",
-      "message": "Your maintenance request (Carpentry) has been raised.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "eRhUoln5SD4"
-    },
-    {
-      "userId": "2",
-      "title": "Maintenance Update",
-      "message": "Your maintenance request (Carpentry) status is now: resolved.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "HAys1hDwz0g"
-    },
-    {
-      "userId": "FqO47LlZVI8",
-      "title": "Application Submitted",
-      "message": "Your application for \"3 BHK Premium Flat in Juhu\" has been submitted and is under review.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "xvsFBH-HgLI"
-    },
-    {
-      "userId": "FqO47LlZVI8",
-      "title": "Application Submitted",
-      "message": "Your application for \"2 BHK Flat in Aundh\" has been submitted and is under review.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "a0bZfH5R9m0"
-    },
-    {
-      "userId": "FqO47LlZVI8",
       "title": "Maintenance Request Submitted",
       "message": "Your maintenance request (Cleaning) has been raised.",
       "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "FJyfhmlhS_w"
+      "isRead": false,
+      "createdAt": "2026-06-14",
+      "id": "lxAJx2ZRwDA"
     },
     {
-      "userId": "FqO47LlZVI8",
+      "userId": "2",
       "title": "Maintenance Update",
-      "message": "Your maintenance request (Cleaning) status is now: in_progress.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "NO5TZ1c1c1o"
-    },
-    {
-      "userId": "FqO47LlZVI8",
-      "title": "Maintenance Update",
-      "message": "Your maintenance request (Cleaning) status is now: resolved.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-10",
-      "id": "2I1JXjEpWng"
-    },
-    {
-      "userId": 2,
-      "title": "Maintenance Update",
-      "message": "Your maintenance request (Plumbing) status is now: Resolved.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-11",
-      "id": "tRHPNbec4lw"
-    },
-    {
-      "userId": "KINzdEgqkfQ",
-      "title": "Application Submitted",
-      "message": "Your application for \"3 BHK Villa in Kothrud\" has been submitted and is under review.",
+      "message": "Your maintenance request (Cleaning) status is now: In Progress.",
       "type": "info",
       "isRead": false,
-      "createdAt": "2026-06-11",
-      "id": "sFVjVLqACUk"
-    },
-    {
-      "userId": "KINzdEgqkfQ",
-      "title": "Application approved",
-      "message": "Your rental application #4fxeYaBwmR8 has been approved.",
-      "type": "success",
-      "isRead": true,
-      "createdAt": "2026-06-11",
-      "id": "M0TJsQpphaM"
-    },
-    {
-      "userId": "KINzdEgqkfQ",
-      "title": "Maintenance Request Submitted",
-      "message": "Your maintenance request (Carpentry) has been raised.",
-      "type": "info",
-      "isRead": true,
-      "createdAt": "2026-06-11",
-      "id": "2UkVUsJzQ2g"
+      "createdAt": "2026-06-14",
+      "id": "8CvnEis73pE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

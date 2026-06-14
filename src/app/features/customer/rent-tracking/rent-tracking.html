@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="header">
+    <div class="info">
+      <h1 class="title">Rent Tracking</h1>
+      <p class="note">View your past rent history and pay outstanding invoices.</p>
+    </div>
+  </div>
+
+  @if (successMsg()) {
+    <div class="alert success">
+      {{ successMsg() }}
+    </div>
+  }
+
+  @if (errorMsg()) {
+    <div class="alert error">
+      {{ errorMsg() }}
+    </div>
+  }
+
+  @if (loading()) {
+    <div class="loading">Loading your rent records...</div>
+  } 
+  @else if (rents().length === 0) {
+    <div class="placeholder">
+      <p>No rent records found. Rent lists are generated after your lease becomes active.</p>
+    </div>
+  } 
+  @else {
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Amount</th>
+            <th>Due Date</th>
+            <th>Paid Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (rent of rents(); track rent.id) {
+            <tr>
+              <td><strong>{{ rent.month }}</strong></td>
+              <td>{{ rent.amount | rentFormat }}</td>
+              <td>{{ rent.dueDate }}</td>
+              <td>{{ rent.paidDate || '—' }}</td>
+              <td><app-status-badge [status]="rent.status"></app-status-badge></td>
+              <td>
+                @if (rent.status !== 'paid') {
+                  <button class="pay-btn" (click)="payRent(rent.id)">Pay Now</button>
+                } @else {
+                  <span class="paid">Success</span>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
